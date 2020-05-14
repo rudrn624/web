@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Layout05</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        .container{width: 1200px; margin: 0 auto;}
+        #header{height: 100px; background-color: #badefb;}
+        #nav{height: 300px; background-color: #8ecbf9;}
+        #content1{ overflow: hidden;}
+        #content1 .cont1-side{width: 30%; height: 400px; background-color: #61b6f6; float:left;}
+        #content1 .cont1-box1{width: 70%; height: 200px; background-color: #3da7f5; float:left;}
+        #content1 .cont1-box2{width: 70%; height: 200px; background-color: #1799f3; float:left;}
+
+        #content2{ overflow: hidden;}
+        #content2 .cont2-box1{width:33.33%; height: 300px; background-color: #168be5;  float: left;}
+        #content2 .cont2-box2{width:33.33%; height: 300px; background-color: #127ad2; float: left;}
+        #content2 .cont2-box3{width:33.33%; height: 300px; background-color: #0f69c0; float: left;}
+
+        #content3{ overflow: hidden; padding : 5%; background-color: #3da7f5;}
+        #content3 > article{ float: left; width : 21%; margin : 2%; height: 200px; background-color: #127ad2; border-radius: 15px;}
+
+        #footer{ height: 100px; background-color: #61b6f6;}
+        
+        @media (max-width: 1220px){
+            .container {width:100%;}
+            #content2 .cont2-box1{width:50%; }
+            #content2 .cont2-box2{width:50%; }
+            #content2 .cont2-box3{display: none;}
+
+            #content3 > article{width:29.33%;}
+            #content3 > article.cont3-box4 {display: none;}
+        }
+        @media (max-width: 768px){
+            #content2 .cont2-box1{width:100%; height: 200px;}
+            #content2 .cont2-box2{width:100%; height: 200px;}
+        }
+        @media (max-width: 480px){
+            #content1 .cont1-side{width: 100%; }
+            #content1 .cont1-box1{width: 100%; }
+            #content1 .cont1-box2{width: 100%; }
+            
+            #content3 > article{width:96%;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <header id ="header"></header>
+            <section id ="nav"></section>
+            <section id ="content1" >
+                <aside class="cont1-side"></aside>
+                <article class="cont1-box1"></article>
+                <article class="cont1-box2"></article>
+            </section>
+            <section id ="content2">
+                <section class="cont2-box1"></section>
+                <section class="cont2-box2"></section>
+                <section class="cont2-box3"></section>
+            </section>
+            <section id ="content3">
+                <article class="cont3-box1"></article>
+                <article class="cont3-box2"></article>
+                <article class="cont3-box3"></article>
+                <article class="cont3-box4"></article>
+            </section>
+            <footer id ="footer"></footer>
+        </div>
+    </div>
+</body>
+</html>

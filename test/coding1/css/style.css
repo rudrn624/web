@@ -1,0 +1,76 @@
+/* 리셋 */
+li{list-style: none;}
+img{vertical-align: center; width: 100%;}
+/* 레이아웃 */
+
+*{margin: 0;padding: 0;}
+#wrap{}
+
+#header{}
+#benner{margin-bottom: 20px;}
+#content1{}
+#content2{margin-bottom: 30px;}
+#footer{background-color: #000;}
+
+
+.container{width:1200px; margin: 0 auto;}
+
+
+#header{overflow: hidden;}
+#header img{float: left; width:100px; margin-top: 30px;}
+#header ul{margin-top:40px;overflow: hidden; float: right; font-weight: bold;}
+#header li{float: left; padding: 0 20px;}
+#header li a{color: #000; text-decoration: none;}
+
+
+
+#content1 {overflow: hidden; }
+#content1 span{display:block;}
+.notice{position: relative; float: left; width: 49%; margin-right: 2%; background-color: #f2f2f2; padding: 20px; box-sizing: border-box;}
+.notice h4{padding-bottom: 10px; font-size: 20px;}
+.notice .con1-1{width:20px; height: 20px; vertical-align: -3px; }
+.notice .con{font-weight: bold;}
+.notice .con1{position: absolute; width:100px; height: 100px; right: 10px; top: 20px;}
+
+.notice2{position: relative; float: left;width: 49%;  background-color: #f2f2f2; padding: 20px; box-sizing: border-box;}
+.notice2 h4{padding-bottom: 10px; font-size: 20px;}
+.notice2 em{font-size: 12px; font-style:normal;}
+.notice2 .con2-1{width:20px; height: 20px; vertical-align: -3px;}
+.notice2 .con2{position: absolute; width:100px; height: 100px; right: 10px; top: 20px;}
+
+.con{margin-top: 20px;}
+
+
+#content2 h3{padding: 20px 0;}
+#content2 em{color:#ccc; font-style: normal;}
+#content2 ul{overflow: hidden;}
+#content2 li{float:left; width:32%; margin-right: 2%; position: relative;}
+#content2 li span{display: block; padding: 3px 0;}
+#content2 li:last-child{margin-right: 0%;}
+#content2 ul li .ck{position:absolute; right:0; bottom: 0; width:30px; height:30px;}
+
+
+#footer{}
+#footer .container{overflow: hidden;}
+#footer .container img{width:200px; margin-top: 30px;}
+.fotwrap{float:right;}
+#footer .fot1{overflow: hidden; margin-top: 30px;}
+#footer .fot1 li{float: left; padding: 5px; }
+#footer .fot1 li a{text-decoration: none; color:#fff;}
+#footer .fot1 li::after{
+    content: ' | ';
+    color:#ccc;
+}
+#footer .fot1 li:last-child::after{
+    content: '';
+}
+#footer .fot2 {overflow: hidden; color:#ccc; margin-top: 30px; margin-bottom: 30px; font-size:  12px;}
+#footer .fot2 li{float: left;}
+#footer .fot2 li::before{
+    content: ' | ';
+    margin-left: 10px;
+}
+#footer .fot2 li:nth-last-of-type(2n)::before{
+    content: '';
+    margin-left: 0;
+}

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src = "../jquery.min_1.12.4.js"></script>
+</head>
+<body>
+    <h1>제이쿼리</h1>
+    <div id="sample">
+        <div id="list1" class="list">
+            <li class="one1"><a href="#list2:">one1</a></li>
+            <li class="one2"><a href="https://www.naver.com">one2</a></li>
+            <li class="one3"><a href="https://www.daum.net" target ="_blank">one3</a></li>
+            <li class="one4"><a href="#">one4</a></li>
+            <li class="one5"><a href="#">one5</a></li>
+            <li class="one6"><a href="#">one6</a></li>
+            <li class="one7"><a href="#">one7</a></li>
+            <li class="one8"><a href="#">one8</a></li>
+            <li class="one9"><a href="#">one9</a></li>
+            <li class="one10"><a href="#">one10</a>
+                <ul>
+                    <li style="width:0; height:0; overflow:hidden;">one10-1</li>
+                    <li style="opacity: 0;">one10-2</li>
+                    <li style="visibility: hidden;">one10-3</li>
+                    <li style="display: none">one10-4</li>
+                    <li>one10-5</li>
+                </ul>
+            </li>
+        </div>
+        <div id="list2" class="list">
+            <li class="one1"><a href="#">one1</a></li>
+            <li class="one2"><a href="#">one2</a></li>
+            <li class="one3"><a href="#">one3</a></li>
+            <li class="one4"><a href="#">one4</a></li>
+            <li class="one5"><a href="#">one5</a></li>
+            <li class="one6"></li>
+            <li class="one7"><a href="#">one7</a></li>
+            <li class="one8"><a href="#">one8</a></li>
+            <li class="one9"><a href="#">one9</a></li>
+            <li class="one10"><a href="#">one10</a></li>
+        </div>
+    </div>
+    <script>
+        // $("li").css("background-color","#bbdefb");
+        $("li").css("margin","3px");
+
+        //기본 선택자
+        // $("li").css("border","1px dashed #303f9f");
+        //$(".one3").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f","margin":"10px"});
+        //$("#list1").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("*").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        
+        //계층 선택자
+        //$(".list li").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$(".list > li").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$(".one4 + li").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$(".one4 ~ li").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+
+        //속성 선택자
+        //$("li a[href='#list2']").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a[href ^='https']").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a[href $='com']").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a[href *=':']").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a[href !='https://www.naver.com']").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a[href][target]").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+
+        //기본 필터(:) 선택자
+        //$("li:eq(1)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:gt(4)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$(".one4 ~ li").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"}); 비슷함
+        //$("li:lt(4)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$(":header").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:first").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:last").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:odd").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:even").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        
+        //내용 필터 선택자
+        //$("li:contains('one5')").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:empty").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li a:parent").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:has(li)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+
+        //보임 필터 선택자
+        //$("li:hidden").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        //$("li:visible").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+
+        //자식요소 필터 선택자
+        // $("li:first").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:first-child").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:last").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:last-child").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:nth-child(3)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:nth-child(even)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:nth-child(odd)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+        // $("li:nth-child(3n+1)").css({"background-color":"#bbdefb", "border":"1px dashed #303f9f"});
+
+    </script>
+</body>
+</html>

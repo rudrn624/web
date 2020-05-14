@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #warp{text-align: center; font-size: 30px; text-transform: uppercase; color:#fff; }
+        #header{ height:100px; line-height: 100px; background-color: #ccc; }
+        #banner{ height:400px; line-height: 400px; background-color: #aaa; }
+        #content1{ background-color: #bbb; }
+        #content2{ height:300px; line-height: 300px; background-color: #ddd; }
+        #content3{ background-color: #eee; }
+        #footer{ height:200px; line-height: 200px; background-color: #fff; }
+        
+        .container { width:1000px; height: inherit;  background-color: rgba(0,0,0,0.2); margin: 0 auto; overflow: hidden;}
+        .container h3{font-size: 30px; font-weight: normal;}
+        
+        .ir_pm{display: block; overflow: hidden; font-size: 0; line-height: 0; text-indent: -9999px;} 
+        
+        li{ list-style: none;}
+        .content1 ul{overflow: hidden; }
+        .content1 ul li{ float:left; width:246px; height:220px; background-color: #955559; margin-right: 5px; margin-bottom: 5px;}
+        .content1 ul li:nth-child(4){ margin-right: 0px;}
+        .content1 ul li:last-child{ margin-right: 0px;}
+        
+        a{font-size : 12px; text-decoration: none; color:#000; }
+        h4{font-size: 13px; color:#222; font-weight: normal; text-align: left;}
+        
+        .notice {position: relative; float:left; width: 45%; padding: 10px;margin: 10px;}
+        .notice h4{font-size: 20px; color:aqua; padding: 10px;}
+        .notice ul{overflow: hidden; padding: 10px;}
+        .notice li{float:left; padding-left: 8px; background:url(../site-webstandard/img/dot.gif) no-repeat 0 8px; }
+        .notice li a{ float:left; width: 65%; overflow: hidden;  text-overflow: ellipsis; white-space: nowrap;}
+        .notice li a:hover{ color:green;}
+        .notice .more{position:absolute; width: 17px; height: 17px; right: 15px; top: 20px; background : url(../site-webstandard/img/icon.png) -150px -90px; }
+        .notice .more:hover{background-position : -167px -90px; }
+        span{ font-size: 12px;}
+        
+        .notice2 {position: relative; float:left; width: 45%; border : 1px solid #ccc; margin: 10px;}
+        .notice2 h4{font-size: 20px; font-style:normal; color:aqua; padding: 10px; border-bottom: 1px solid #ccc;}
+        .notice2 h4 em{font-style:normal; color:#ff0000;}
+        .notice2 ul{ padding:10px; }
+        .notice2 li{overflow: hidden; padding-left: 8px; background:url(../site-webstandard/img/dot.gif) no-repeat 0px 8px;}
+        
+        .notice2 .more{position:absolute; right: 15px; top: 15px; }
+        .notice2 li a{ float:left; width: 65%; overflow: hidden;  text-overflow: ellipsis; white-space: nowrap; }
+        .notice2 li a:hover{ color:green;}
+        .notice2 li span{float:left; width: 30%; text-align: right; color:#000;}
+        
+    </style>
+</head>
+<body>
+   <div id="warp">
+        <div id="header">
+            <div class="container">header
+
+            </div>
+        </div>
+        <div id="banner">
+            <div class="container">banner
+
+            </div>
+        </div>
+        <div id="content1">
+            <div class="container content1">content1
+                 <ul>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                     <li></li>
+                 </ul>   
+            </div>
+        </div>
+        <div id="content2">
+            <div class="container">content2
+
+            </div>
+        </div>
+        <div id="content3">
+            <div class="container"><h3>content3</h3>
+                <div class="notice">
+                    <h4>웹 퍼블리셔 면접질문</h4>
+                    <ul>
+                        <li><a href="#">displat:inlinesdsadsdsadsadsadssadsadsadsinlinesdsadsdsadsadsadssadsadsads</a></li>
+                        <li><a href="#">sadsadsadsadsadsadsadsadsadsadsdsadsainlinesdsadsdsadsadsadssadsadsads</a></li>
+                        <li><a href="#">adsadsadsaddsasdsdsadsadsadsadsadsadsadinlinesdsadsdsadsadsadssadsadsads</a></li>
+                        <li><a href="#">vdsavdsvdsvdsavdsvavsdvsdvdsavdsvdsvdsvinlinesdsadsdsadsadsadssadsadsads</a></li>
+                        <li><a href="#">btaebfabsdabdsbdsavdvdsavdsvdsvdsvdsavdsavinlinesdsadsdsadsadsadssadsadsads</a></li>
+                    </ul>
+                    <a href="#" class="more ir_pm">더보기</a>
+                </div>
+                <div class="notice2">
+                    <h4>최신 <em>공지사항</em></h4>
+                    <ul>
+                        <li><a href="#">displat:inlinesdsadsdsadsadsadssadsadsads</a><span>2020.03.27</span></li>
+                        <li><a href="#">sadsadsadsadsadsadsadsadsadsadsdsadsa</a><span>2020.03.27</span></li>
+                        <li><a href="#">adsadsadsaddsasdsdsadsadsadsadsadsadsad</a><span>2020.03.27</span></li>
+                    </ul>
+                    <a href="#" class="more">더보기</a>    
+                </div>
+            </div>
+        </div>
+        <div id="footer">
+            <div class="container">footer
+
+            </div>
+        </div>
+        
+    </div>
+</body>
+</html>

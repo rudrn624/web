@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <style>
+        *{margin: 0;padding: 0;text-align: center;}
+        li{list-style: none;}
+        a{text-decoration: none; color:#666;}
+        #tab-menu{ width:350px; margin:50px auto; background-color:#ccc;}
+        .tab-btn{}
+        .tab-btn ul{ overflow: hidden;}
+        .tab-btn li{float:left; width:20%;}
+        .tab-btn li a{padding:10px; display:block; background:#1e88e5; color :#fff;}
+    </style>
+    <script src = "../jquery.min_1.12.4.js"></script>
+</head>
+<body>
+    <div id="tab-menu">
+        <div class="tab-btn">
+            <ul>
+                <li><a href="#">Tab1</a></li>
+                <li><a href="#">Tab2</a></li>
+                <li><a href="#">Tab3</a></li>
+                <li><a href="#">Tab4</a></li>
+                <li><a href="#">Tab5</a></li>
+            </ul>
+        </div>
+        <div class="tab-cont">
+            <img src="../../assets/img/svg-carrot.svg" alt="svg1">
+        </div>
+    </div>
+    <script>
+        //글씨를 클릭하면 글씨 색을 빨간색으로 변경하세요.
+        // $("a").click(function(){
+        //     $(this).css("color","red");
+        // });
+        //글씨를 클릭하면 tab->menu로 변경하세요!
+        // $("a").click(function(){
+        //     $("a").each(function(index){
+        //         $("a").eq(index).text("menu"+(index+1));
+        //     });
+        // });
+        //글씨를 클릭하면 tab3 -> menu3, tab2 -> menu2로 변경하세요!
+        // $("a").click(function(){
+        //     $("a").each(function(index){
+        //         $("a").eq(index).text("menu"+(index+1));
+        //     });
+        // });
+        // $(".tab-btn ul li").click(function(){
+        //     let target = $(this);
+        //     let index = target.index() +1;
+        //     target.find("a").text("menu"+index);
+        // });
+        $(".tab-btn ul li:eq(0)").click(function(){
+            $(".tab-cont img").attr({"src":"../../assets/img/svg-carrot.svg", "alt":"당근"});
+        });
+        $(".tab-btn ul li:eq(1)").click(function(){
+            $(".tab-cont img").attr({"src":"../../assets/img/svg-cherries.svg", "alt":"체리"});
+        });
+        $(".tab-btn ul li:eq(2)").click(function(){
+            $(".tab-cont img").attr({"src":"../../assets/img/svg-donut.svg", "alt":"도넛"});
+        });
+        $(".tab-btn ul li:eq(3)").click(function(){
+            $(".tab-cont img").attr({"src":"../../assets/img/svg-hotdog.svg", "alt":"핫도그"});
+        });
+        $(".tab-btn ul li:eq(4)").click(function(){
+            $(".tab-cont img").attr({"src":"../../assets/img/svg-lemon.svg", "alt":"레몬"});
+        });
+
+
+    </script>
+</body>
+</html>

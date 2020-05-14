@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jQuery</title>
+    <script src = "../jquery.min_1.12.4.js"></script>
+    <style>
+        .choice a {
+            border-radius: 5px;
+            margin:5px;
+            display: inline-block;
+            border:1px solid #5f6368; padding: 7px 20px;
+            text-decoration: none;
+            color:#000;
+        }
+        .choice a:hover {text-decoration: underline;}
+        .on{background-color: #bbdefb; border: 1px dashed #303f9f;}
+    </style>
+</head>
+<body>
+    <div class="choice">
+        <a href="#"class ="reset">Reset</a>
+        <a href="#"class ="btn1">.children()</a>
+        <a href="#"class ="btn2">.find()</a>
+        <a href="#"class ="btn3">.next()</a>
+        <a href="#"class ="btn4">.nextAll()</a>
+        <a href="#"class ="btn5">.parent()</a>
+        <a href="#"class ="btn6">.parents()</a>
+        <a href="#"class ="btn7">.parentsUntill()</a>
+        <a href="#"class ="btn8">.prev()</a>
+        <a href="#"class ="btn9">.prevAll()</a>
+    </div>
+    <div class="choice">
+        <a href="#"class ="sbtn1">.eq(2)</a>
+        <a href="#"class ="sbtn2">.filter()</a>
+        <a href="#"class ="sbtn3">.first()</a>
+        <a href="#"class ="sbtn4">.last()</a>
+        <a href="#"class ="sbtn5">.has()</a>
+        <a href="#"class ="sbtn6">.not()</a>
+        <a href="#"class ="sbtn7">.slice()</a>
+    </div>
+    <div class="list">
+        <ul>
+            <li class="list1">첫번 째 리스트1 입니다.</li>
+            <li class="list2">첫번 째 리스트2 입니다.</li>
+            <li class="list3">첫번 째 리스트3 입니다.
+                <ul>
+                    <li>첫번 째 리스트1-1 입니다.</li>
+                    <li>첫번 째 리스트1-2 입니다.</li>
+                    <li>첫번 째 리스트1-3 입니다.
+                        <ul>
+                            <li>첫번 째 리스트1-3-1 입니다.</li>
+                            <li class="select">첫번 째 리스트1-3-2 입니다.</li>
+                            <li>첫번 째 리스트1-3-3 입니다.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="slist">
+            <li class="list1">두번 째 리스트1 입니다.</li>
+            <li class="list2">두번 째 리스트2 입니다.</li>
+            <li class="list3">두번 째 리스트3 입니다.</li>
+            <li class="list4">두번 째 리스트4 입니다.</li>
+            <li class="list5">두번 째 리스트5 입니다.</li>
+            <li class="list6">두번 째 리스트6 입니다.</li>
+        </ul>
+    </div>
+    <script>
+        //reset을 클릭하면 모든 태그에 on클래스 제거
+        $(".reset").click(function(){
+            $("*").removeClass("on");
+        });
+        //children 클릭하면 태그에 on클래스 추가
+        $(".btn1").click(function(){
+            $(".list li").children().addClass("on");
+        });
+        //find 클릭하면 태그에 on클래스 추가
+        $(".btn2").click(function(){
+            $(".list li").find("li").addClass("on");
+        });
+        //next 클릭하면 태그에 on클래스 추가
+        $(".btn3").click(function(){
+            $(".list li li:first").next().addClass("on");
+        });
+        //nextAll 클릭하면 태그에 on클래스 추가
+        $(".btn4").click(function(){
+            $(".list li li:first").nextAll().addClass("on");
+        });
+        //parent 클릭하면 태그에 on클래스 추가
+        $(".btn5").click(function(){
+            $(".list2").parent().addClass("on");
+        });
+        //parents 클릭하면 태그에 on클래스 추가
+        $(".btn6").click(function(){
+            $(".list2").parents().addClass("on");
+        });
+        //parentsUntil 클릭하면 태그에 on클래스 추가
+        $(".btn7").click(function(){
+            $(".list2").parentsUntil(".list").addClass("on");
+        });
+        //prev 클릭하면 태그에 on클래스 추가
+        $(".btn8").click(function(){
+            $(".list3").prev().addClass("on");
+        });
+        //prevAll 클릭하면 태그에 on클래스 추가
+        $(".btn9").click(function(){
+            $(".list3").prevAll().addClass("on");
+        });
+
+        //
+        $(".sbtn1").click(function(){
+            $(".list li").eq(2).addClass("on");
+        });
+        $(".sbtn2").click(function(){
+            //$(".list li").filter(":even").addClass("on");
+            $(".list li").filter(".select").addClass("on");
+        });
+        $(".sbtn3").click(function(){
+            $(".list li").first().addClass("on");
+            //$(".list li:first").addClass("on");
+        });
+        $(".sbtn4").click(function(){
+            $(".list li").last().addClass("on");
+            //$(".list li:last").addClass("on");
+        });
+        $(".sbtn5").click(function(){
+            $(".list li").has("ul").addClass("on");
+            //$(".list li").has(".select").addClass("on");
+        });
+        $(".sbtn6").click(function(){
+            $(".list li").not(".select").addClass("on");
+        });
+        $(".sbtn7").click(function(){
+            //$(".slist li").slice(2).addClass("on");
+            //$(".slist li").slice(2,5).addClass("on");
+            //$(".slist li").slice(-2).addClass("on");
+            $(".slist li").slice(-4, -1).addClass("on");
+        });
+    </script>
+</body>
+</html>

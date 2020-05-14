@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Responsive Layout03</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        #wrap{}
+        .container{width:1200px; margin: 0 auto;}
+        .header{width: 100%; height: 100px; background-color: #7ed4fa;}
+        .side{width:30%; height: 900px; background-color: #49c4f7;float:left;}
+        article{width: 70%; height: 300px; float:left;}
+        .article01{background-color: #1cb7f6;}
+        .article02{background-color: #00abf4;}
+        .article03{background-color: #009de5;}
+        .footer{width: 100%; height: 100px; background-color: #008ad1; clear:both;}
+        
+        @media (max-width:1220px){
+        .container{width: 100%;}
+        .article01{height: 450px;}
+        .article02{height: 450px;}
+        .article03{width:100%;}
+        }
+        @media (max-width:768px){
+        .side{width: 100%; height: 200px;}
+        .article01{width: 50%; }
+        .article02{width: 50%; }
+        }
+        @media (max-width:480px){
+        .article01{width:100%; height: 200px; }
+        .article02{width:100%; height: 200px;}
+        }
+    </style>
+</head>
+<body>
+    <div id="wrap">
+        <div class="container">
+            <header class="header"></header>
+            <aside class="side"></aside>
+            <article class="article01"></article>
+            <article class="article02"></article>
+            <article class="article03"></article>
+            <footer class="footer"></footer>
+        </div>
+    </div>
+</body>
+</html>
