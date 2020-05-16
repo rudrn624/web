@@ -21,6 +21,9 @@
   color:#fff;
   font-size: 64px;
   font-weight: 500;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 350ms 150ms ease-in-out, transform 350ms 150ms ease-in-out;
 }
 .nongshimbox{
   position: relative;
@@ -55,6 +58,9 @@
   color:#fff;
   font-weight: 400;
   line-height: 1.75em;
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 380ms 900ms ease-in-out, transform 380ms 900ms ease-in-out;
 }
 
 .nongshimbox .line-1:before , .nongshimbox .line-1:after,
@@ -65,34 +71,68 @@
   background-color: rgba(255, 255, 255, 0.4);
 }
 .nongshimbox .line-1:before{
-  left: 0;
+  left: 'auto';
   right:0;
-  width:100%;
+  width:0;
   height:1px;
+  transition: width 250ms 350ms cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 .nongshimbox .line-1:after{
-  height:100%;
+  top:'auto';
+  height:0;
   width:1px;
+  transition: height 100ms 600ms cubic-bezier(0.445, 0.05, 0.55, 0.95);
 }
 .nongshimbox .line-2:before{
-  right: 0; bottom: 0;
-  width:100%;
+  right: 'auto'; 
+  left:0;
+  bottom: 0;
+  width:0%;
   height:2px;
+  transition: width 300ms 700ms cubic-bezier(0.215, 0.61, 0.355, 1);
 }
 .nongshimbox .line-2:after{
   right:0;
+
+  top:'auto';
   bottom: 0;
   width:2px;
+  height:0;
+  transition: height 150ms 1000ms cubic-bezier(0.39, 0.575, 0.565, 1);
+}
+.gheader.active .line-2:before{
+  width:100%;
+}
+.gheader.active .line-2:after{
   height:100%;
+}
+.gheader.active .line-1:before{
+  width:100%;
+}
+.gheader.active .line-1:after{
+  height:100%;
+}
+.gheader.active .circle{
+  width:13px;
+  height:13px;
+  opacity: 1;
+}
+.gheader.active .title{
+  opacity: 1;
+  transform: translateY(0);
+}
+.gheader.active .titledesc{
+  opacity: 1;
+  transform: translateY(0);
 }
 .nongshimbox .circle{
   position: absolute;
-  width:13px;
-  height:13px;
   left:50%;
   top:15px;
   background:#96c11f;
   border-radius: 50%;
+  opacity: 0;
+  transition: opacity 0.5s;
 }
 .quick_btn{
   margin-top: -125px;
@@ -126,12 +166,12 @@
 .contTitle{
   position: relative;
 }
-.title{
+#album .title{
   padding-top: 56px;
   position: relative;
   font-size: 2rem;
 }
-.title:before{
+#album .title:before{
   content : '';
   display: block;
   position: absolute;
