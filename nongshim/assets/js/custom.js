@@ -26,3 +26,36 @@
     centeredSlides: true
     
   });
+  
+  var mySwiper3 = new Swiper ('#album .swiper-container', {
+    // Optional parameters
+    loop: true,
+    slidesPerView : 'auto',
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      type: 'progressbar',
+    },
+  });
+ var mySwiper4 = new Swiper ('#nav1 .swiper-container', {
+    // Optional parameters
+    slidesPerView : 'auto',
+    // If we need pagination
+    scrollbar: {
+      el: '.swiper-scrollbar',
+      dragSize : 152,
+      hide: false,
+    },
+  });
+
+  var mySwiper5 = new Swiper ('#content-header .swiper-container', {
+    // Optional parameters
+    loop: true,
+    slidesPerView : 'auto',
+    centeredSlides: true,
+    // If we need pagination
+    pagination: {
+      el: '.swiper-pagination',
+      clickable : 'true',
+    },
+  });
