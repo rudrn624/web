@@ -43,6 +43,28 @@
   padding: 26px 20px;
 }
 
+.header .nav li a span {
+  position: relative;
+}
+
+.header .nav li a span::before {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-top: 2px solid #d83832;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+
+.header .nav li a:hover span::before {
+  width: 100%;
+}
+
 .header .nav li.live a {
   border: 1px solid #fff;
   border-radius: 20px;

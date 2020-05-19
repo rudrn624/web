@@ -30,6 +30,23 @@
                 color:#fff;
                 font-weight: 500;
                 padding: 26px 20px;
+                span{
+                    position: relative;
+                    &::before{
+                        content:'';
+                        position:absolute;
+                        bottom:-2px; left: 50%;
+                        width:0;
+                        height:0;
+                        border-top:2px solid #d83832;
+                        transform: translateX(-50%);
+                        transition: all 0.2s;
+                    }
+                    
+                }
+                &:hover span::before{
+                    width:100%;
+                }
             }
         }
         li.live{
