@@ -1,0 +1,90 @@
+#header {
+  position: fixed;
+  top: 0;
+  z-index: 100;
+  width: 100%;
+}
+
+#header .container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  border-bottom: 1px solid #ccc;
+}
+
+#header .container .logo {
+  position: absolute;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+
+#header .container .mainNav {
+  margin: 0 auto;
+  width: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+#header .container .mainNav div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+#header .container .mainNav div li a {
+  color: #fff;
+}
+
+#headSlider {
+  height: 774px;
+}
+
+#headSlider .swiper-container {
+  height: 100%;
+}
+
+#headSlider .swiper-container .swiper-wrapper {
+  height: 100%;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide {
+  height: 100%;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(1) {
+  background: url(../img/slide1.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(2) {
+  background: url(../img/slide2.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(3) {
+  background: url(../img/slide3.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(4) {
+  background: url(../img/slide4.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(5) {
+  background: url(../img/slide1.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(6) {
+  background: url(../img/slide2.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(7) {
+  background: url(../img/slide3.jpg) no-repeat center;
+}
+
+#headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(8) {
+  background: url(../img/slide4.jpg) no-repeat center;
+}
+/*# sourceMappingURL=style.css.map */

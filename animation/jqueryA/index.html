@@ -92,29 +92,161 @@
             <div class="col-md-9" role="main">
                 <!-- Intro1 -->
                 <div class="bs-docs-section">
-					<h2 id="intro1" class="page-header">Bar Animation</h2>
-					
+					<h2 id="intro1" class="page-header">Jquery Animation</h2>
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped table-hover">
+                            <thead>
+                                <tr>
+                                    <th>유형</th>
+                                    <th>메서드</th>
+                                    <th>설명</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td class="ce va" rowspan="3">Basic</td>
+                                    <td>.hide()</td>
+                                    <td>선택한 요소를 숨깁니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.show()</td>
+                                    <td>선택한 요소를 보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.toggle() <span style="color:red">♥</span></td>
+                                    <td>선택한 요소를 숨김/보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ce va" rowspan="4">Fading</td>
+                                    <td>.fadeIn()</td>
+                                    <td>선택한 요소를 천천히 보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.fadeOut()</td>
+                                    <td>선택한 요소를 천천히 숨김니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.fadeto()</td>
+                                    <td>선택한 요소를 투명도를 조절합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.fadeToggle()</td>
+                                    <td>선택한 요소를 천천히 숨김/보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ce va" rowspan="3">Sliding</td>
+                                    <td>.slideDown()</td>
+                                    <td>선택한 요소를 슬라이딩으로 보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.slideToggle()</td>
+                                    <td>선택한 요소를 슬라이딩으로 숨김/보여줍니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.slideUp()</td>
+                                    <td>선택한 요소를 슬라이딩으로 숨김니다.</td>
+                                </tr>
+                                <tr>
+                                    <td class="ce va" rowspan="7">custom</td>
+                                    <td>.animate() <span style="color:red">♥</span></td>
+                                    <td>선택한 요소에 애니메이션을 적용합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.clearQueue()</td>
+                                    <td>선택한 요소에 첫 번째 큐만 실행하고 대기 중인 큐는 모두 삭제합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.delay()</td>
+                                    <td>선택한 요소의 애니메이션 효과를 지연합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.dequeue()</td>
+                                    <td>선택한 요소 스택에 쌓인 큐를 모두 제거합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.finish()</td>
+                                    <td>선택한 요소의 진행중인 애니메이션을 강제로 종료합니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.queue()</td>
+                                    <td>선택한 요소 스택에 대기 중인 큐를 반환하거나 추가할 수 있습니다.</td>
+                                </tr>
+                                <tr>
+                                    <td>.stop()</td>
+                                    <td>선택한 요소의 실행중인 애니메이션을 정지합니다.</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
 				</div>
 				<!-- //Intro1 -->
                 
                 <!-- Intro2 -->
                 <div class="bs-docs-section">
-					<h2 id="intro2" class="page-header">Circle  Animation</h2>
-                   
+                    <h2 id="intro2" class="page-header">Animation</h2>
+                    <p class="bs-callout bs-callout-info">
+                        $("selector").animate(properties);<br>
+                        $("selector").animate(properties,duration);<br>
+                        $("selector").animate(properties,duration,easing);<br>
+                        $("selector").animate(properties,duration,easing ,colback);<br>
+                    </p>
+                    <p>
+                        propertis:border, margin, padding, width, height,
+                        font-size, bottom, left, top, right, line-height<br>
+                        transform(x)
+                    </p> 
+                    <p>
+                        //폰트 사이즈를 현재크기에서 20px로 2초동안 애니메이션<br>
+                        $("선택자").animate({"font-size":"20px"},2000);<br>
+                        $("선택자").animate({font-size:"20px"},2000);<br>
+                        //선택한 요소를 왼쪽, 오른쪽 마진값을 100px을 600밀리세컨드 동안 애니메이션<br>
+                        $("선택자").animate({marginLeft:100, marginRight:100},600);<br>
+                        $("선택자").animate({marginLeft:100, marginRight:100},"slow");<br>
+                    </p>
+<pre class="line-numbers language-markup"><code>
+
+</code></pre>
 				</div>
 				<!-- //Intro2 -->
-                
+                <style>
+                    .box{height:300px; position: relative;}
+                    .circle{
+                        position : absolute;
+                        width:50px; height:50px; background:green;
+                        border-radius: 50%;
+                    }
+                </style>
                 <!-- Intro3 -->
                 <div class="bs-docs-section">
-					<h2 id="intro3" class="page-header">Wave Animation</h2>
-                   
+                    <h2 id="intro3" class="page-header">Wave Animation</h2>
+                    <h4>animation<span class="btn btn1">Start</span></h4>
+                    <div class="well">
+                        <div class="box">
+                            <div class="circle circle1"></div>
+                        </div>
+                    </div>
+<pre class="line-numbers language-markup"><code>
+
+</code></pre>
 				</div>
 				<!-- //Intro3 -->
                 
                 <!-- Intro4 -->
                 <div class="bs-docs-section">
 					<h2 id="intro4" class="page-header">Square Animation</h2>
-					
+					<h4 class="btn2">animation
+                        <button>easeInCubic</button>
+                        <button>easeInOutQuart</button>
+                        <button>easeInOutBack</button>
+                        <button>easeInOutBounce</button>
+                        <button>easeOutElastic</button>
+                        <button>easeInCirc</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box">
+                            <div class="circle circle2"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro4 -->
                 
@@ -169,9 +301,9 @@
                         <li><a href="#intro3">Wave Animation</a></li>
                         <li><a href="#intro4">Square Animation</a></li>
                         <li><a href="#intro5">Cube Animation</a></li>
-                        <li><a href="#intro6">Minion Animation</a></li>
-                        <li><a href="#intro7">Tentacle Animation</a></li>
-                        <li><a href="#intro8">sample</a></li>
+                        <li><a href="#intro6">SVG - Text Animation1</a></li>
+                        <li><a href="#intro7">SVG - Text Animation2</a></li>
+                        <li><a href="#intro8">SVG - Text Animation3</a></li>
                         <li><a href="#intro9">sample</a></li>
                         <li><a href="#intro10">sample</a></li>
                     </ul>
@@ -203,9 +335,37 @@
 
     <!-- Bootstrap core JavaScript -->
     <script src="../../assets/js/jquery-1.9.1.min.js"></script>
+    <script src="../../assets/js/jquery-ui.min.js"></script>
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/docs.min.js"></script>
     <script src="../../assets/js/prism.js"></script>
+    <script>
+        //버튼을 클릭하면 원의 백그라운드 색을 빨간색으로 변경
+        let cwidth = $(".circle1").width();
+        let boxWidth = $(".box").width();
+        let Bleft = boxWidth - cwidth;
+
+        let cheight = $(".circle1").height();
+        let boxheight = $(".box").height();
+        let Btop = boxheight - cheight;
+        
+        $(".btn1").click(function(){
+            $(".circle1")
+            .animate({"left": Bleft},1000)
+            .animate({"top": Btop},1000)
+            .animate({"left":"0"},1000)
+            .animate({"top":"0"},1000);
+        });
+        //두번째 버튼을 클릭했을때 클릭한 글씨를 출력해주세요~
+        $(".btn2 > button").click(function(){
+            let text = $(this).text();
+            $(".circle2")
+            .animate({"left":Bleft},1000,text)
+            .animate({"top":Btop},1000,text)
+            .animate({"left":"0"},1000,text)
+            .animate({"top":"0"},1000,text);
+        });
+    </script>
 </body>
 
 </html>
