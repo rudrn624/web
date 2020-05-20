@@ -3,44 +3,135 @@
   top: 0;
   z-index: 100;
   width: 100%;
+  height: 98px;
+  border-bottom: 1px solid #ccc;
+}
+
+#header .backgroundGrad {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 194px;
+  background: -webkit-gradient(linear, left top, left bottom, from(#1d1d1f), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to bottom, #1d1d1f 0%, rgba(0, 0, 0, 0) 100%);
 }
 
 #header .container {
   width: 1200px;
   margin: 0 auto;
   position: relative;
-  border-bottom: 1px solid #ccc;
+  text-align: center;
 }
 
 #header .container .logo {
-  position: absolute;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  display: inline-block;
+  width: 140px;
 }
 
-#header .container .mainNav {
+#header .container .logo img {
+  display: inline-block;
+  padding: 25px 0;
+  width: 100%;
+}
+
+.NavWrap {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.NavWrap .mainNav {
+  position: relative;
+  width: 1200px;
   margin: 0 auto;
-  width: 50%;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
 }
 
-#header .container .mainNav div {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-}
-
-#header .container .mainNav div li a {
+.NavWrap .mainNav li .navName {
+  font-size: 20px;
+  position: absolute;
+  top: -35px;
   color: #fff;
 }
 
+.NavWrap .mainNav li:nth-child(1) a {
+  left: 166px;
+}
+
+.NavWrap .mainNav li:nth-child(2) a {
+  left: 256px;
+}
+
+.NavWrap .mainNav li:nth-child(3) a {
+  left: 345px;
+}
+
+.NavWrap .mainNav li:nth-child(4) a {
+  right: 347px;
+}
+
+.NavWrap .mainNav li:nth-child(5) a {
+  right: 241px;
+}
+
+.NavWrap .mainNav li:nth-child(6) a {
+  right: 150px;
+}
+
+.NavWrap .mainNav li .liNav {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.NavWrap .mainNav li:nth-child(1) .liNav {
+  padding-left: 50px;
+}
+
+.NavWrap .mainNav li:nth-child(2) .liNav {
+  padding-left: 136px;
+}
+
+.NavWrap .mainNav li:nth-child(3) .liNav {
+  padding-left: 280px;
+}
+
+.NavWrap .mainNav li:nth-child(4) .liNav {
+  padding-left: 648px;
+}
+
+.NavWrap .mainNav li:nth-child(6) .liNav {
+  padding-left: 904px;
+}
+
+.liNav {
+  display: none;
+  height: 44px;
+}
+
+.liNav ul {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.liNav ul li {
+  display: inline-block;
+  padding: 0 19px;
+}
+
+.liNav ul li a {
+  height: 44px;
+  line-height: 44px;
+  color: #fff;
+}
+
+.liNav ul li a:hover {
+  text-decoration: underline;
+}
+
+li.on .liNav {
+  display: block;
+}
+
 #headSlider {
+  position: relative;
   height: 774px;
 }
 
@@ -86,5 +177,77 @@
 
 #headSlider .swiper-container .swiper-wrapper .swiper-slide:nth-child(8) {
   background: url(../img/slide4.jpg) no-repeat center;
+}
+
+#headSlider .backgroundGrad.bottom {
+  position: absolute;
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: 194px;
+  background: -webkit-gradient(linear, left bottom, left top, from(#1d1d1f), to(rgba(0, 0, 0, 0)));
+  background: linear-gradient(to top, #1d1d1f 0%, rgba(0, 0, 0, 0) 100%);
+}
+
+#main_section1 {
+  height: 880px;
+  position: relative;
+}
+
+#main_section1 .bg {
+  width: 100%;
+  position: absolute;
+}
+
+#main_section1 .bg .pattern {
+  position: absolute;
+  z-index: 6;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: url(../img/bg-movie-detail-pattern.png) repeat 0 0;
+}
+
+#main_section1 .bg img {
+  -webkit-filter: blur(15px);
+          filter: blur(15px);
+}
+
+#main_section1 .bg:before {
+  content: '';
+  z-index: 4;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: -webkit-gradient(linear, left top, right top, from(#553f05), color-stop(50%, rgba(23, 17, 1, 0)), to(#553f05));
+  background: linear-gradient(left, #553f05 0%, rgba(23, 17, 1, 0) 50%, #553f05 100%);
+}
+
+#main_section1 .bg::after {
+  content: '';
+  z-index: 5;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  background: rgba(3, 1, 21, 0.7);
+}
+
+#main_section1 .contwrap {
+  z-index: 7;
+  position: relative;
+  width: 1200px;
+  margin: 0 auto;
+}
+
+#main_section2 {
+  position: relative;
+  height: 1500px;
+  z-index: 7;
+  background: #fff;
 }
 /*# sourceMappingURL=style.css.map */

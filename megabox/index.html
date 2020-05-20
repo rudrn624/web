@@ -11,19 +11,62 @@
 </head>
 <body>
     <div id="header">
+        <div class="backgroundGrad"></div>
         <div class="container">
-            <div class="logo">뱅골시네마</div>
+            <div class="logo"><img src="assets/img/logo-white.png" alt=""></div>
+        
+        </div>
+        <div class="NavWrap">
             <ul class="mainNav">
-                <div class="flex-left">
-                    <li><a href="#">영화</a></li>
-                    <li><a href="#">예매</a></li>
-                    <li><a href="#">극장</a></li>
-                </div>
-                <div class="flex-right">
-                    <li><a href="#">이벤트</a></li>
-                    <li><a href="#">스토어</a></li>
-                    <li><a href="#">혜택</a></li>
-                </div>
+                <li>
+                    <a class="navName" href="#">영화</a>
+                    <div class="liNav">
+                        <ul>
+                            <li><a href="#">전체영화</a></li>
+                            <li><a href="#">큐레이션</a></li>
+                            <li><a href="#">무비포스트</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="navName" href="#">예매</a>
+                    <div class="liNav">
+                        <ul>
+                            <li><a href="#">빠른예매</a></li>
+                            <li><a href="#">상영시간표</a></li>
+                            <li><a href="#">더 부티크 프라이빗 예매</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="navName" href="#">극장</a>
+                    <div class="liNav">
+                        <ul>
+                            <li><a href="#">전체극장</a></li>
+                            <li><a href="#">특별관</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li>
+                    <a class="navName" href="#">이벤트</a>
+                    <div class="liNav">
+                        <ul>
+                            <li><a href="#">진행중 이벤트</a></li>
+                            <li><a href="#">지난 이벤트</a></li>
+                            <li><a href="#">당첨자발표</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a class="navName" href="#">스토어</a></li>
+                <li>
+                    <a class="navName" href="#">혜택</a>
+                    <div class="liNav">
+                        <ul>
+                            <li><a href="#">메가박스 멤버십</a></li>
+                            <li><a href="#">제휴/할인</a></li>
+                        </ul>
+                    </div>
+                </li>
             </ul>
         </div>
     </div>
@@ -47,12 +90,41 @@
             <!-- If we need scrollbar -->
             <div class="swiper-scrollbar"></div>
         </div>
+        <div class="backgroundGrad bottom"></div>
     </div>
+    <div id="main_section1">
+        <div class="bg">
+            <div class="pattern"></div>
+            <img src="assets/img/showmanL.jpg" alt="쇼맨">
+        </div>
+        <div class="contwrap">
+            <div class="contTitle">
+                <a class="boxoffice" href="#">박스오피스</a>
+                <a class="moremovie" href="#">더 많은 영화보기</a>
+            </div>
+            <div class="movieCont"></div>
+            <div class="movieSearch"></div>
+            <div class="mousemove"></div>
+        </div>
+    </div>
+    <div id="main_section2"></div>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
-    
+        $(".navName").hover(function(){
+            let target = $(this).parent();
+        
+            target.addClass("on").siblings().removeClass();
+            
+        });
+        $(".liNav").hover(function(){
+             
+        },function(){
+            $(".mainNav li").removeClass("on");
+        });
+        
+
     </script>
 </body>
 </html>

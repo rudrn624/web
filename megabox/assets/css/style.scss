@@ -1,43 +1,122 @@
 #header{
+    
     position: fixed;
     top:0;
     z-index: 100;
     width:100%;
+    height: 98px;
+    border-bottom: 1px solid #ccc;
+    .backgroundGrad{
+        position: absolute;
+        top :0;
+        width:100%;
+        height:194px;
+        background: linear-gradient(to bottom, rgba(29,29,31,1) 0%,rgba(0,0,0,0) 100%);
+    }
+    
     .container{
         width:1200px;
         margin: 0 auto;
         position: relative;
-        border-bottom: 1px solid #ccc;
+        
+        text-align: center;
         .logo{
-            position: absolute;
-            left:50%;
-            transform:translateX(-50%);
+            display: inline-block;
+            width:140px;
+            img{
+                display: inline-block;
+                padding:25px 0;
+                width:100%;
+            }
         }
-        .mainNav{
-            margin: 0 auto;
-            width:50%;
-            display: flex;
-            justify-content: space-between;
-            div{
-                display: flex;
-                li{
-                    a{
-                        color:#fff;
-                    }
+        
+    }
+}
+.NavWrap{
+    background:rgba(0,0,0,0.2);
+    .mainNav{
+        
+        position: relative;
+        width:1200px;
+        margin : 0 auto;
+        li{
+            .navName{
+                font-size: 20px;
+                position: absolute;
+                top:-35px;
+                color:#fff;
+            }
+            &:nth-child(1) a{
+                left: 166px;
+            }
+            &:nth-child(2) a{
+                left: 256px;
+            }
+            &:nth-child(3) a{
+                left: 345px;
+            }
+            &:nth-child(4) a{
+                right: 347px;
+            }
+            &:nth-child(5) a{
+                right: 241px;
+            }
+            &:nth-child(6) a{
+                right: 150px;
+            }
+            .liNav{
+                
+                box-sizing: border-box;
+            }
+            &:nth-child(1) .liNav{
+                padding-left: 50px;
+            }
+            &:nth-child(2) .liNav{
+                padding-left: 136px;
+            }
+            &:nth-child(3) .liNav{
+                padding-left: 280px;
+            }
+            &:nth-child(4) .liNav{
+                padding-left: 648px;
+            }
+            &:nth-child(6) .liNav{
+                padding-left: 904px;
+            }
+        }
+        
+    }
+}
+
+.liNav{
+    display: none;
+    height:44px;
+    ul{
+        display: flex;
+        li{
+            display: inline-block;
+            padding: 0 19px;
+            a{
+                height:44px;
+                line-height: 44px;
+                color: #fff;
+                &:hover{
+                    text-decoration: underline;
                 }
             }
         }
     }
+}
+li.on .liNav{
+    display: block;
 }
 
 
 
 
 
-
-
-
 #headSlider{
+    position: relative;
     height:774px;
     .swiper-container{
         height:100%;
@@ -72,4 +151,66 @@
             }
         }
     }
+    .backgroundGrad.bottom{
+        position: absolute;
+        z-index: 100;
+        bottom :0;
+        width:100%;
+        height:194px;
+        background: linear-gradient(to top, rgba(29,29,31,1) 0%,rgba(0,0,0,0) 100%);
+    }
+}
+
+// 메인 섹션
+
+#main_section1{
+    height: 880px;
+    position: relative;
+    .bg{
+        width:100%;
+        position: absolute;
+        .pattern{
+            position: absolute;
+            
+            z-index: 6;
+            left: 0; right: 0;
+            top: 0; bottom: 0;
+            
+            background:url(../img/bg-movie-detail-pattern.png) repeat 0 0;
+        }
+        img{
+            filter: blur(15px);
+        }
+        &:before{
+            content:'';
+            
+            z-index: 4;
+            position: absolute;
+            right: 0; left: 0;
+            top: 0; bottom:0;
+            background: linear-gradient(left, rgba(85,63,5,1) 0%, rgba(23,17,1,0) 50%, rgba(85,63,5,1) 100%);
+        }
+        &::after{
+            content:'';
+            z-index: 5;
+            position: absolute;
+            right: 0; left: 0;
+            top: 0; bottom:0;
+            background: rgba(3,1,21,0.7);
+        }
+    }
+    .contwrap{
+        z-index: 7;
+        position: relative;
+        width: 1200px;
+        margin : 0 auto;
+    }
+}
+
+#main_section2{
+    position: relative;
+    height: 1500px;
+    z-index: 7;
+    background:#fff;
+
 }
