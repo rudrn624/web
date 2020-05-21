@@ -119,7 +119,7 @@
                             </div>
                         </div>
                         <div class="movieBtnWrap">
-                            <a class="like" href="#">1.3k</a>
+                            <a class="like" href="#"><i class="heart"></i>1.3k</a>
                             <a class="reservation" href="#">예매</a>
                         </div>
                         
@@ -141,7 +141,7 @@
                             </div>
                         </div>
                         <div class="movieBtnWrap">
-                            <a class="like" href="#">240</a>
+                            <a class="like" href="#"><i class="heart"></i>240</a>
                             <a class="reservation" href="#">예매</a>
                         </div>
                     </li>
@@ -161,7 +161,7 @@
                             </div>
                         </div>
                         <div class="movieBtnWrap">
-                            <a class="like" href="#">922</a>
+                            <a class="like" href="#"><i class="heart"></i>922</a>
                             <a class="reservation" href="#">예매</a>
                         </div>
                     </li>
@@ -182,7 +182,7 @@
                             </div>
                         </div>
                         <div class="movieBtnWrap">
-                            <a class="like" href="#">167</a>
+                            <a class="like" href="#"><i class="heart"></i>167</a>
                             <a class="reservation" href="#">예매</a>
                         </div>
                     </li>
@@ -195,31 +195,178 @@
                         <a href="#"><i class="fas fa-search"></i></a>
                     </div>
                 </div>
-                <div class="cell"></div>
-                <div class="cell"></div>
-                <div class="cell"></div>
+                <div class="cell">
+                    <a href="#"><i class="ico ico-schedule"></i><span>상영시간표</span></a>
+                </div>
+                <div class="cell">
+                    <a href="#"><i class="ico ico-boxoffice"></i><span>박스오피스</span></a>
+                </div>
+                <div class="cell">
+                    <a href="#"><i class="ico ico-quick"></i><span>빠른예매</span></a>
+                </div>
             </div>
-            <div class="mousemove"></div>
+            <div class="mousemove">
+                <img src="assets/img/ico-mouse.png" alt="마우스">
+            </div>
         </div>
     </div>
-    <div id="main_section2"></div>
+    <div id="main_section2">
+        <div class="wrap">
+            <div class="titwrap">
+                <h2>혜택</h2>
+                <a href="#"><i class="fas fa-plus"></i></a>
+            </div>
+            <div class="Cslide">
+                <div class="cell">
+                    <a href="#" class="contImg1"><img src="assets/img/Cslide1.jpg" alt="슬라이드1"></a>
+                    <a href="#" class="contImg2"><img src="assets/img/Cslide1-1.jpg" alt="슬라이드1-1"></a>
+                </div>
+                <div class="cell">
+                    <a href="#" class="contImg1"><img src="assets/img/Cslide2.jpg" alt="슬라이드1"></a>
+                    <a href="#" class="contImg2"><img src="assets/img/Cslide2-1.jpg" alt="슬라이드1-1"></a>
+                </div>
+                <div class="cell">
+                    <a href="#" class="contImg1"><img src="assets/img/Cslide3.jpg" alt="슬라이드1"></a>
+                    <a href="#" class="contImg2"><img src="assets/img/Cslide3-1.jpg" alt="슬라이드1-1"></a>
+                </div>
+                <div class="cell">
+                    <a href="#" class="contImg1"><img src="assets/img/Cslide4.jpg" alt="슬라이드1"></a>
+                    <a href="#" class="contImg2"><img src="assets/img/Cslide4-1.jpg" alt="슬라이드1-1"></a>
+                </div>
+                <div class="slideControl">
+                    <ul class="slidebar">
+                        <li class="active"></li>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                    <div class="control">
+                        <a href="#" class="prev"><i class="fas fa-angle-left"></i></a>
+                        <a href="#" class="next"><i class="fas fa-angle-right"></i></a>
+                        <a href="#" class="play"><i class="fas fa-play"></i></a>
+                    </div>
+                    <div class="page">
+                        <span class="page_num">1 / 4</span>
+                    </div>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/custom.js"></script>
     <script>
+        let ResetOpacity = 0;
+        let ResetTop = -100;
+        let ResetLeft = 150;
+        $(".Cslide .cell").first().css("display","block");
+        
+        
+        moveImg($(".Cslide .cell").first().children());
+        //cell.eq(active).css("display","block");
+
+        mouseMove();
         $(".navName").hover(function(){
             let target = $(this).parent();
         
             target.addClass("on").siblings().removeClass();
             
         });
-        $(".mainNav").hover(function(){
+        $(".liNav").hover(function(){
              
         },function(){
             $(".mainNav li").removeClass("on");
         });
-        
+        $(".next").click(function(e){
+            e.preventDefault();
+           let li = $(".slidebar").find(".active");
+           console.log(li.next().index());
+           if(li.index() < 3){
+           li.removeClass().next().addClass("active");
+           let active = $(".slidebar").find(".active").index();
+           
+            let cell = $(".Cslide .cell");
+            cell.eq(active).siblings(".cell").css("display","none");
+            console.log(cell.eq(active).siblings());
+            cell.eq(active).css("display","block");
+            console.log(cell.eq(active).children());
+            moveImg(cell.eq(active).children());
+            }
+        });
+        $(".prev").click(function(e){
+            e.preventDefault();
+           let li = $(".slidebar").find(".active");
+           console.log(li.prev().index());
+           if(li.prev().index() >= 0){
+           li.removeClass().prev().addClass("active");
 
+           let active = $(".slidebar").find(".active").index();
+           
+            let cell = $(".Cslide .cell");
+            cell.eq(active).siblings(".cell").css("display","none");
+            console.log(cell.eq(active).siblings());
+            cell.eq(active).css("display","block");
+            console.log(cell.eq(active).children());
+            moveImg(cell.eq(active).children());
+            }
+        });
+        $(".play").click(function(e){
+            e.preventDefault();
+            //console.log($(this).next().is(".fas fa-play"));
+            console.log($(this).children());
+            console.log($(this).children().is(".fas.fa-play"));
+            if($(this).children().is(".fas.fa-play")){
+                $(this).children().attr("class","fas fa-stop");
+            }else{
+                $(this).children().attr("class","fas fa-play");
+            }
+        });
+
+
+        setInterval(autoplay,8000);
+
+        
+        function mouseMove(){
+            $(".mousemove img").delay(1000)
+            .animate({top:"0"},500)
+            .animate({top:"20px"},500,mouseMove);
+        }
+        function moveImg(contImg){
+            console.log(contImg.eq(0));
+            console.log(contImg.eq(1));
+            contImg.eq(0).children().css({"opacity":ResetOpacity, "top":ResetTop}).animate({"opacity":"1", "top":"0px"},1000);
+            contImg.eq(1).children().css({"opacity":ResetOpacity, "left":ResetLeft}).animate({"opacity":"1", "left":"0px"},1000);
+        }
+        function autoplay(){
+            if($(".play").children().is(".fas.fa-stop")){
+
+                let li = $(".slidebar").find(".active");
+                console.log(li.next().index());
+                if(li.index() < 3){
+                li.removeClass().next().addClass("active");
+                let active = $(".slidebar").find(".active").index();
+            
+                let cell = $(".Cslide .cell");
+                cell.eq(active).siblings(".cell").css("display","none");
+                console.log(cell.eq(active).siblings());
+                cell.eq(active).css("display","block");
+                console.log(cell.eq(active).children());
+                moveImg(cell.eq(active).children());
+                }else{
+                    
+                    let active = 0;
+                    
+                    $(".slidebar li").removeClass().eq(active).addClass("active");
+                    let cell = $(".Cslide .cell");
+                    cell.eq(active).siblings(".cell").css("display","none");
+                    console.log(cell.eq(active).siblings());
+                    cell.eq(active).css("display","block");
+                    console.log(cell.eq(active).children());
+                    moveImg(cell.eq(active).children());
+                }
+            }
+        }
     </script>
 </body>
 </html>

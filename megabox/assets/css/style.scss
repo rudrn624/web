@@ -1,6 +1,6 @@
 #header{
     
-    position: fixed;
+    position: absolute;
     top:0;
     z-index: 100;
     width:100%;
@@ -205,6 +205,8 @@ li.on .liNav{
         width: 1200px;
         margin : 0 auto;
         .contTitle{
+            margin-bottom:20px; 
+            padding-top: 100px;
             position: relative;
             text-align: center;
             .boxoffice{
@@ -293,6 +295,14 @@ li.on .liNav{
                             border-radius: 5px;
                             padding:8px 10px;
                             box-sizing: border-box;
+                            .heart{
+                                vertical-align: -2px;
+                                margin-right: 5px;
+                                display: inline-block;
+                                width:17px;
+                                height:15px;
+                                background-image: url(../img/ico-heart-toggle-main.png);
+                            }
                         }
                         .reservation{
                             flex-basis:67%;
@@ -311,14 +321,19 @@ li.on .liNav{
             display: flex;
             justify-content: center;
             background:rgba(0,0,0,0.3);
+            margin-top:50px;
             .cell{
                 flex-basis: 25%;
-                text-align: center;
+                justify-content: center;
+                //text-align: center;
                 padding:20px 0;
                 position: relative;
+                display: flex;
+                align-items: center;
                 .Search{
                     position: relative;
                     display: inline-block;
+                    padding-right: 30px;
                     border-bottom: 1px solid rgba(255,255,255,0.3);;
                     
                     input{
@@ -332,7 +347,7 @@ li.on .liNav{
                     a{
                         position: absolute;
                         right:0; top:0;
-                        font-size: 20px;
+                        font-size: 18px;
                         i{
                             color:rgba(255,255,255,0.7);
                         }
@@ -350,16 +365,149 @@ li.on .liNav{
                 &:last-child:before{
                     width:0;
                 }
+                a{
+                    display: flex;
+                    align-items: center;
+                    color:#fff;
+                    .ico{
+                        display: inline-block;
+
+                        margin-top: -2px;
+                        margin-right: 5px;
+                    }
+                    .ico.ico-schedule{
+                        width:24px;
+                        height:26px;
+                        background-image: url(../img/ico-schedule-main.png);
+                    }
+                    .ico.ico-boxoffice{
+                        width:26px;
+                        height:24px;
+                        background-image: url(../img/ico-boxoffice-main.png);
+                    }
+                    .ico.ico-quick{
+                        width:29px;
+                        height:25px;
+                        background-image: url(../img/ico-quick-reserve-main.png);
+                    }
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
             }
             
+        }
+        .mousemove{
+            position: relative;
+            margin-top: 30px;
+            img{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width:16px;
+                height:24px;
+            }
         }
     }
 }
 
 #main_section2{
     position: relative;
-    height: 1500px;
+    height: 1148px;
+    padding-bottom: 100px;
+    box-sizing: border-box;
     z-index: 7;
     background:#fff;
+    &::before{
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 513px;
+        bottom: 0;
+        background-color: #503396;
+    }
+    .wrap{
+        width:1200px;
+        margin: 0 auto;
+        .titwrap{
+            padding-top:50px;
+            position: relative;
+            display: flex;
+            justify-content: space-between;
+            h2{
+                font-size: 2em;
+                color: #351f66 !important;
+            }
+            a{
+                i{
+                    font-size: 20px;
+                    color: #351f66 !important;
+                }
+            }
+        }
+    }
+}
 
+.Cslide{
+    position: relative;
+    .cell{
+        overflow: hidden;
+        height:325px;
+        display:none;
+        .contImg1{
+            display: inline-block; 
+            width:300px;
+            height:230px;
+            img{
+                position: relative;
+                //display: none;
+                left: 0; top:-100px;
+                
+                opacity: 0;
+            }
+        }
+        .contImg2{
+            display: inline-block; 
+            img{
+                //display: none !important;
+                position: relative;
+                width:100%;
+                left:150px; top:0;
+                opacity: 0;
+                display: inline-block;
+                width:auto;
+            }
+        }
+    }
+}
+.slideControl{
+    position: absolute;
+    bottom: 42px;
+    display: flex;
+    .slidebar{
+        width:190px;
+        height:2px;
+        margin-top:10px;
+        display:flex;
+        li{
+            flex-basis: 25%;
+            border-bottom: 2px solid #ccc;
+        }
+        li.active{
+            border-bottom: 2px solid #503396;
+        }
+    }
+    .control{
+        padding:0 10px 0 15px;
+        font-size:15px;
+        
+        i{
+            color: #503396;
+        }
+    }
+    .page{
+        font-size: 15px;
+    }
 }
