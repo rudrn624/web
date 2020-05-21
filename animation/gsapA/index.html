@@ -15,14 +15,14 @@
     <link href="../../assets/css/prism.css" rel="stylesheet">
 
     <!-- 파비콘 -->
-    <link rel="shortcut icon" href="../assets/ico/favicon.ico">
+    <!-- <link rel="shortcut icon" href="../assets/ico/favicon.ico">
     <link rel="apple-touch-icon-precomposed" href="../assets/ico/favicon_114.png">
     <link rel="icon" href="../../assets/ico/icon.png">
     <link rel="icon" href="../../assets/ico/favicon_57.png" sizes="16x16">
     <link rel="icon" href="../../assets/ico/favicon_72.png" sizes="32x32">
     <link rel="icon" href="../../assets/ico/favicon_114.png" sizes="48x48">
     <link rel="icon" href="../../assets/ico/favicon_114.png" sizes="64x64">
-    <link rel="icon" href="../../assets/ico/favicon_114.png" sizes="128x128">
+    <link rel="icon" href="../../assets/ico/favicon_114.png" sizes="128x128"> -->
 
     <!-- Facebook meta tags -->
     <meta property="og:type" content="article" />
@@ -92,42 +92,107 @@
             <div class="col-md-9" role="main">
                 <!-- Intro1 -->
                 <div class="bs-docs-section">
-					<h2 id="intro1" class="page-header">Bar Animation</h2>
-					
+					<h2 id="intro1" class="page-header">GSAP</h2>
+					<p>웹 브라우저에서 애니메이션을 구현하기 위한 자바스크립트 라이브러리입니다.
+                        기존 CSS Animation이나 jQuery Animation보다 탁월한 퍼포먼스를 발휘할 수 있도록
+                        최적화된 애니메이션 전용 라이브러리입니다.
+                    </p>
 				</div>
 				<!-- //Intro1 -->
-                
+                <style>
+                    .circle{
+                        position: relative;
+                        width: 60px; height: 60px; border-radius: 50%;
+                        text-align: center; line-height: 60px;
+                        font-size: 12px; color:#fff;
+                        margin-bottom: 15px;
+                        background-image: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
+                    }
+                </style>
                 <!-- Intro2 -->
                 <div class="bs-docs-section">
-					<h2 id="intro2" class="page-header">Circle  Animation</h2>
-                   
+					<h2 id="intro2" class="page-header">이동하기</h2>
+					<h4>animation<span class="btn btn1">start</span></h4>
+                    <div class="well">
+                        <div class="box1">
+                            <div class="circle circle1">box</div>
+                            <div class="circle circle2">box</div>
+                            <div class="circle circle3">box</div>
+                            <div class="circle circle4">box</div>
+                            <div class="circle circle5">box</div>
+                            <div class="circle circle6">box</div>
+                            <div class="circle circle7">box</div>
+                            <div class="circle circle8">box</div>
+                            <div class="circle circle9">box</div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro2 -->
                 
                 <!-- Intro3 -->
                 <div class="bs-docs-section">
-					<h2 id="intro3" class="page-header">Wave Animation</h2>
-                   
+					<h2 id="intro3" class="page-header">이동하기(from)</h2>
+                    <h4>animation<span class="btn btn2">start</span></h4>
+                    <div class="well">
+                        <div class="box2">
+                            <div class="circle circle1">box</div>
+                            <div class="circle circle2">box</div>
+                            <div class="circle circle3">box</div>
+                            <div class="circle circle4">box</div>
+                            <div class="circle circle5">box</div>
+                            <div class="circle circle6">box</div>
+                            <div class="circle circle7">box</div>
+                            <div class="circle circle8">box</div>
+                            <div class="circle circle9">box</div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro3 -->
                 
                 <!-- Intro4 -->
                 <div class="bs-docs-section">
-					<h2 id="intro4" class="page-header">Square Animation</h2>
-					
+					<h2 id="intro4" class="page-header">이동하기(easing)</h2>
+					<h4>animation<span class="btn btn3">start</span></h4>
+                    <div class="well">
+                        <div class="box3">
+                            <div class="circle circle1">box</div>
+                            <div class="circle circle2">box</div>
+                            <div class="circle circle3">box</div>
+                            <div class="circle circle4">box</div>
+                            <div class="circle circle5">box</div>
+                            <div class="circle circle6">box</div>
+                            <div class="circle circle7">box</div>
+                            <div class="circle circle8">box</div>
+                            <div class="circle circle9">box</div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro4 -->
                 
                 <!-- Intro5 -->
                 <div class="bs-docs-section">
-					<h2 id="intro5" class="page-header">Cube Animation</h2>
-					
+					<h2 id="intro5" class="page-header">반복하기</h2>
+					<h4>animation<span class="btn btn4">start</span></h4>
+                    <div class="well">
+                        <div class="box4">
+                            <div class="circle circle1">box</div>
+                            <div class="circle circle2">box</div>
+                            <div class="circle circle3">box</div>
+                            <div class="circle circle4">box</div>
+                            <div class="circle circle5">box</div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro5 -->
                 <!-- Intro6 -->
                 <div class="bs-docs-section">
-					<h2 id="intro6" class="page-header">Minion Animation</h2>
-					
+					<h2 id="intro6" class="page-header">Timeline</h2>
+					<h4>animation<span class="btn btn5">start</span></h4>
+                    <div class="well">
+                        <div class="box5">
+                            <div class="circle circle1">box</div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro6 -->
                 <!-- Intro7 -->
@@ -206,6 +271,62 @@
     <script src="../../assets/js/bootstrap.min.js"></script>
     <script src="../../assets/js/docs.min.js"></script>
     <script src="../../assets/js/prism.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.2/TweenMax.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
+    <script>
+        $(".btn1").click(function(){
+            //$(".box1 > div").animate({left:"90%"},1000);
+            gsap.to(".box1 > .circle1", 1, {left:"90%"});
+            gsap.to(".box1 > .circle2", 1, {left:"90%",borderRadius:"0"});
+            gsap.to(".box1 > .circle3", 1, {left:"90%",rotationY:"300deg"});
+            gsap.to(".box1 > .circle4", 1, {left:"90%",rotationX:"700deg"});
+            gsap.to(".box1 > .circle5", 1, {left:"90%",backgroundImage :"linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%)"});
+            gsap.to(".box1 > .circle6", 1, {left:"90%",scale :"3",rotationY:"360deg"});
+            gsap.to(".box1 > .circle7", 1, {left:"90%",scale :"3",rotation:"1800deg"});
+            gsap.to(".box1 > .circle8", 1, {left:"90%",scale :"0.5"});
+            gsap.to(".box1 > .circle9", 1, {left:"90%",skewY : "30deg"});
+        });
+        $(".btn2").click(function(){
+            //$(".box1 > div").animate({left:"90%"},1000);
+            gsap.from(".box2 > .circle1", 1, {left:"90%"});
+            gsap.from(".box2 > .circle2", 1, {left:"90%",borderRadius:"0"});
+            gsap.from(".box2 > .circle3", 1, {left:"90%",rotationY:"300deg"});
+            gsap.from(".box2 > .circle4", 1, {left:"90%",rotationX:"700deg"});
+            gsap.from(".box2 > .circle5", 1, {left:"90%",backgroundImage :"linear-gradient(120deg, #a18cd1 0%, #fbc2eb 100%)"});
+            gsap.from(".box2 > .circle6", 1, {left:"90%",scale :"3",rotationY:"360deg"});
+            gsap.from(".box2 > .circle7", 1, {left:"90%",scale :"3",rotation:"1800deg"});
+            gsap.from(".box2 > .circle8", 1, {left:"90%",scale :"0.5"});
+            gsap.from(".box2 > .circle9", 1, {left:"90%",skewY : "30deg"});
+        });
+        $(".btn3").click(function(){
+            //$(".box1 > div").animate({left:"90%"},1000);
+            gsap.to(".box3 > .circle1", {duration:2,left:"90%",rotationY:"300deg",ease: "power1.out"});
+            gsap.to(".box3 > .circle2", {duration:2,left:"90%",rotationY:"310deg",ease: "power2.out"});
+            gsap.to(".box3 > .circle3", {duration:2,left:"90%",rotationY:"320deg",ease: "power3.out"});
+            gsap.to(".box3 > .circle4", {duration:2,left:"90%",rotationY:"330deg",ease: "power4.out"});
+            gsap.to(".box3 > .circle5", {duration:2,left:"90%",rotationY:"340deg",ease: "back.out(1.7)"});
+            gsap.to(".box3 > .circle6", {duration:2,left:"90%",rotationY:"350deg",ease: "elastic.out(1,0.3)"});
+            gsap.to(".box3 > .circle7", {duration:2,left:"90%",rotationY:"360deg",ease: "bounce.out"});
+            gsap.to(".box3 > .circle8", {duration:2,left:"90%",rotationY:"370deg",ease: "slow(0.7,0.7,false)"});
+            gsap.to(".box3 > .circle9", {duration:2,left:"90%",rotationY:"380deg",ease: "steps(12)"});
+        });
+        $(".btn4").click(function(){
+            //$(".box1 > div").animate({left:"90%"},1000);
+            gsap.to(".box4 .circle1",{duration : 1, yoyo:true, repeat: 1, left:"90%", rotation:"720deg", ease:"power4.out"});
+            gsap.to(".box4 .circle2",{duration : 1, yoyo:true, repeat: 2, left:"90%", rotation:"720deg", ease:"power4.out"});
+            gsap.to(".box4 .circle3",{duration : 1, yoyo:true, repeat: 3, left:"90%", rotation:"720deg", ease:"power4.out"});
+            gsap.to(".box4 .circle4",{duration : 1, yoyo:true, repeat: 4, left:"90%", rotation:"720deg", ease:"power4.out"});
+            gsap.to(".box4 .circle5",{duration : 1, yoyo:true, repeat: -1, left:"90%", rotation:"720deg", ease:"power4.out"});
+        });
+        $(".box5").css("height","400px");
+        $(".btn5").click(function(){
+            let tl = new TimelineMax({repeat:3, repeatDelay:1});
+            tl.to(".box5 .circle1", {duration:1, left: "90%",scale:"1",ease:"power2.out"})
+            .to(".box5 .circle1",{duration:1, top:"80%",scale:"0.5",ease:"power2.out"})
+            .to(".box5 .circle1",{duration:1, left:"0",scale:"2.5",ease:"power2.out"})
+            .to(".box5 .circle1",{duration:1, top:"0",scale:"1",ease:"power2.out"})
+        });
+    </script>
 </body>
 
 </html>

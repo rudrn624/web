@@ -233,7 +233,7 @@
                 
                 <!-- Intro4 -->
                 <div class="bs-docs-section">
-					<h2 id="intro4" class="page-header">Square Animation</h2>
+					<h2 id="intro4" class="page-header">ease</h2>
 					<h4 class="btn2">animation
                         <button>easeInCubic</button>
                         <button>easeInOutQuart</button>
@@ -252,40 +252,103 @@
                 
                 <!-- Intro5 -->
                 <div class="bs-docs-section">
-					<h2 id="intro5" class="page-header">Cube Animation</h2>
-					
+					<h2 id="intro5" class="page-header">delay</h2>
+					<h4 class="btn3">animation
+                        <button>delay</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle3">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro5 -->
                 <!-- Intro6 -->
                 <div class="bs-docs-section">
-					<h2 id="intro6" class="page-header">Minion Animation</h2>
-					
+					<h2 id="intro6" class="page-header">width</h2>
+					<h4 class="btn4">animation
+                        <button>start</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle4">
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro6 -->
                 <!-- Intro7 -->
                 <div class="bs-docs-section">
-					<h2 id="intro7" class="page-header">Tentacle Animation</h2>
-				
+					<h2 id="intro7" class="page-header">click</h2>
+                    <h4 class="btn5">animation
+                        <button class="btn5-1">right</button>
+                        <button class="btn5-2">left</button>
+                        <button class="btn5-3">top</button>
+                        <button class="btn5-4">bottom</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle5">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro7 -->
                 <!-- Intro8 -->
                 <div class="bs-docs-section">
-					<h2 id="intro8" class="page-header">sample</h2>
-					
+					<h2 id="intro8" class="page-header">무한 반복</h2>
+					<h4 class="btn6">animation
+                        <button >start</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle6">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro8 -->
                 <!-- Intro9 -->
                 <div class="bs-docs-section">
 					<h2 id="intro9" class="page-header">sample</h2>
-					
+					<h4 class="btn7">animation
+                        <button >start</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle7">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro9 -->
                 <!-- Intro10 -->
                 <div class="bs-docs-section">
-					<h2 id="intro10" class="page-header">sample</h2>
-					
+					<h2 id="intro10" class="page-header">사라지는 애니메이션</h2>
+					<h4 class="btn8">animation
+                        <button >start</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle8">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
 				</div>
 				<!-- //Intro10 -->
+                <!-- Intro11 -->
+                <div class="bs-docs-section">
+					<h2 id="intro11" class="page-header">창작</h2>
+					<h4 class="btn9">animation
+                        <button >start</button>
+                    </h4>
+                    <div class="well">
+                        <div class="box circle9">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+				</div>
+				<!-- //Intro11 -->
 
                 
             </div>
@@ -342,13 +405,23 @@
     <script>
         //버튼을 클릭하면 원의 백그라운드 색을 빨간색으로 변경
         let cwidth = $(".circle1").width();
-        let boxWidth = $(".box").width();
-        let Bleft = boxWidth - cwidth;
+        let boxWidth= $(".box").width();
+        let Bleft= boxWidth - cwidth;
 
         let cheight = $(".circle1").height();
         let boxheight = $(".box").height();
-        let Btop = boxheight - cheight;
+        let Btop= boxheight - cheight;
         
+        $(window).resize(function(){
+            cwidth = $(".circle1").width();
+            boxWidth = $(".box").width();
+            Bleft = boxWidth - cwidth;
+
+            cheight = $(".circle1").height();
+            boxheight = $(".box").height();
+            Btop = boxheight - cheight;
+        });
+
         $(".btn1").click(function(){
             $(".circle1")
             .animate({"left": Bleft},1000)
@@ -356,7 +429,6 @@
             .animate({"left":"0"},1000)
             .animate({"top":"0"},1000);
         });
-        //두번째 버튼을 클릭했을때 클릭한 글씨를 출력해주세요~
         $(".btn2 > button").click(function(){
             let text = $(this).text();
             $(".circle2")
@@ -365,6 +437,95 @@
             .animate({"left":"0"},1000,text)
             .animate({"top":"0"},1000,text);
         });
+
+        $(".circle3 > div").css({"position":"relative","margin-bottom":"30px"});
+
+        console.log($(".circle3 > div"));
+
+        let ease = "easeOutElastic"
+
+        $(".btn3 > button").click(function(){
+            //let text = $(this).text();
+            $(".circle3 > div").eq(0).delay(100).animate({left:Bleft},1000,ease).animate({left:"0"},1000);
+            $(".circle3 > div").eq(1).delay(200).animate({left:Bleft},1000,ease).animate({left:"0"},1000);
+            $(".circle3 > div").eq(2).delay(300).animate({left:Bleft},1000,ease).animate({left:"0"},1000);
+            $(".circle3 > div").eq(3).delay(400).animate({left:Bleft},1000,ease).animate({left:"0"},1000);
+        });
+
+        $(".box.circle4").css("height","220px");
+
+        $(".circle4 > div").css({"position":"relative","margin-bottom":"30px"});
+
+        $(".btn4 > button").click(function(){
+            //let text = $(this).text();
+            $(".circle4 > div:eq(0)")
+            .animate({left:Bleft,width:"150px", height:"300px"},1000)
+            .animate({left:"0",width:"50px",height:"50px"},1000);
+            $(".circle4 > div:eq(1)")
+            .animate({left:Bleft},1000,"easeOutCirc")
+            .slideUp()
+            .slideDown()
+            .animate({left:"0"},1000,"easeOutCirc");
+            $(".circle4 > div:eq(2)")
+            .animate({left:"50%",borderRadius:"0%"},1000,"easeOutQuint")
+            .animate({height:300, opacity:0.5},"slow", "easeOutQuint")
+            .animate({width:300, opacity:1, borderRadius:"30%"},"normal","easeOutQuint")
+            .animate({width:50, height:50,borderRadius:"50%"},1000,"easeOutQuint")
+            .animate({left:0},1000,"easeOutQuint");
+        });
+        $(".btn5-1").click(function(){
+            $(".circle5 > div").animate({left:"+=100"},"slow","easeOutQuint");
+        });
+        $(".btn5-2").click(function(){
+            $(".circle5 > div").animate({left:"-=100"},"slow","easeOutQuint");
+        });
+        $(".btn5-3").click(function(){
+            $(".circle5 > div").animate({top:"-=100"},"slow","easeOutQuint");
+        });
+        $(".btn5-4").click(function(){
+            $(".circle5 > div").animate({top:"+=100"},"slow","easeOutQuint");
+        });
+
+        $(".btn6 > button").click(function(){
+            loop();
+        });
+
+        function loop(){
+            $(".circle6 > div")
+            .animate({left:Bleft},1000,"easeOutQuint")
+            .animate({left:0},1000,"easeOutQuint",loop);
+        }
+        $(".btn7").click(function(){
+            setInterval(time,5000);
+        });
+        function time(){
+            $(".circle7 > div")
+            .animate({left:Bleft},1000,"easeOutQuint")
+            .animate({left:0},1000,"easeOutQuint");
+        }
+        $(".btn8").click(function(){
+            $(".circle8 > div")
+            .animate({left:Bleft},1000,"easeOutQuint")
+            .animate({left:0},1000,"easeOutQuint");
+
+            setTimeout(out,2000);
+        });
+        function out(){
+            $(".circle8 > div").hide();
+        }
+        //속성. 애니메이션, --> 무한 움직이게 -->10분뒤에 사라지게
+        $(".btn9").click(function(){
+            infinete();
+            setTimeout(circleout,10000);
+        });
+        function infinete(){
+            $(".circle9 > div")
+            .animate({top:Btop},1000,"easeOutQuint")
+            .animate({top:0},1000,"easeOutQuint",infinete);
+        }
+        function circleout(){
+            $(".circle9 > div").hide();
+        }
     </script>
 </body>
 

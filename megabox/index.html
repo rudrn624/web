@@ -100,10 +100,105 @@
         <div class="contwrap">
             <div class="contTitle">
                 <a class="boxoffice" href="#">박스오피스</a>
-                <a class="moremovie" href="#">더 많은 영화보기</a>
+                <a class="moremovie" href="#">더 많은 영화보기 <i class="fas fa-plus"></i></a>
             </div>
-            <div class="movieCont"></div>
-            <div class="movieSearch"></div>
+            <div class="movieCont">
+                <ul class="movieListWrap">
+                    <li class="movieList">
+                        <div class="poster">
+                            <img class="posterImg" src="assets/img/poster1.jpg" alt="위대한쇼맨">
+                            <div class="movieDescWrap">
+                                <div class="movieDesc">
+                                    불가능한 꿈, 그 이상의 쇼!<br>
+                                    쇼 비즈니스의 창시자이자, 꿈의 무대로 전세계를 매료시킨 남자 ‘바넘’의 이야기에서 영감을 받아 탄생한 오리지널 뮤지컬 영화 <위대한 쇼맨>. <레미제라블> 이후 다시 뮤지컬 영화로 돌아온 휴 잭맨부터 잭 에프론, 미셸 윌리엄스, 레베카 퍼거슨, 젠다야까지 할리우드 최고의 배우들이 합류해 환상적인 앙상블을 선보인다. 여기에 <미녀와 야수> 제작진과 <라라랜드> 작사팀의 합류로 더욱 풍성해진 비주얼과 스토리, 음악까지 선보일 <위대한 쇼맨>은 ‘우리는 누구나 특별하다’는 메시지로 관객들에게 재미는 물론, 감동까지 선사할 것이다.
+                                </div>
+                                <div class="score">
+                                    <span>관람평</span>
+                                    <span class="num">9.2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movieBtnWrap">
+                            <a class="like" href="#">1.3k</a>
+                            <a class="reservation" href="#">예매</a>
+                        </div>
+                        
+                    </li>
+                    <li class="movieList">
+                        <div class="poster">
+                            <img class="posterImg" src="assets/img/poster2.jpg" alt="카페 벨에포크">
+                            
+                            <div class="movieDescWrap">
+                                <div class="movieDesc">
+                                    1분 1초 설레며, 24시간 사랑했던<br>
+                                    내 인생 가장 찬란했던 순간으로 돌아갈 수 있다면?<br>
+                                    행복했던 그때 그 모든 것이 그리워진 ‘빅토르’는<br>
+                                </div>
+                                <div class="score">
+                                    <span>관람평</span>
+                                    <span class="num">9.2</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movieBtnWrap">
+                            <a class="like" href="#">240</a>
+                            <a class="reservation" href="#">예매</a>
+                        </div>
+                    </li>
+                    <li class="movieList">
+                        <div class="poster">
+                            <img class="posterImg" src="assets/img/poster3.jpg" alt="패왕별희">
+                            <div class="movieDescWrap">
+                                <div class="movieDesc">
+                                    어렸을 때부터 함께 경극을 해온 ‘두지’(장국영)와 ‘시투’(장풍의). <br>
+                                    세상에 둘도 없는 절친한 아우와 형이지만, <br>
+                                    ‘두지’는 남몰래 ‘시투’에 대한 마음을 품고 있다.<br>
+                                </div>
+                                <div class="score">
+                                    <span>관람평</span>
+                                    <span class="num">9.5</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movieBtnWrap">
+                            <a class="like" href="#">922</a>
+                            <a class="reservation" href="#">예매</a>
+                        </div>
+                    </li>
+                    <li class="movieList">
+                        <div class="poster">
+                            <img class="posterImg" src="assets/img/poster4.jpg" alt="프리즌이스케이프">
+                            <div class="movieDescWrap">
+                                <div class="movieDesc">
+                                    404일의 감금, 나가야 할 문은 15개!<br>
+                                    성공률 0%의 탈옥이 시작된다!<br>
+                                    인권운동가 ‘팀’과 ‘스티븐’은 억울한 판결로 투옥된다.<br>
+                                    둘은 불의에 굴복하지 않고 탈출을 결심한다. <br>
+                                </div>
+                                <div class="score">
+                                    <span>관람평</span>
+                                    <span class="num">8.3</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="movieBtnWrap">
+                            <a class="like" href="#">167</a>
+                            <a class="reservation" href="#">예매</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <div class="movieSearch">
+                <div class="cell">
+                    <div class="Search">
+                        <input class="searchInput" type="text" placeholder ="영화명을 입력해 주세요">
+                        <a href="#"><i class="fas fa-search"></i></a>
+                    </div>
+                </div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+                <div class="cell"></div>
+            </div>
             <div class="mousemove"></div>
         </div>
     </div>
@@ -118,7 +213,7 @@
             target.addClass("on").siblings().removeClass();
             
         });
-        $(".liNav").hover(function(){
+        $(".mainNav").hover(function(){
              
         },function(){
             $(".mainNav li").removeClass("on");

@@ -204,6 +204,155 @@ li.on .liNav{
         position: relative;
         width: 1200px;
         margin : 0 auto;
+        .contTitle{
+            position: relative;
+            text-align: center;
+            .boxoffice{
+                display: inline-block;
+                padding:5px 0;
+                color:#fff;
+                font-size: 15px;
+                border-bottom : 2px solid #aaa;
+            }
+            .moremovie{
+                font-size: 15px;
+                color:#aaa;
+                position: absolute;
+                right:0; 
+                &:hover{
+                    text-decoration: underline;
+                }
+            }
+        }
+        .movieCont{
+            .movieListWrap{
+                display:flex;
+                justify-content: space-between;
+                .movieList{
+                    .poster{
+                        overflow: hidden;
+                        position: relative;
+                        display: block;
+                        border-radius: 5px;
+                        width: 245px;
+                        height: 352px;
+                        .movieDescWrap{
+                            position:absolute;
+                            left: 0; top: 0;
+                            bottom: 0; right: 0;
+                            
+                            padding:20px;
+                            background:rgba(0,0,0,0.85);
+                            
+                            // z-index:100;
+                            opacity: 0;
+                            transition: opacity 0.3s;
+                            .movieDesc{
+                                font-size: 15px;
+                                height:152px;
+                                color:#fff;
+                                overflow: hidden;
+                                
+                            }
+                            .score{
+                                display: flex;
+                                justify-content: center;
+                                align-items: center;
+                                position: absolute;
+                                
+                                bottom:20px;
+                                left:20px; right: 20px;
+                                color:#fff;
+                                padding:20px 0;
+                                border-top:1px solid #ccc;
+                                span{
+                                    display: inline-block;
+                                    padding:0 5px;
+                                }
+                                .num{
+                                    font-size: 1.6em;
+                                    color: #59bec9;
+                                }
+                            }
+                        }
+                        &:hover .movieDescWrap{
+                            opacity: 1;
+                        }
+                    }
+                   
+                    .movieBtnWrap{
+                        margin-top: 8px;
+                        display: flex;
+                        justify-content: space-between;
+                        text-align: center;
+                        .like{
+                            flex-basis:30%;
+                            color:#fff;
+                            display: inline-block;
+                            border: 1px solid rgba(255,255,255,0.3);
+                            border-radius: 5px;
+                            padding:8px 10px;
+                            box-sizing: border-box;
+                        }
+                        .reservation{
+                            flex-basis:67%;
+                            color:#fff;
+                            border-radius: 5px;
+                            background:rgb(3, 123, 148);
+                            padding:8px 10px;
+                            display: inline-block;
+                            box-sizing: border-box;
+                        }
+                    }
+                }
+            }
+        }
+        .movieSearch{
+            display: flex;
+            justify-content: center;
+            background:rgba(0,0,0,0.3);
+            .cell{
+                flex-basis: 25%;
+                text-align: center;
+                padding:20px 0;
+                position: relative;
+                .Search{
+                    position: relative;
+                    display: inline-block;
+                    border-bottom: 1px solid rgba(255,255,255,0.3);;
+                    
+                    input{
+                        background:none;
+                        border: none;
+                        outline: none;
+                        color:#fff;
+                        font-size: 15px;
+                        height:30px;
+                    }
+                    a{
+                        position: absolute;
+                        right:0; top:0;
+                        font-size: 20px;
+                        i{
+                            color:rgba(255,255,255,0.7);
+                        }
+                    }
+                }
+                &:before{
+                    content:'';
+                    position: absolute;
+                    height:30px;
+                    width:1px;
+                    right:0;
+                    top:20px;
+                    background:rgba(255,255,255,0.3);
+                }
+                &:last-child:before{
+                    width:0;
+                }
+            }
+            
+        }
     }
 }
 
