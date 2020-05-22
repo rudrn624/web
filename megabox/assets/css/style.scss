@@ -153,7 +153,7 @@ li.on .liNav{
     }
     .backgroundGrad.bottom{
         position: absolute;
-        z-index: 100;
+        z-index: 1;
         bottom :0;
         width:100%;
         height:194px;
@@ -238,6 +238,21 @@ li.on .liNav{
                         border-radius: 5px;
                         width: 245px;
                         height: 352px;
+                        .rank{
+                            width:100%;
+                            height:150px;
+                            position: absolute;
+                            left: 0;
+                            top:0;
+                            line-height: 1.1;
+                            padding: 10px 0 0 15px;
+                            font-size: 30px;
+                            font-style: italic;
+                            font-weight: 300;
+                            color: #fff;
+                            background:url(../img/bg-main-movie-rank.png) no-repeat 0 0;
+                            text-shadow: 2px 2px 2px rgba(0,0,0,0.8);
+                        }
                         .movieDescWrap{
                             position:absolute;
                             left: 0; top: 0;
@@ -690,6 +705,13 @@ li.on .liNav{
     img{
         width:100%;
     }
+    .ad{
+        opacity: .6;
+        width:35px;
+        height:20px;
+        position: absolute;
+        bottom: 0; right: 0;
+    }
 }
 
 #main_section3{
@@ -832,6 +854,7 @@ li.on .liNav{
     }
 }
 #main_section4{
+    padding-bottom: 50px;
     .wrap{
         width:1100px;
         margin: 0 auto;
@@ -930,6 +953,7 @@ li.on .liNav{
             height: 100%;
             line-height: 60px;
             a{
+                color:#222;
                 font-size: 15px;
             }
             strong{
@@ -965,6 +989,202 @@ li.on .liNav{
         display: block;
         width: 1100px;
         margin: 0 auto;
-        padding: 50px 0;
+        padding: 60px 0 40px 0;
+        ul{
+            display: flex;
+            justify-content: center;
+
+            li{
+                text-align: center;
+                flex-basis: 16.66%;
+               
+                a{
+                   display: inline-block;
+                    color:#222;
+                    span{
+                        display: block;
+                        padding-top: 10px;
+                        font-size: 15px;
+                    }
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+                i{
+                    display: block;
+                    margin: 0 auto;
+                }
+                .infoico-customer{
+                    
+                    width: 46px;
+                    height: 46px;
+                    background: url(../img/ico-main-customer.png);
+                }
+                .infoico-faq{
+                    width: 50px;
+                    height: 46px;
+                    background: url(../img/ico-main-faq.png);
+                }
+                .infoico-qna{
+                    width: 43px;
+                    height: 43px;
+                    background: url(../img/ico-main-qna.png);
+                }
+                .infoico-group{
+                    
+                    width: 50px;
+                    height: 38px;
+                    background: url(../img/ico-main-group.png);
+                }
+                .infoico-lost{
+                    width: 51px;
+                    height: 39px;
+                    background: url(../img/ico-main-lost.png);
+                }
+                .infoico-boutique{
+                    width: 48px;
+                    height: 40px;
+                    background: url(../img/ico-main-boutique.png);
+                }
+            }
+        }
+    }
+}
+
+#ad{
+    background:#4f79a9;
+    .wrap{
+        width:1100px;
+        margin: 0 auto;
+        a{
+            position: relative;
+            display: inline-block;
+            .ad{
+                opacity: .6;
+                width:35px;
+                height:20px;
+                position: absolute;
+                bottom: 0; right: 0;
+            }
+        }
+    }
+}
+
+#footer{
+    height:200px;
+    background:#f8f8fa;
+    .footerTop{
+        margin:0 auto;
+        width:1100px;
+        padding:30px 0;
+        display: flex;
+        justify-content: space-between;
+        ul{
+            height:30px;
+            display: flex;
+            li{
+                margin-right: 15px;
+                a{
+                    color :#666;
+                    height: 100%;
+                    line-height: 30px;
+                    display: inline-block;
+                    &:hover{
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+        .theater{
+            color:#666;
+            display: inline-block;
+            padding:5px 20px;
+            border: 1px solid #d8d9db;
+            border-radius: 30px;
+            text-decoration: none;
+        }
+    }
+    .footerBottom{
+        display: flex;
+        width:1100px;
+        margin: 0 auto;
+        position: relative;
+        img{
+            width:150px;
+            height:50px;
+            margin-right: 20px;
+        }
+        .footerinfo{
+            display: inline-block;
+            div{
+                address{
+                    font-style: normal;
+                    color:#444;
+                    display: inline-block;
+                }
+            }
+            p{
+                color:#444;
+                display: inline-block;
+            }
+        }
+        .footerSns{
+            position: absolute;
+            right: 0; top:0;
+            a{
+                display: inline-block;
+                width:32px; height:30px;
+            }
+            i{
+                display: inline-block; 
+                width: 100%;height:100%;
+            }
+            .twitter{
+                background:url(../img/ico-twitter.png);
+            }
+            .facebook{
+                background:url(../img/ico-facebook.png);
+            }
+            .instagram{
+                background:url(../img/ico-instagram.png);
+            }
+            .googleplay{
+                background:url(../img/ico-googleplay.png);
+            }
+            .appstore{
+                background:url(../img/ico-appstore.png);
+            }
+        }
+    }
+}
+
+// .swiper-pagination{
+//     z-index: 100;
+// }
+.swiper-pagination-bullet{
+    background: rgba(0, 0, 0, 0.2) !important;
+    margin: 3px !important;
+}
+.swiper-pagination-bullet.swiper-pagination-bullet-active{
+    background: rgba(0, 0, 0, 0.8) !important;
+    width: 8px;
+    height: 8px;
+    border: none;
+    margin: 3px !important;
+}
+.swiper-pagination-bullets{
+    left:500px !important;
+}
+.controler{
+    position: absolute;
+    left:calc(50% + 535px);
+    bottom:63px;
+    z-index: 10;
+    i{
+        font-size: 9px;
+        color:#ccc;
+    }
+    a.active i{
+        color : #fff;
     }
 }

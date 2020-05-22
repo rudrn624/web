@@ -81,16 +81,21 @@
                 <div class="swiper-slide"></div>
             </div>
             <!-- If we need pagination -->
-            <div class="swiper-pagination"></div>
-        
+            <div class="swiper-pagination">
+                
+            </div>
+            <div class="controler">
+                <a class="active" href="#"><i class="fas fa-play"></i></a>
+                <a href="#"><i class="fas fa-stop"></i></a>
+            </div>
             <!-- If we need navigation buttons -->
             <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div>
-        
-            <!-- If we need scrollbar -->
-            <div class="swiper-scrollbar"></div>
-        </div>
+    
+            
         <div class="backgroundGrad bottom"></div>
+        
+        </div>
     </div>
     <div id="main_section1">
         <div class="bg">
@@ -106,6 +111,7 @@
                 <ul class="movieListWrap">
                     <li class="movieList">
                         <div class="poster">
+                            <p class="rank">1</p>
                             <img class="posterImg" src="assets/img/poster1.jpg" alt="위대한쇼맨">
                             <div class="movieDescWrap">
                                 <div class="movieDesc">
@@ -126,6 +132,7 @@
                     </li>
                     <li class="movieList">
                         <div class="poster">
+                            <p class="rank">2</p>
                             <img class="posterImg" src="assets/img/poster2.jpg" alt="카페 벨에포크">
                             
                             <div class="movieDescWrap">
@@ -147,6 +154,7 @@
                     </li>
                     <li class="movieList">
                         <div class="poster">
+                            <p class="rank">3</p>
                             <img class="posterImg" src="assets/img/poster3.jpg" alt="패왕별희">
                             <div class="movieDescWrap">
                                 <div class="movieDesc">
@@ -167,6 +175,7 @@
                     </li>
                     <li class="movieList">
                         <div class="poster">
+                            <p class="rank">4</p>
                             <img class="posterImg" src="assets/img/poster4.jpg" alt="프리즌이스케이프">
                             <div class="movieDescWrap">
                                 <div class="movieDesc">
@@ -265,6 +274,7 @@
                 </div>
                 <div class="adBox3">
                     <img src="assets/img/adImg3.jpg" alt="ad3">
+                    <img class="ad" src="assets/img/AD3520.png" alt="ad">
                 </div>
             </div>
             <ul class="menulink">
@@ -401,8 +411,92 @@
             </div>
         </div>
         <div class="info_link">
-            
+            <ul>
+                <li>
+                    <a href="#">
+                        <i class="infoico-customer"></i>
+                        <span>고객센터</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="infoico-faq"></i>
+                        <span>자주 묻는 질문</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="infoico-qna"></i>
+                        <span>1:1 문의</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="infoico-group"></i>
+                        <span>단체/대관문의</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="infoico-lost"></i>
+                        <span>분실물 문의/접수</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="infoico-boutique"></i>
+                        <span>
+                            더 부티크 프라이빗<br>
+                            대관예매
+                        </span>
+                    </a>
+                </li>
+            </ul>
         </div>
+    </div>
+   
+    <div id="ad">
+        <div class="wrap">
+            <a href="#">
+                <img src="assets/img/footerad.jpg" alt="하단광고">
+                <img class="ad" src="assets/img/AD3520.png" alt="ad">
+            </a>
+        </div>
+    </div>
+    <div id="footer">
+        <div class="footerTop">
+            <ul>
+                <li><a href="#">회사소개</a></li>
+                <li><a href="#">인재채용</a></li>
+                <li><a href="#">사회공헌</a></li>
+                <li><a href="#">제휴/광고/부대사업문의</a></li>
+                <li><a href="#">이용약관</a></li>
+                <li><a href="#"><strong>개인정보처리방침</strong></a></li>
+                <li><a href="#">윤리경영</a></li>
+            </ul>
+            <a class="theater" href="#"><i class="fas fa-search"></i> 극장찾기</a>
+        </div>
+        <div class="footerBottom">
+            <img src="assets/img/logo-opacity.png" alt="로고">
+            <div class="footerinfo">
+                <div>
+                    <address>서울특별시 성동구 왕십리로 50, 6층(성수동 1가, 메가박스스퀘어)</address><p>ARS 1544-0070</p>
+                </div>
+                <p>대표자명 김진선</p>
+                <p>· 개인정보보호책임자 조상연</p>
+                <p>· 사업자등록번호 211-86-59478</p>
+                <p>· 통신판매업신고번호 제 833호</p>
+                <p>COPYRIGHT © MegaboxJoongAng, Inc. All rights reserved</p>
+            </div>
+            <div class="footerSns">
+                <a href="#"><i class="twitter"></i></a>
+                <a href="#"><i class="facebook"></i></a>
+                <a href="#"><i class="instagram"></i></a>
+                <a href="#"><i class="googleplay"></i></a>
+                <a href="#"><i class="appstore"></i></a>
+            </div>
+        </div>
+
     </div>
     <script src="assets/js/swiper.min.js"></script>
     <script src="assets/js/jquery.min.js"></script>
@@ -415,9 +509,22 @@
         
         
         moveImg($(".Cslide .cell").first().children());
-        //cell.eq(active).css("display","block");
-
         mouseMove();
+
+        $(".controler a").click(function(){
+            let index = $(this).index();
+
+            $(".controler a").removeClass().eq(index).addClass("active");
+            
+            console.log($(this).children().is(".fas.fa-play"));
+            console.log($(this).children())
+            if($(this).children().is(".fas.fa-play")){
+                mySwiper.autoplay.start();
+            }else{
+                mySwiper.autoplay.stop();
+            }
+        });
+
         $(".navName").hover(function(){
             let target = $(this).parent();
         

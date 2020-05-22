@@ -253,7 +253,7 @@
   display: inline-block;
   border-radius: 100%;
   background: #fff;
-  margin:13px !important;
+  margin:13px;
 }
 button.swiper-pagination-bullet {
   border: none;
