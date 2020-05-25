@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>parallax</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0; padding:0; box-sizing: border-box;}
+        li{list-style: none;}
+        a{text-decoration: none; color:#fff; }
+        
+        :root{
+            font-size:12px;
+        }
+        body{
+            --color-h1: #dc6e25;
+            --color-title: #fff;
+            --color-sub: #999;
+            --color-link: #000;
+            --color-bg: #111;
+            --font-family:'lato',sans-serif;
+            --aspect-ratio : 36/17;
+            --image-width-max : 500px;
+
+            background-color : var(--color-bg);
+            font-family: var(--font-family);
+            color:var(--color-title);
+        }
+        #wrap h1{
+            font-size: 7vw;
+            color : var(--color-h1);
+            padding:3vw;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+        #wrap h1 em{
+            display: block;
+            font-weight: 100;
+            padding-left:18vw;
+        }
+
+        .contents{
+            margin:35vh auto 35vh;
+        }
+        .content-item{
+
+            position : relative;
+            --image-width: calc(var(--image-width-max) * var(--aspect-ratio));
+            width: var(--image-width);
+            margin : 30vh 0 50vh;
+            max-width:90vw;
+        }
+
+        .content-item-imgWrap{
+            position:relative;
+            --width: 100%;
+            width : var(--width);
+            padding-bottom: calc(var(--width) / (var(--aspect-ratio)));
+            overflow: hidden;
+            background: #ccc;
+        }
+        
+        .content-item-img{
+            position:absolute; top:0;
+            width: var(--width);
+            --overflow : 40px;
+            /* height:100%; */
+            height: calc(100% + (2 * var(--overflow)));
+            background-size: cover;
+            background-position: 50% 0;
+        }
+        .content-item:nth-child(even){
+            margin-left:auto;
+        }
+        .content-item-num{
+            font-size: 20vw;
+            font-weight: 100;
+            position: absolute;
+            right: -8vw; top: -15vw;
+            opacity: 0.04;
+        }
+        .content-item:nth-child(even) .content-item-num{
+            right:auto; left:-8vw;
+        }
+        .content-item-title{
+            text-align: right;
+            font-weight: 300;
+            text-transform: capitalize;
+            color:var(--color-sub);
+            padding-bottom: 0.8vw;
+            font-size: 1.5rem;
+        }
+        .content-item:nth-child(even) .content-item-title{
+            text-align: left;
+        }
+        .content-item-desc{
+            font-size: 4vw;
+            line-height:1.2;
+            font-weight: 600;
+            text-transform: uppercase;
+            color:var(--color-title);
+            text-align: right;
+            word-break: keep-all;
+            margin-top:-6vw;
+            margin-right:-3vw;
+            position: relative;
+            z-index: 20;
+        }
+        .content-item:nth-child(even) .content-item-desc{
+            text-align: left;
+            margin-right: 0;
+            margin-left: -3vw;
+        }
+
+        #section1 .content-item-img {background-image:url(assets/img/su01.jpg);}
+        #section2 .content-item-img {background-image:url(assets/img/su02.jpg);}
+        #section3 .content-item-img {background-image:url(assets/img/su03.jpg);}
+        #section4 .content-item-img {background-image:url(assets/img/su04.jpg);}
+        #section5 .content-item-img {background-image:url(assets/img/su05.jpg);}
+        #section6 .content-item-img {background-image:url(assets/img/su06.jpg);}
+        #section7 .content-item-img {background-image:url(assets/img/su07.jpg);}
+        #section8 .content-item-img {background-image:url(assets/img/su08.jpg);}
+        #section9 .content-item-img {background-image:url(assets/img/su09.jpg);}
+    
+        /* info */
+        .info{
+            position: fixed;
+            top:20px;
+            right:20px;
+            background: rgba(255,255,255,0.4);
+            color:#000; padding:10px;
+            font-size: 14px; font-weight: 300;
+            z-index: 10000;
+            font-style: normal;
+        }
+
+        .contents > section{
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.6s ease;
+        }
+        .contents > section.show{
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <span>scrollTop() : <strong class="scrollTop">0</strong>px</span><br>
+        <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
+        <span>#section2 offset : <strong class="s2OT">0</strong>px</span><br>
+        <span>#section3 offset : <strong class="s3OT">0</strong>px</span><br>
+        <span>#section4 offset : <strong class="s4OT">0</strong>px</span><br>
+        <span>#section5 offset : <strong class="s5OT">0</strong>px</span><br>
+        <span>#section6 offset : <strong class="s6OT">0</strong>px</span><br>
+        <span>#section7 offset : <strong class="s7OT">0</strong>px</span><br>
+        <span>#section8 offset : <strong class="s8OT">0</strong>px</span><br>
+        <span>#section9 offset : <strong class="s9OT">0</strong>px</span><br>
+    </div>
+    <section id="wrap">
+        <h1>Parallax<em>Scrolling</em></h1>
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">쓰고싶은거 아무거나 써 아무거나 신나는걸로 아무렇게나 써 아무렇지않아 보이게</p>
+            </section>
+            
+        </div>
+    </section>
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            init();
+        });
+        $(window).resize(function(){
+            init();
+        });
+
+        $(window).scroll(function(){
+            const scrollTop = $(window).scrollTop();
+            console.log(scrollTop);
+            $(".scrollTop").text(scrollTop);
+            
+            $(".content-item").each(function(i){
+                if(scrollTop > parseInt($(this).offset().top)){
+                    $(".s"+(i+1)+"OT").css("color", "red");
+                }else{
+                    $(".s"+(i+1)+"OT").css("color", "black");
+                }
+            });
+            $(".content-item").each(function(){
+                    if(scrollTop + $(window).height()/2 > $(this).offset().top){
+                        $(this).addClass("show");
+                    }
+            });
+        });
+        //console.log($("#section1").height()/2);
+        
+        function init(){
+            for(let i = 0; i < 9; i++){
+                $(".s"+(i+1)+"OT").text(parseInt($("#section"+(i+1)).offset().top));
+            }
+            
+        }
+       
+    </script>
+</body>
+</html>
