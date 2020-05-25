@@ -420,6 +420,8 @@
                 $("#contents > section").each(function(){
                     if(scrollTop > $(this).offset().top){
                         $(this).addClass("show");
+                    }else{
+                        $(this).removeClass("show");
                     }
                 });
             });
