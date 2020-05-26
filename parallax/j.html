@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="btn1">Click</button>
+    <div class="selector" id ="selector">
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box add">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+        <div class="box">jQuery vs JavaScript</div>
+    </div>
+
+    <div>
+        <ul id="list">
+            <li>list01</li>
+            <li>list02</li>
+            <li>list03</li>
+            <li>list04</li>
+            <li>list05</li>
+            <li>list06</li>
+            <li>list07</li>
+            <li>list08</li>
+            <li>list09</li>
+            <li>list10</li>
+        </ul>
+    </div>
+    <script src ="assets/js/jquery-1.12.4.min.js"></script>
+    <script src ="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        //제이쿼리를 이용해서 글씨색을 빨간색으로 변경
+        //$(".box").css("color","red");
+        // document.querySelectorAll(".box").forEach(function(cont){
+        //     cont.style.color = "red";
+        // });
+        //document.querySelector(".selector").css("color","red");
+        // let box = document.getElementsByClassName("box");
+        // for(let i =0; i < box.length; i++){
+        //     box[i].style.color = "red";
+        // }
+        //다중 선택자 비교
+        //$("#list li").css("color","red");
+        // let list = document.getElementById("list"); //id
+        // let listLi = list.getElementsByTagName("li");
+        
+        // for(let i = 0; i < listLi.length; i++){
+        //     let li = listLi[i];
+        //     li.style.color = "red";
+        // }
+        //다중선택
+        //$(".box").css("color","red");
+        
+        // document.querySelector(".box").style.color = "red";
+        //document.querySelectorAll(".box").style.color = "red";
+        
+        // let box = document.querySelectorAll(".box");
+        // for(let i = 0; i < box.length; i++){
+        //     box[i].style.color = "blue";
+        // }
+        // document.querySelectorAll(".box").forEach(box =>{box.style.color="red"});
+        // document.querySelectorAll(".box").forEach(function(cont){
+        //     cont.style.color = "blue";
+        // });
+
+        //태그 선택자
+        // $("div").css("color","blue");
+
+        // let div = document.getElementsByTagName("div");
+        
+        // console.log(div);
+        // for(let i = 0; i< div.length; i++){
+        //     div[i].style.color = "red";
+        // }
+
+        //선택
+        // const selector = $("#selector");
+        // const box = selector.find(".box");
+        // box.css("color", "blue");
+
+        // const selector = document.getElementById("selector");
+        // const box = selector.querySelector(".box");
+        // box.style.color = "red";
+
+        // const boxAll= selector.querySelectorAll(".box");
+        // boxAll.forEach(box =>{
+        //     box.style.color = "red";
+        // });
+        
+        //
+        //$(".box").hide();
+        // document.querySelectorAll(".box").forEach(box => {box.style.display = "none"});
+        //$(".box").show();
+        // document.querySelectorAll(".box").forEach(box => {box.style.display = "block"});
+        
+        //클래스추가
+        // $(".box").addClass("add");
+        // document.querySelectorAll(".box").forEach(cont => {cont.classList.add("on")});
+
+        //document.querySelectorAll(".box").forEach(cont => {cont.classList.remove("box")});
+        
+        //버튼 클릭하면 글씨색을 빨간색으로 변경
+        // $(".btn1").click(function(){
+        //     $("div").css("color","red");
+        // });
+        // $(".btn1").on("click","a",function(){});
+        
+        // document.querySelector(".btn1").addEventListener("click", function(){
+        //     document.querySelectorAll("div").forEach(div => {div.style.color = "red"});
+        //     document.querySelectorAll(".box").forEach(cont => {cont.classList.toggle("add")});
+        // });
+        // document.getElementsByClassName("btn1")[0].addEventListener("click", function(){
+        //     document.querySelectorAll("div").forEach(div => {div.style.color = "red"});
+        //     document.querySelectorAll(".box").forEach(cont => {cont.classList.toggle("add")});
+        // });
+        // $(".box").on("mouseenter",function(){
+        //     $(".box").css("color", "red");
+        // });
+
+        document.querySelector(".selector").addEventListener("mouseenter",function(){
+            this.style.color = "red";
+        });
+        document.querySelector(".selector").addEventListener("mouseleave",function(){
+            this.style.color = "black";
+        });
+
+        // if($(".box").hasClass("add")){
+        //     $(".add").css("color","blue");
+        // }
+        
+        // document.querySelectorAll(".box").forEach(box =>{
+        //     if(box.matches(".add")){
+        //         box.style.color = "blue";
+        //     }
+        // });
+        // document.querySelectorAll(".box").forEach(box =>{
+        //     if(box.classList.contains("add")){
+        //         box.style.color = "blue";
+        //     }
+        // });
+
+        // $(".btn1").click(function(){
+        //     $(".selector").append("<div class='box'>jQuery vs JavaScript</div>");
+        //     $(".selector").prepend("<div class='box'>jQuery vs JavaScript</div>");
+        // });
+        document.querySelector(".btn1").addEventListener("click",function(){
+            console.log(document.querySelector(".selector"));
+            let doc = document.createElement("div");
+            // "<div class='box'>jQuery vs JavaScript</div>"
+            document.getElementById("selector").appendChild(doc);
+        });
+    </script>
+</body>
+</html>

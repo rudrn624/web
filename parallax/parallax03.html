@@ -149,15 +149,15 @@
 <body>
     <div class="info">
         <span>scrollTop() : <strong class="scrollTop">0</strong>px</span><br>
-        <span>#section1 offset : <strong class="s1OT">0</strong>px</span><br>
-        <span>#section2 offset : <strong class="s2OT">0</strong>px</span><br>
-        <span>#section3 offset : <strong class="s3OT">0</strong>px</span><br>
-        <span>#section4 offset : <strong class="s4OT">0</strong>px</span><br>
-        <span>#section5 offset : <strong class="s5OT">0</strong>px</span><br>
-        <span>#section6 offset : <strong class="s6OT">0</strong>px</span><br>
-        <span>#section7 offset : <strong class="s7OT">0</strong>px</span><br>
-        <span>#section8 offset : <strong class="s8OT">0</strong>px</span><br>
-        <span>#section9 offset : <strong class="s9OT">0</strong>px</span><br>
+        <span>#section1 offset : <strong class="s1OT OT">0</strong>px</span><br>
+        <span>#section2 offset : <strong class="s2OT OT">0</strong>px</span><br>
+        <span>#section3 offset : <strong class="s3OT OT">0</strong>px</span><br>
+        <span>#section4 offset : <strong class="s4OT OT">0</strong>px</span><br>
+        <span>#section5 offset : <strong class="s5OT OT">0</strong>px</span><br>
+        <span>#section6 offset : <strong class="s6OT OT">0</strong>px</span><br>
+        <span>#section7 offset : <strong class="s7OT OT">0</strong>px</span><br>
+        <span>#section8 offset : <strong class="s8OT OT">0</strong>px</span><br>
+        <span>#section9 offset : <strong class="s9OT OT">0</strong>px</span><br>
     </div>
     <section id="wrap">
         <h1>Parallax<em>Scrolling</em></h1>
@@ -251,7 +251,7 @@
             const scrollTop = $(window).scrollTop();
             console.log(scrollTop);
             $(".scrollTop").text(scrollTop);
-            
+            init();
             $(".content-item").each(function(i){
                 if(scrollTop > parseInt($(this).offset().top)){
                     $(".s"+(i+1)+"OT").css("color", "red");
@@ -260,9 +260,11 @@
                 }
             });
             $(".content-item").each(function(){
-                    if(scrollTop + $(window).height()/2 > $(this).offset().top){
-                        $(this).addClass("show");
-                    }
+                if(scrollTop + $(window).height()/2 > $(this).offset().top){
+                    $(this).addClass("show");
+                }else{
+                    $(this).removeClass("show");
+                }
             });
         });
         //console.log($("#section1").height()/2);
@@ -271,9 +273,8 @@
             for(let i = 0; i < 9; i++){
                 $(".s"+(i+1)+"OT").text(parseInt($("#section"+(i+1)).offset().top));
             }
-            
         }
-       
+        
     </script>
 </body>
 </html>
