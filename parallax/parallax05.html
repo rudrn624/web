@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parallax05</title>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        :root {
+            font-size: 12px;
+        }
+
+        body {
+            --color-h1: #dc6e25;
+            --color-title: #fff;
+            --color-sub: #999;
+            --color-link: #000;
+            --color-bg: #111;
+            --font-family: 'lato', sans-serif;
+            --aspect-ratio: 32/17;
+
+            --image-width-max: 500px;
+            background-color: var(--color-bg);
+            font-family: var(--font-family);
+            color: var(--color-title);
+
+        }
+
+        #wrap h1 {
+            font-size: 7vw;
+            color: var(--color-h1);
+            padding: 3vw;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        #wrap h1 em {
+            display: block;
+            font-weight: 100;
+            padding-left: 18vw;
+        }
+
+        .contents {
+            margin: 35vh auto 35vh;
+        }
+
+        .content-item {
+            position: relative;
+            --image-width: calc(var(--image-width-max) * (var(--aspect-ratio)));
+            width: var(--image-width);
+            max-width: 90vw;
+            margin: 10vh 0 40vh;
+        }
+
+        .content-item-imgWrap {
+            --width: 100%;
+            width: var(--width);
+            position: relative;
+            padding-bottom: calc(100% / var(--aspect-ratio));
+            overflow: hidden;
+            /* background: #ccc; */
+        }
+
+
+        .content-item:nth-child(even) {
+            margin-left: auto;
+        }
+
+        .content-item-num {
+            font-size: 20vw;
+            font-weight: 100;
+            position: absolute;
+            right: -10vw;
+            top: -15vw;
+            opacity: 0.8;
+            /* transition: 1s transform cubic-bezier(0.84, 0.46, 0.12, 0.45); */
+        }
+
+        .content-item:nth-child(even) .content-item-num {
+            right: auto;
+            left: -8vw;
+        }
+
+        .content-item-title {
+            text-align: right;
+            font-size: 2em;
+            font-weight: 300;
+            color: #999;
+            padding-bottom: 1vh;
+            text-transform: capitalize;
+
+        }
+
+        .content-item:nth-child(even) .content-item-title {
+            text-align: left;
+        }
+
+        .content-item-imgWrap {
+            /*가상 영역*/
+            padding-bottom: 57%;
+            position: relative;
+            overflow: hidden;
+            /* transition: 0.5s transform cubic-bezier(0.84, 0.46, 0.12, 0.45); */
+        }
+
+        .content-item-img {
+            --overflow: 40px;
+            width: var(--width);
+            height: calc(var(--width)/ var(--aspect-ratio));
+            position: absolute;
+            top: calc(-1 * overflow);
+            height: calc(100% + (2 * var(--overflow)));
+            width: 100%;
+            background-size: cover;
+            background-position: 50% 0;
+            /* transition: 0.5s transform cubic-bezier(0.84, 0.46, 0.12, 0.45); */
+        }
+
+        .content-item-desc {
+            font-size: 4.5vw;
+            line-height: 1.2;
+            font-weight: 600;
+            text-align: right;
+            /* margin-top: -100px; */
+            word-break: keep-all;
+            will-change: transform;
+            /* transition: 1s transform cubic-bezier(0.84, 0.46, 0.12, 0.45); */
+        }
+
+        .content-item:nth-child(even) .content-item-desc {
+            text-align: left;
+        }
+
+        #section1 .content-item-img {
+            background-image: url(assets/img/su01.jpg);
+        }
+
+        #section2 .content-item-img {
+            background-image: url(assets/img/su02.jpg);
+        }
+
+        #section3 .content-item-img {
+            background-image: url(assets/img/su03.jpg);
+        }
+
+        #section4 .content-item-img {
+            background-image: url(assets/img/su04.jpg);
+        }
+
+        #section5 .content-item-img {
+            background-image: url(assets/img/su05.jpg);
+        }
+
+        #section6 .content-item-img {
+            background-image: url(assets/img/su06.jpg);
+        }
+
+        #section7 .content-item-img {
+            background-image: url(assets/img/su07.jpg);
+        }
+
+        #section8 .content-item-img {
+            background-image: url(assets/img/su08.jpg);
+        }
+
+        #section9 .content-item-img {
+            background-image: url(assets/img/su09.jpg);
+        }
+
+
+        /*info*/
+        .info {
+            position: fixed;
+            top: 2vh;
+            right: 1vw;
+            background: rgb(255, 255, 255, 0.7);
+            color: #000;
+            padding: 10px;
+            font-size: 70px;
+            font-weight: 400;
+            z-index: 1000;
+            font-style: normal;
+        }
+
+        .info2 {
+            position: fixed;
+            top: 15vh;
+            right: 1vw;
+            background: rgb(255, 255, 255, 0.7);
+            color: #000;
+            padding: 10px;
+            font-size: 30px;
+            font-weight: 400;
+            z-index: 1000;
+            font-style: normal;
+        }
+
+        .info2 span {
+            display: block;
+        }
+
+        .info3 {
+            position: fixed;
+            top: 50%;
+            left: 1vw;
+            transform: translateY(-50%);
+            padding: 10px;
+            z-index: 1000;
+            background: rgb(255, 255, 255, 0.7);
+        }
+
+        .info3 ul li a {
+            color: #000;
+            font-size: 25px;
+        }
+        .info4{
+            position: fixed;
+            top: 2vh; left: 1vw;
+            padding: 10px;
+            z-index: 1000;
+            background: rgb(255, 255, 255, 0.7);
+        }
+
+        .info4 ul li{
+            display: inline-block;
+            padding: 0 5px;
+            color: #000;
+            font-size: 20px;
+        }
+
+        /* .contents>section {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.2s ease;
+        } */
+        /* .contents>section.show {
+            opacity: 1;
+            transform: translateY(0);
+        } */
+
+        
+        /* .contents>section .content-item-num {
+            opacity: 0;
+            transform: translateY(120px);
+            transition: all 0.2s cubic-bezier(0.84, 0.46, 0.12, 0.45);;
+        }
+        .contents>section .content-item-img {
+            opacity: 0;
+            transform: translateY(100px);
+            transition: all 0.2s cubic-bezier(0.84, 0.46, 0.12, 0.45);;
+        }
+        .contents>section .content-item-desc {
+            opacity: 0;
+            transform: translateY(200px);
+            transition: all 0.2s cubic-bezier(0.84, 0.46, 0.12, 0.45);;
+        }
+
+
+        .contents>section.show .content-item-num {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contents>section.show .content-item-img {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .contents>section.show .content-item-desc {
+            opacity: 1;
+            transform: translateY(0);
+        } */
+
+    </style>
+
+</head>
+
+<body>
+    <div class="info">
+        <span>scrollTop(): <strong class="scrollTop">0</strong>px</span>
+    </div>
+    <div class="info2">
+        <span>#section1 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section2 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section3 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section4 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section5 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section6 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section7 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section8 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+        <span>#section9 offsetTop: <strong class="s1offsetTop">0</strong>px</span>
+    </div>
+    <div class="info3">
+        <ul>
+            <li><a href="parallax01.html">Parallax01</a></li>
+            <li><a href="parallax02.html">Parallax02</a></li>
+            <li><a href="parallax03.html">Parallax03</a></li>
+            <li><a href="parallax04.html">Parallax04</a></li>
+            <li><a href="#">Parallax05</a></li>
+            <li><a href="parallax06.html">Parallax06</a></li>
+            <li><a href="parallax07.html">Parallax07</a></li>
+            <li><a href="parallax08.html">Parallax08</a></li>
+            <li><a href="#">Parallax09</a></li>
+            <li><a href="#">Parallax10</a></li>
+        </ul>
+    </div>
+    <div class="info4">
+        <ul>
+            <li>반응형</li>
+            <li>/</li>
+            <li>wrap h1: scroll에 따라 translateX 변경</li>
+            <li>/</li>
+            <li>num, img, desc: scroll에 따라 translateY 변경</li>
+        </ul>
+    </div>
+    <div id="wrap">
+        <h1>Parallax <em>Scrolling</em></h1>
+
+        <!-- .contents>section#section$*9 -->
+
+        <div class="contents">
+            <section id="section1" class="content-item">
+                <span class="content-item-num">01</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section2" class="content-item">
+                <span class="content-item-num">02</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section3" class="content-item">
+                <span class="content-item-num">03</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section4" class="content-item">
+                <span class="content-item-num">04</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section5" class="content-item">
+                <span class="content-item-num">05</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section6" class="content-item">
+                <span class="content-item-num">06</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section7" class="content-item">
+                <span class="content-item-num">07</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section8" class="content-item">
+                <span class="content-item-num">08</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+            <section id="section9" class="content-item">
+                <span class="content-item-num">09</span>
+                <h2 class="content-item-title">Basic Coding</h2>
+                <figure class="content-item-imgWrap">
+                    <div class="content-item-img"></div>
+                </figure>
+                <p class="content-item-desc">높은 목표를 세우고, 계획대로 하자.</p>
+            </section>
+        </div>
+        <!--contents-->
+    </div>
+
+    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        
+        // $(window).scroll(function(){
+            
+        //     let scrollTop = $(window).scrollTop();
+        //     const scrollTop2 = $(window).scrollTop() + ($(window).height())/2;
+        //     //const scrollTop3 = $(window).scrollTop() + ($(window).height())/2;
+        //     infoScrollTop = $(".info strong");
+        //     //info
+        //     infoScrollTop.text(parseInt(scrollTop));
+
+        //     //each함수 info2 text
+
+        //     // info2OffsetTop = $(".info2 span strong");
+        //     // info2OffsetTop.each(function(i){
+        //     //     sectionOffsetTop = $(".content-item").eq(i).offset().top;
+        //     //     $(this).text(parseInt(sectionOffsetTop));
+        //     // })
+
+        //     $("#wrap h1").css({transform: "translateX(-"+scrollTop+"px)"});
+
+        //     // let offset1 = (scrollTop-$("#section1").offset().top);
+        //     // let offset2 = (scrollTop-$("#section2").offset().top);
+        //     // let offset3 = (scrollTop-$("#section3").offset().top);
+        //     // let offset4 = (scrollTop-$("#section4").offset().top);
+        //     // let offset5 = (scrollTop-$("#section5").offset().top);
+        //     // let offset6 = (scrollTop-$("#section6").offset().top);
+        //     // let offset7 = (scrollTop-$("#section7").offset().top);
+        //     // let offset8 = (scrollTop-$("#section8").offset().top);
+        //     // let offset9 = (scrollTop-$("#section9").offset().top);
+
+        //     // let a = scrollTop-offset1;
+        //     // console.log("scrollTop:"+parseInt(scrollTop));
+        //     // console.log("offset1:"+ offset1);
+        //     // console.log("a:"+scrollTop);
+
+        //     // $("#section1 .content-item-desc").css({transform: "translateX(-"+offset1+"px)"});
+        //     // $("#section2 .content-item-desc").css({transform: "translateX(-"-offset2+"px)"});
+        //     // $("#section3 .content-item-desc").css({transform: "translateX(-"+offset3+"px)"});
+        //     // $("#section4 .content-item-desc").css({transform: "translateX(-"+-offset4+"px)"});
+        //     // $("#section5 .content-item-desc").css({transform: "translateX(-"+offset5+"px)"});
+        //     // $("#section6 .content-item-desc").css({transform: "translateX(-"+-offset6+"px)"});
+        //     // $("#section7 .content-item-desc").css({transform: "translateX(-"+offset7+"px)"});
+        //     // $("#section8 .content-item-desc").css({transform: "translateX(-"+-offset8+"px)"});
+        //     // $("#section9 .content-item-desc").css({transform: "translateX(-"+offset9+"px)"});
+
+            
+
+        //     //parllax05
+        //     section = $(".content-item");
+        //     section.each(function(){
+        //         let offset1 = (scrollTop-$(this).offset().top)*0.3;
+        //         let offset2 = (scrollTop-$(this).offset().top)*0.3;
+        //         let offset3 = (scrollTop-$(this).offset().top)*0.5;
+                
+        //         console.log(scrollTop);
+        //         console.log($(this).offset().top);
+        //         console.log((scrollTop-$(this).offset().top)*0.3);
+        //     //    if(scrollTop< ($(this).offset().top)){
+        //     //        $(this).find(".content-item-desc").css({transform: "translateY(-"+offset1+"px)"})
+        //     //        $(this).find(".content-item-num").css({transform: "translateY(-"+offset2+"px)"})
+        //     //        $(this).find(".content-item-imgWrap").css({transform:"translateY(-"+offset3+"px)"})
+        //     //     //    $(this).find(".content-item-img").css({transform: "translateY(-"+offset3+"px)"})
+        //     //    }
+        //     //    if(scrollTop > ($(this).offset().top)){
+        //            $(this).find(".content-item-desc").css({transform: "translateY(-"+offset1+"px)"})
+        //            $(this).find(".content-item-num").css({transform: "translateY(-"+offset2+"px)"})
+        //            $(this).find(".content-item-imgWrap").css({transform:"translateY(-"+offset3+"px)"})
+        //         //    $(this).find(".content-item-img").css({transform: "translateY(-"+offset3+"px)"})
+        //     //    }
+        //     })  
+
+        //     // //parallax05다시
+        //     // section = $(".content-item");
+        //     // section.each(function () {
+        //     //     if (scrollTop2 > $(this).offset().top) {
+        //     //         $(this).addClass("show");
+        //     //     }else{
+        //     //         $(this).removeClass("show");
+        //     //     }
+        //     // })
+        // })
+
+        // info2OffsetTop = $(".info2 span strong");
+        // info2OffsetTop.each(function(i){
+        //     sectionOffsetTop = $(".content-item").eq(i).offset().top;
+        //     $(this).text(parseInt(sectionOffsetTop));
+        // })
+    </script>
+</body>
+
+</html>

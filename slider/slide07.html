@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider07</title>
+
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #666;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
+        body {
+            background: url(img/so01.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+            transition: all 0.2s;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(50, 37, 11, 0.86);
+            z-index: -1;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info h1 {
+            padding-bottom: 10px;
+        }
+
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .info2 li a {
+            color: #fff;
+        }
+
+        .info2 li.active {
+            border-bottom: 1px dashed #fff;
+        }
+
+        /* slide */
+        .slider-wrap {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: 1200px;
+            overflow: hidden;
+            /* background: #ccc; */
+        }
+
+        .slider-img {
+            position: relative;
+            width: 5000px;
+            overflow: hidden;
+        }
+
+        .slider-img .slides {
+            float: left;
+            width: 400px;
+            padding: 10px;
+        }
+
+        /* btn */
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 999;
+            display: block;
+            padding: 2%;
+            background: rgba(0, 0, 0, 0.3);
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .slider-btn a:hover {
+            opacity: 1;
+            transition: all 0.2s ease;
+        }
+
+        .slider-btn a.next {
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <h1>Image Slider07</h1>
+        <p>좌로 움직이기</p>
+        <ul>
+            <li>좌로 연속적으로 움직이기</li>
+        </ul>
+    </div>
+
+    <div class="info2">
+        <ul>
+            <li><a href="slider01.html">Slider01</a></li>
+            <li><a href="slider02.html">Slider02</a></li>
+            <li><a href="slider03.html">Slider03</a></li>
+            <li><a href="slider04.html">Slider04</a></li>
+            <li><a href="slider05.html">Slider05</a></li>
+            <li><a href="slider06.html">Slider06</a></li>
+            <li class="active"><a href="slider07.html">Slider07</a></li>
+            <li><a href="slider08.html">Slider08</a></li>
+            <li><a href="slider09.html">Slider09</a></li>
+        </ul>
+    </div>
+
+    <!-- slider -->
+    <div class="slider-wrap">
+        <div class="slider-img">
+            <div class="slides s1"><img src="assets/img/su01.jpg" alt="이미지1"></div>
+            <div class="slides s2"><img src="assets/img/su02.jpg" alt="이미지2"></div>
+            <div class="slides s3"><img src="assets/img/su03.jpg" alt="이미지3"></div>
+            <div class="slides s4"><img src="assets/img/su04.jpg" alt="이미지4"></div>
+            <div class="slides s5"><img src="assets/img/su05.jpg" alt="이미지5"></div>
+        </div>
+    </div>
+
+    <div class="slider-btn">
+        <a href="#" class="prev">prev</a>
+        <a href="#" class="next">next</a>
+    </div>
+
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script>
+        const sliderWrap = $(".slider-wrap");
+        const sliderImg = $(".slider-img");
+        const slides = $(".slides");
+        const slideBtn = $(".slider-btn");
+
+        let slideCount = slides.length;
+        let slideWidth = slides.outerWidth();
+        let showNumber = 3;
+        let currentIndex = 0;
+
+        var slideCopy = $(".slides:lt(" + showNumber + ")").clone();
+        sliderImg.append(slideCopy);
+
+        
+        //이미지 움직이기
+        function back() {
+            if (currentIndex == 0) {
+                currentIndex = slideCount;
+                sliderImg.css("margin-left", -currentIndex * slideWidth + "px");
+            }
+            currentIndex--;
+            sliderImg.animate({ "margin-left": -slideWidth * currentIndex + "px" }, 400);
+        }
+
+        function next() {
+            
+            if (currentIndex == slideCount) {
+                currentIndex = 0;
+                sliderImg.css("margin-left", currentIndex);
+            }
+            currentIndex++;
+            sliderImg.animate({ "margin-left": -slideWidth * currentIndex + "px" }, 400);
+        }
+
+        //버튼 클릭하기
+        slideBtn.on("click", "a", function () {
+            if ($(this).hasClass("prev")) {
+                back();
+            } else {
+                next();
+            }
+        });
+
+
+
+
+    </script>
+</body>
+
+</html>

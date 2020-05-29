@@ -1,0 +1,172 @@
+.container {
+  margin: 0 auto;
+  width: 1643px;
+  background: #ccc;
+}
+
+header {
+  font-size: 16px;
+  font-family: 'Text Me One', sans-serif;
+  font-weight: 1000;
+  padding: 3.02vw 0 0 0;
+}
+
+header .fl {
+  float: left;
+}
+
+header .fl .quick-menu {
+  margin-left: 9.75vw;
+}
+
+header .fl .quick-menu ul li {
+  display: inline-block;
+}
+
+header .fl .quick-menu ul li:first-child:after {
+  content: '';
+  display: inline-block;
+  margin: -2px 18px;
+  width: 1px;
+  height: 12px;
+  background-color: #141414;
+}
+
+header .fr {
+  float: right;
+}
+
+header .fr .out-link {
+  margin-right: 9.75vw;
+}
+
+header .fr .out-link ul li {
+  display: inline-block;
+}
+
+header .fr .out-link ul li:first-child:after {
+  content: '';
+  display: inline-block;
+  margin: 2px 20px;
+  width: 3px;
+  height: 3px;
+  background-color: #000;
+}
+
+header:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.main {
+  padding: 14.9vw 0 0 0;
+}
+
+.main .step .slogan {
+  font-size: 1.6vw;
+  margin-left: 9.75vw;
+  line-height: 2;
+}
+
+.main .step .weather {
+  text-align: right;
+  font-size: .78vw;
+  margin: 12.2vw 10.09vw 0 0;
+}
+
+.main .step .weather span {
+  padding: 10px 0;
+}
+
+.main .step .weather .wText {
+  display: inline-block;
+  color: #999;
+}
+
+.main .step .weather .wText:after {
+  content: "";
+  display: inline-block;
+  margin: 0 7px 0 10px;
+  width: 1px;
+  height: 12px;
+  background: #d6d6d6;
+}
+
+.main .step .weather .temp {
+  display: inline-block;
+  color: #2f2f2f;
+}
+
+.main .step .weather .emoji {
+  padding-left: 8px;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  vertical-align: middle;
+}
+
+.main .step .blend {
+  margin-top: 6.4vw;
+}
+
+.main .step .blend .svg-blend {
+  position: relative;
+}
+
+.main .step .blend .svg-blend .conTextArea {
+  position: absolute;
+  left: 9.8vw;
+  top: -6.2vw;
+}
+
+.main .step .blend .svg-blend .conTextArea .stick {
+  width: 15px;
+  height: 241px;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9eff7b), color-stop(25%, #60aaff), color-stop(50%, #cc91ff), color-stop(75%, #ff5583), to(#9eff7b));
+  background: linear-gradient(0deg, #9eff7b 0, #60aaff 25%, #cc91ff 50%, #ff5583 75%, #9eff7b);
+  background-size: 100% 200%;
+  -webkit-animation: stickani 5s ease infinite;
+          animation: stickani 5s ease infinite;
+}
+
+.main .step .blend .movie video {
+  width: 100%;
+}
+
+@-webkit-keyframes stickani {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 50% 25%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  75% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+
+@keyframes stickani {
+  0% {
+    background-position: 50% 0%;
+  }
+  25% {
+    background-position: 50% 25%;
+  }
+  50% {
+    background-position: 50% 50%;
+  }
+  75% {
+    background-position: 50% 75%;
+  }
+  100% {
+    background-position: 50% 100%;
+  }
+}
+/*# sourceMappingURL=style.css.map */

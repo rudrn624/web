@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider08</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
+        body {
+            background: url(img/so01.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(50, 37, 11, 0.86);
+            z-index: -1;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info h1 {
+            margin-bottom: 10px;
+        }
+
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .info2 li.active a {
+            border-bottom: 1px dashed #fff;
+        }
+
+
+        /* slide */
+        .slider-wrap {
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+        }
+
+        .slider-img {
+            position: relative;
+            overflow: hidden;
+            width: 8000px;
+        }
+
+        .slider-img .slides {
+            float: left;
+            position: relative;
+        }
+
+        .slider-img .slides span {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
+
+        .slider-btn a.prev {
+            left: 0;
+        }
+
+        .slider-btn a.next {
+            right: 0;
+        }
+
+        .slider-dot {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+        }
+
+        .slider-dot a {
+            width: 20px;
+            height: 20px;
+            background: rgba(0, 0, 0, .3);
+            display: inline-block;
+            text-indent: -9999px;
+            border-radius: 50%;
+            margin: 5px;
+            transition: background 0.3s;
+        }
+
+        .slider-dot a.active {
+            background: rgba(255, 255, 255, .9);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <h1>Image Slider08</h1>
+        <p>좌우로 움직이기</p>
+        <ul>
+            <li>연속적으로 움직이기</li>
+            <li>닷 버튼 만들기</li>
+        </ul>
+    </div>
+    <div class="info2">
+        <ul>
+            <li><a href="slider01.html">Slider01</a></li>
+            <li><a href="slider02.html">Slider02</a></li>
+            <li><a href="slider03.html">Slider03</a></li>
+            <li><a href="slider04.html">Slider04</a></li>
+            <li><a href="slider05.html">Slider05</a></li>
+            <li><a href="slider06.html">Slider06</a></li>
+            <li><a href="slider07.html">Slider07</a></li>
+            <li class="active"><a href="slider08.html">Slider08</a></li>
+            <li><a href="slider09.html">Slider09</a></li>
+        </ul>
+    </div>
+
+    <!-- slider -->
+    <div class="slider-wrap">
+        <div class="slider-img">
+            <div class="slides s1"><img src="assets/img/su01.jpg" alt="이미지1"><span>1</span></div>
+            <div class="slides s2"><img src="assets/img/su02.jpg" alt="이미지2"><span>2</span></div>
+            <div class="slides s3"><img src="assets/img/su03.jpg" alt="이미지3"><span>3</span></div>
+            <div class="slides s4"><img src="assets/img/su04.jpg" alt="이미지4"><span>4</span></div>
+            <div class="slides s5"><img src="assets/img/su05.jpg" alt="이미지5"><span>5</span></div>
+        </div>
+    </div>
+
+    <div class="slider-btn">
+        <a href="#" class="prev">prev</a>
+        <a href="#" class="next">next</a>
+    </div>
+
+    <div class="slider-dot">
+        <!-- <a href="#" class="dot active">1</a>
+        <a href="#" class="dot">2</a>
+        <a href="#" class="dot">3</a>
+        <a href="#" class="dot">4</a>
+        <a href="#" class="dot">5</a> -->
+    </div>
+
+    <!-- script -->
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script>
+        const sliderWrap = $(".slider-wrap");
+        const sliderImg = $(".slider-img");
+        const sliders = $(".slides");
+        const sliderBtn = $(".slider-btn");
+        const sliderDot = $(".slider-dot");
+
+        let slideCount = sliders.length;
+        let slideWidth = sliders.width();
+        let currentIndex = 0;
+        let dotIndex = "";
+
+        var slideCopy = $(".slides").clone();
+        sliderImg.append(slideCopy);
+
+        //닷 버튼
+        sliders.each(function (i) {
+            dotIndex += "<a href='#' class='dotbtn'></a>";
+            //dotIndex += "<a href='#'>" + ("0" + (i + 1)) + "</a>";
+            //let name = $(this).find("h2").attr("data-name");
+            //dotIndex += "<a href='#'>" + name + "</a>";
+        });
+        sliderDot.html(dotIndex);
+        sliderDot.find('a').removeClass('active').eq(0).addClass('active');
+
+        //이미지 움직이기
+        function back() {
+            if (currentIndex == 0) {
+                currentIndex = slideCount;
+                sliderImg.css("margin-left", -currentIndex * slideWidth + "px");
+            }
+            currentIndex--;
+            // 4: -1000 * 4 = -4000px
+            // 3: -1000 * 3 = -3000px
+            // 2: -1000 * 2 = -2000px
+            // 1: -1000 * 1 = -1000px
+            // 0: -1000 * 5 = -5000px
+            // 4: -1000 * 4 = -4000px
+            // 3: -1000 * 3 = -3000px
+            // 2: -1000 * 2 = -2000px
+            //........
+            sliderImg.animate({ "margin-left": -slideWidth * currentIndex + "px" }, 400);
+            console.log("back : " + currentIndex)
+            sliderDot.find('a').removeClass('active').eq(currentIndex).addClass('active');
+        }
+
+        function next() {
+            if (currentIndex == slideCount) {
+                currentIndex = 0;
+                sliderImg.css("margin-left", currentIndex);
+            }
+            // 1: -1000 * 1 = -1000px;
+            // 2: -1000 * 2 = -2000px;
+            // 3: -1000 * 3 = -3000px;
+            // 4: -1000 * 3 = -4000px;
+            // 5: -1000 * 3 = -5000px;
+            // 1: -1000 * 1 = -1000px;
+            // 2: -1000 * 2 = -2000px;
+            // 3: -1000 * 3 = -3000px;
+            // 4: -1000 * 3 = -4000px;
+            // 5: -1000 * 3 = -5000px;
+            
+            currentIndex++;
+            
+            sliderImg.animate({ "margin-left": -slideWidth * currentIndex + "px" }, 400);
+            console.log("next : " + currentIndex)
+            
+            if (currentIndex == slideCount) currentIndex = 0;
+            sliderDot.find('a').removeClass('active').eq(currentIndex).addClass('active');
+        }
+
+
+
+
+        //버튼 클릭하기
+        sliderBtn.on("click", "a", function (e) {
+            e.preventDefault();
+            var nextIndex = (currentIndex + 1) % slideCount;
+            var prevIndex = (currentIndex - 1) % slideCount;
+
+            if ($(this).hasClass("prev")) {
+                back();
+            } else {
+                next();
+            }
+        });
+        $(".dotbtn").click(function(){
+            
+            let index = $(this).index();
+            $(this).addClass('active').siblings().removeClass('active');
+            sliderImg.animate({ "margin-left": -slideWidth * index + "px" }, 400);
+
+            currentIndex = index;
+        });
+
+    </script>
+</body>
+
+</html>
