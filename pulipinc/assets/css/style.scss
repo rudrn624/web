@@ -1101,7 +1101,50 @@ header{
         }
     }
 }
-
+.rnb{
+    position: fixed;
+    right:3vw;
+    width: 36px;
+    top: 2.4vw;
+    .menu{
+        position: relative;
+        a{
+            display: inline-block;
+            width: 36px;
+            height: 36px;
+            
+            &:after{
+                content: "";
+                display: block;
+                width: 36px;
+                height: 2px;
+                background-color: #000;
+                position: absolute;
+                top: 50%;
+                margin-top: -6px;
+                transition: all 0.5s;
+            }
+            &::before{
+                content: "";
+                display: block;
+                width: 36px;
+                height: 2px;
+                background-color: #000;
+                position: absolute;
+                top: 50%;
+                margin-top: 6px;
+                transition: all 0.5s;
+            }
+        }
+        a.on::after{
+            
+            transform :translateY(6px)  rotate(45deg);
+        }
+        a.on::before{
+            transform: translateY(-6px) rotate(-45deg) ;
+        }
+    }
+}
 @keyframes spin{
     0%{
         //-webkit-filter:hue-rotate(-1turn);

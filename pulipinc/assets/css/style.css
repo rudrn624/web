@@ -1255,6 +1255,59 @@ header:after {
   display: inline-block;
 }
 
+.rnb {
+  position: fixed;
+  right: 3vw;
+  width: 36px;
+  top: 2.4vw;
+}
+
+.rnb .menu {
+  position: relative;
+}
+
+.rnb .menu a {
+  display: inline-block;
+  width: 36px;
+  height: 36px;
+}
+
+.rnb .menu a:after {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.rnb .menu a::before {
+  content: "";
+  display: block;
+  width: 36px;
+  height: 2px;
+  background-color: #000;
+  position: absolute;
+  top: 50%;
+  margin-top: 6px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.rnb .menu a.on::after {
+  -webkit-transform: translateY(6px) rotate(45deg);
+          transform: translateY(6px) rotate(45deg);
+}
+
+.rnb .menu a.on::before {
+  -webkit-transform: translateY(-6px) rotate(-45deg);
+          transform: translateY(-6px) rotate(-45deg);
+}
+
 @-webkit-keyframes spin {
   0% {
     -webkit-filter: hue-rotate(-1turn);

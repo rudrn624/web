@@ -417,6 +417,11 @@
                 </div>
             </footer>
         </div>
+        <div class="rnb">
+            <div class="menu">
+                <a href="#"></a>
+            </div>
+        </div>
     </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/swiper.min.js"></script>
@@ -457,6 +462,17 @@
                 
             });
         }
+        $(".next").click(function(e){
+            e.preventDefault();
+            swiper1.slideNext();
+        });
+        $(".prev").click(function(e){
+            e.preventDefault();
+            swiper1.slidePrev();
+        });
+        $(".menu a").click(function(){
+            $(this).toggleClass("on");
+        });
     </script>
 
 </body>
