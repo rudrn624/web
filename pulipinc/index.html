@@ -443,6 +443,9 @@
         let scrollTop = $(window).scrollTop()+$(window).height();
         let step = $(".step");
         
+        $("a").click(function(e){
+            e.preventDefault();
+        });
        
         init();
 
