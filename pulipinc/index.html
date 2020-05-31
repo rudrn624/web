@@ -198,7 +198,7 @@
             <div class="awards step">
                 <div class="divInner">
                     <div class="conTextbox">
-                        <div class="innerTitle"><span>Partners</span></div>
+                        <div class="innerTitle"><span>Awards</span></div>
                         <div class="conTextArea">
                             <div class="Text">
                                 <p class="type1"><span>We <em>always</em></span></p>
@@ -324,6 +324,75 @@
                     </div>
                 </div>
             </div>
+            
+            <div class="defaultSect3 ourTeam step">
+                <div class="divInner">
+                    <div class="conTextbox">
+                        <div class="innerTitle"><span>Our Team</span></div>
+                        <div class="conTextArea">
+                            <div class="Text">
+                                <p class="type1"><span>We are exertive</span></p>
+                                <p class="type2"><span>digital experts.</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divInner">
+                    <div class="conTextbox slide">
+                        <div class="slideContent">
+                            <div class="slideContentinner">
+                                <div class="swiper-container">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <span><img src="assets/img/@team_img_00.58d12f22.jpg" alt="슬라이드1"></span>
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/@team_img_01.50eb6447.jpg" alt="슬라이드2">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/@team_img_02.0270541f.jpg" alt="슬라이드3">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/@team_img_03.d7dae1e8.jpg" alt="슬라이드4">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/@team_img_04.ca44a8e8.jpg" alt="슬라이드5">
+                                        </div>
+                                        <div class="swiper-slide">
+                                            <img src="assets/img/@team_img_05.96322975.jpg" alt="슬라이드6">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="slide-nav">
+                                    <div class="prev"><a href="#"><img src="assets/img/@roll_left.8651de7f.svg" alt="왼쪽"></a></div>
+                                    <div class="swiper-pagination"></div>
+                                    <div class="next"><a href="#"><img src="assets/img/@roll_right.84afa67b.svg" alt="오른쪽"></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="divInner">
+                    <div class="conTextbox">
+                        <div class="conTextArea">
+                            <strong class="conTextTitle">
+                                <span>오늘의 나보다 멋진 내일의 내가 될 수 있길,</span>
+                                <br>
+                                <span>우리의 꿈은 여기서 실현됩니다.<i><img src="assets/img/@ico_hand.8a0083e8.png" alt=""></i></span>
+                            </strong>
+                            <strong class="conTextIn">
+                                당신에게 일은 어떤 의미인가요? 단순히 생계수단? 아니면 막연히 해야 하는 것?<br>
+                                만약 당신에게 있어 일이 자신의 삶을 더욱 풍요롭게 하고, 자신의 꿈을 실현할 수 있게 하는 것이라면<br>
+                                지금 우리에게 당신의 이야기를 들려주세요.
+                            </strong>
+                            <a href="#"class="pinkLink">
+                                <span class="linkText">Work with us</span>
+                                <span class="linkicon"><img src="assets/img/@pink_arrow.92ff63b6.svg" alt="화살표"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <a href="#" class="longEnd">
                 <div class="endDefault">
                     <span>Work</span>
@@ -357,8 +426,7 @@
     <script>
         let scrollTop = $(window).scrollTop()+$(window).height();
         let step = $(".step");
-        //console.log(step);
-
+        
        
         init();
 
@@ -368,6 +436,7 @@
         
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop()+$(window).height();
+            
             init();
         });
 
@@ -375,7 +444,7 @@
             step.each(function(){
                 
                 let stepTop = $(this).offset().top;
-                let stepBottom = (stepTop + $(this).height() + $(window).height());
+                let stepBottom = (stepTop + $(this).height() + $(window).height()+500);
                 
                 if(scrollTop > stepBottom){
                     $(this).removeClass("active");
@@ -384,7 +453,7 @@
                 }else{
                     $(this).removeClass("active");
                 }
-                console.log(stepBottom);
+                //console.log(stepBottom);
                 
             });
         }

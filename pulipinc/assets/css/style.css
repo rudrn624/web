@@ -1,6 +1,8 @@
 .container {
+  overflow: hidden;
   margin: 0 auto;
   width: 1643px;
+  padding: 0 125px;
   opacity: 0;
   -webkit-transition: opacity 0.5s;
   transition: opacity 0.5s;
@@ -238,30 +240,30 @@ header:after {
   width: 0;
 }
 
-.main .defaultSect, .main .service, .main .partners, .main .awards, .main .defaultSect2 {
+.main .defaultSect, .main .service, .main .partners, .main .awards, .main .defaultSect2, .main .defaultSect3 {
   font-family: 'Noto Sans KR', sans-serif;
   padding: 17.75vw 0 7.05vw 0;
   border-bottom: 1px solid #ebebeb;
 }
 
-.main .defaultSect .divInner, .main .service .divInner, .main .partners .divInner, .main .awards .divInner, .main .defaultSect2 .divInner {
+.main .defaultSect .divInner, .main .service .divInner, .main .partners .divInner, .main .awards .divInner, .main .defaultSect2 .divInner, .main .defaultSect3 .divInner {
   position: relative;
   margin: 0 auto;
   width: 52vw;
   padding: 0;
 }
 
-.main .defaultSect .conTextbox, .main .service .conTextbox, .main .partners .conTextbox, .main .awards .conTextbox, .main .defaultSect2 .conTextbox {
+.main .defaultSect .conTextbox, .main .service .conTextbox, .main .partners .conTextbox, .main .awards .conTextbox, .main .defaultSect2 .conTextbox, .main .defaultSect3 .conTextbox {
   margin-left: -5.98vw;
 }
 
-.main .defaultSect .conTextbox::after, .main .service .conTextbox::after, .main .partners .conTextbox::after, .main .awards .conTextbox::after, .main .defaultSect2 .conTextbox::after {
+.main .defaultSect .conTextbox::after, .main .service .conTextbox::after, .main .partners .conTextbox::after, .main .awards .conTextbox::after, .main .defaultSect2 .conTextbox::after, .main .defaultSect3 .conTextbox::after {
   content: '';
   display: block;
   clear: both;
 }
 
-.main .defaultSect .innerTitle, .main .service .innerTitle, .main .partners .innerTitle, .main .awards .innerTitle, .main .defaultSect2 .innerTitle {
+.main .defaultSect .innerTitle, .main .service .innerTitle, .main .partners .innerTitle, .main .awards .innerTitle, .main .defaultSect2 .innerTitle, .main .defaultSect3 .innerTitle {
   font-family: 'Text Me One', sans-serif;
   font-weight: bold;
   width: 9.45vw;
@@ -271,12 +273,12 @@ header:after {
   position: relative;
 }
 
-.main .defaultSect .innerTitle span, .main .service .innerTitle span, .main .partners .innerTitle span, .main .awards .innerTitle span, .main .defaultSect2 .innerTitle span {
+.main .defaultSect .innerTitle span, .main .service .innerTitle span, .main .partners .innerTitle span, .main .awards .innerTitle span, .main .defaultSect2 .innerTitle span, .main .defaultSect3 .innerTitle span {
   position: relative;
   display: inline-block;
 }
 
-.main .defaultSect .innerTitle span::after, .main .service .innerTitle span::after, .main .partners .innerTitle span::after, .main .awards .innerTitle span::after, .main .defaultSect2 .innerTitle span::after {
+.main .defaultSect .innerTitle span::after, .main .service .innerTitle span::after, .main .partners .innerTitle span::after, .main .awards .innerTitle span::after, .main .defaultSect2 .innerTitle span::after, .main .defaultSect3 .innerTitle span::after {
   content: '';
   position: absolute;
   top: 0;
@@ -284,7 +286,7 @@ header:after {
   background: #000;
 }
 
-.main .defaultSect .innerTitle span::before, .main .service .innerTitle span::before, .main .partners .innerTitle span::before, .main .awards .innerTitle span::before, .main .defaultSect2 .innerTitle span::before {
+.main .defaultSect .innerTitle span::before, .main .service .innerTitle span::before, .main .partners .innerTitle span::before, .main .awards .innerTitle span::before, .main .defaultSect2 .innerTitle span::before, .main .defaultSect3 .innerTitle span::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -296,35 +298,35 @@ header:after {
   transition: width 0.5s 0.5s;
 }
 
-.main .defaultSect .conTextArea, .main .service .conTextArea, .main .partners .conTextArea, .main .awards .conTextArea, .main .defaultSect2 .conTextArea {
+.main .defaultSect .conTextArea, .main .service .conTextArea, .main .partners .conTextArea, .main .awards .conTextArea, .main .defaultSect2 .conTextArea, .main .defaultSect3 .conTextArea {
   float: left;
 }
 
-.main .defaultSect .conTextArea .conTextTitle, .main .service .conTextArea .conTextTitle, .main .partners .conTextArea .conTextTitle, .main .awards .conTextArea .conTextTitle, .main .defaultSect2 .conTextArea .conTextTitle {
+.main .defaultSect .conTextArea .conTextTitle, .main .service .conTextArea .conTextTitle, .main .partners .conTextArea .conTextTitle, .main .awards .conTextArea .conTextTitle, .main .defaultSect2 .conTextArea .conTextTitle, .main .defaultSect3 .conTextArea .conTextTitle {
   font-size: 1.904vw;
   line-height: 3.1vw;
   display: block;
 }
 
-.main .defaultSect .conTextArea .conTextTitle .green, .main .service .conTextArea .conTextTitle .green, .main .partners .conTextArea .conTextTitle .green, .main .awards .conTextArea .conTextTitle .green, .main .defaultSect2 .conTextArea .conTextTitle .green {
+.main .defaultSect .conTextArea .conTextTitle .green, .main .service .conTextArea .conTextTitle .green, .main .partners .conTextArea .conTextTitle .green, .main .awards .conTextArea .conTextTitle .green, .main .defaultSect2 .conTextArea .conTextTitle .green, .main .defaultSect3 .conTextArea .conTextTitle .green {
   background: url(../img/green.png) no-repeat 0 0;
   background-size: 0 100%;
   -webkit-transition: all 1.7s 0.5s ease-in-out;
   transition: all 1.7s 0.5s ease-in-out;
 }
 
-.main .defaultSect .conTextArea .conTextTitle .yellow, .main .service .conTextArea .conTextTitle .yellow, .main .partners .conTextArea .conTextTitle .yellow, .main .awards .conTextArea .conTextTitle .yellow, .main .defaultSect2 .conTextArea .conTextTitle .yellow {
+.main .defaultSect .conTextArea .conTextTitle .yellow, .main .service .conTextArea .conTextTitle .yellow, .main .partners .conTextArea .conTextTitle .yellow, .main .awards .conTextArea .conTextTitle .yellow, .main .defaultSect2 .conTextArea .conTextTitle .yellow, .main .defaultSect3 .conTextArea .conTextTitle .yellow {
   background: url(../img/yellow.png) no-repeat 0 0;
   background-size: 0 100%;
   -webkit-transition: all 1.7s 0.5s ease-in-out;
   transition: all 1.7s 0.5s ease-in-out;
 }
 
-.main .defaultSect .conTextArea .conTextTitle > span, .main .service .conTextArea .conTextTitle > span, .main .partners .conTextArea .conTextTitle > span, .main .awards .conTextArea .conTextTitle > span, .main .defaultSect2 .conTextArea .conTextTitle > span {
+.main .defaultSect .conTextArea .conTextTitle > span, .main .service .conTextArea .conTextTitle > span, .main .partners .conTextArea .conTextTitle > span, .main .awards .conTextArea .conTextTitle > span, .main .defaultSect2 .conTextArea .conTextTitle > span, .main .defaultSect3 .conTextArea .conTextTitle > span {
   position: relative;
 }
 
-.main .defaultSect .conTextArea .conTextTitle > span::after, .main .service .conTextArea .conTextTitle > span::after, .main .partners .conTextArea .conTextTitle > span::after, .main .awards .conTextArea .conTextTitle > span::after, .main .defaultSect2 .conTextArea .conTextTitle > span::after {
+.main .defaultSect .conTextArea .conTextTitle > span::after, .main .service .conTextArea .conTextTitle > span::after, .main .partners .conTextArea .conTextTitle > span::after, .main .awards .conTextArea .conTextTitle > span::after, .main .defaultSect2 .conTextArea .conTextTitle > span::after, .main .defaultSect3 .conTextArea .conTextTitle > span::after {
   content: '';
   position: absolute;
   top: 0;
@@ -332,7 +334,7 @@ header:after {
   background: #000;
 }
 
-.main .defaultSect .conTextArea .conTextTitle > span::before, .main .service .conTextArea .conTextTitle > span::before, .main .partners .conTextArea .conTextTitle > span::before, .main .awards .conTextArea .conTextTitle > span::before, .main .defaultSect2 .conTextArea .conTextTitle > span::before {
+.main .defaultSect .conTextArea .conTextTitle > span::before, .main .service .conTextArea .conTextTitle > span::before, .main .partners .conTextArea .conTextTitle > span::before, .main .awards .conTextArea .conTextTitle > span::before, .main .defaultSect2 .conTextArea .conTextTitle > span::before, .main .defaultSect3 .conTextArea .conTextTitle > span::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -344,7 +346,7 @@ header:after {
   transition: width 0.5s 0.5s;
 }
 
-.main .defaultSect .conTextArea .conTextIn, .main .service .conTextArea .conTextIn, .main .partners .conTextArea .conTextIn, .main .awards .conTextArea .conTextIn, .main .defaultSect2 .conTextArea .conTextIn {
+.main .defaultSect .conTextArea .conTextIn, .main .service .conTextArea .conTextIn, .main .partners .conTextArea .conTextIn, .main .awards .conTextArea .conTextIn, .main .defaultSect2 .conTextArea .conTextIn, .main .defaultSect3 .conTextArea .conTextIn {
   display: block;
   padding-top: 2.1vw;
   width: 46.4vw;
@@ -359,7 +361,7 @@ header:after {
   transition: all 1s 0.5s;
 }
 
-.main .defaultSect .rightSince, .main .service .rightSince, .main .partners .rightSince, .main .awards .rightSince, .main .defaultSect2 .rightSince {
+.main .defaultSect .rightSince, .main .service .rightSince, .main .partners .rightSince, .main .awards .rightSince, .main .defaultSect2 .rightSince, .main .defaultSect3 .rightSince {
   position: absolute;
   display: inline-block;
   font-size: 1vw;
@@ -371,11 +373,11 @@ header:after {
           transform: rotate(90deg);
 }
 
-.main .defaultSect .rightSince .redPoint, .main .service .rightSince .redPoint, .main .partners .rightSince .redPoint, .main .awards .rightSince .redPoint, .main .defaultSect2 .rightSince .redPoint {
+.main .defaultSect .rightSince .redPoint, .main .service .rightSince .redPoint, .main .partners .rightSince .redPoint, .main .awards .rightSince .redPoint, .main .defaultSect2 .rightSince .redPoint, .main .defaultSect3 .rightSince .redPoint {
   color: red;
 }
 
-.main .defaultSect .rightSince .icoArea, .main .service .rightSince .icoArea, .main .partners .rightSince .icoArea, .main .awards .rightSince .icoArea, .main .defaultSect2 .rightSince .icoArea {
+.main .defaultSect .rightSince .icoArea, .main .service .rightSince .icoArea, .main .partners .rightSince .icoArea, .main .awards .rightSince .icoArea, .main .defaultSect2 .rightSince .icoArea, .main .defaultSect3 .rightSince .icoArea {
   margin-left: 15px;
   display: inline-block;
   width: 15px;
@@ -383,7 +385,7 @@ header:after {
           transform: rotate(-90deg);
 }
 
-.main .defaultSect .rightSince::after, .main .service .rightSince::after, .main .partners .rightSince::after, .main .awards .rightSince::after, .main .defaultSect2 .rightSince::after {
+.main .defaultSect .rightSince::after, .main .service .rightSince::after, .main .partners .rightSince::after, .main .awards .rightSince::after, .main .defaultSect2 .rightSince::after, .main .defaultSect3 .rightSince::after {
   content: '';
   position: absolute;
   top: 0;
@@ -392,7 +394,7 @@ header:after {
   background: #000;
 }
 
-.main .defaultSect .rightSince::before, .main .service .rightSince::before, .main .partners .rightSince::before, .main .awards .rightSince::before, .main .defaultSect2 .rightSince::before {
+.main .defaultSect .rightSince::before, .main .service .rightSince::before, .main .partners .rightSince::before, .main .awards .rightSince::before, .main .defaultSect2 .rightSince::before, .main .defaultSect3 .rightSince::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -630,32 +632,32 @@ header:after {
   width: 0;
 }
 
-.main .awards {
+.main .awards, .main .defaultSect3 {
   padding: 7.2vw 0;
   border-bottom: none;
 }
 
-.main .awards .conTextArea {
+.main .awards .conTextArea, .main .defaultSect3 .conTextArea {
   position: relative;
   z-index: 1;
 }
 
-.main .awards .Text {
+.main .awards .Text, .main .defaultSect3 .Text {
   font-family: 'Text Me One', sans-serif;
   font-weight: 900;
   color: #000;
 }
 
-.main .awards .Text p {
+.main .awards .Text p, .main .defaultSect3 .Text p {
   padding-bottom: 3.5vw;
 }
 
-.main .awards .Text span {
+.main .awards .Text span, .main .defaultSect3 .Text span {
   font-size: 4.114vw;
   position: relative;
 }
 
-.main .awards .Text span::after {
+.main .awards .Text span::after, .main .defaultSect3 .Text span::after {
   content: '';
   position: absolute;
   top: 0;
@@ -664,26 +666,26 @@ header:after {
   background: #000;
 }
 
-.main .awards .Text .type2 {
+.main .awards .Text .type2, .main .defaultSect3 .Text .type2 {
   margin-left: 5.2vw;
 }
 
-.main .awards .awardsImgArea {
+.main .awards .awardsImgArea, .main .defaultSect3 .awardsImgArea {
   position: relative;
   top: -13.6vw;
 }
 
-.main .awards .awardsImgArea .awardsBg {
+.main .awards .awardsImgArea .awardsBg, .main .defaultSect3 .awardsImgArea .awardsBg {
   width: 46.614vw;
 }
 
-.main .awards .awardsImgArea .awardsBg span {
+.main .awards .awardsImgArea .awardsBg span, .main .defaultSect3 .awardsImgArea .awardsBg span {
   display: inline-block;
   width: 100%;
   position: relative;
 }
 
-.main .awards .awardsImgArea .awardsBg span::after {
+.main .awards .awardsImgArea .awardsBg span::after, .main .defaultSect3 .awardsImgArea .awardsBg span::after {
   content: '';
   position: absolute;
   width: 100%;
@@ -696,7 +698,7 @@ header:after {
   transition: width 0.5s 0.3s;
 }
 
-.main .awards .awardsImgArea .awardsBg span::before {
+.main .awards .awardsImgArea .awardsBg span::before, .main .defaultSect3 .awardsImgArea .awardsBg span::before {
   content: '';
   position: absolute;
   width: 100%;
@@ -709,11 +711,11 @@ header:after {
   transition: width 0.5s;
 }
 
-.main .awards .awardsImgArea .awardsBg img {
+.main .awards .awardsImgArea .awardsBg img, .main .defaultSect3 .awardsImgArea .awardsBg img {
   display: inline-block;
 }
 
-.main .awards .awardsImgArea .rightWinner {
+.main .awards .awardsImgArea .rightWinner, .main .defaultSect3 .awardsImgArea .rightWinner {
   position: absolute;
   bottom: 9.3vw;
   right: -1vw;
@@ -724,11 +726,11 @@ header:after {
   font-size: 1vw;
 }
 
-.main .awards .awardsImgArea .rightWinner .redPoint {
+.main .awards .awardsImgArea .rightWinner .redPoint, .main .defaultSect3 .awardsImgArea .rightWinner .redPoint {
   color: red;
 }
 
-.main .awards .awardsImgArea .rightWinner .wicoArea {
+.main .awards .awardsImgArea .rightWinner .wicoArea, .main .defaultSect3 .awardsImgArea .rightWinner .wicoArea {
   display: inline-block;
   width: 18px;
   top: -2px;
@@ -736,11 +738,11 @@ header:after {
           transform: rotate(-90deg);
 }
 
-.main .awards .awardsImgArea .rightWinner .wicoArea:nth-child(2) {
+.main .awards .awardsImgArea .rightWinner .wicoArea:nth-child(2), .main .defaultSect3 .awardsImgArea .rightWinner .wicoArea:nth-child(2) {
   margin-left: 10px;
 }
 
-.main .awards .listConArea {
+.main .awards .listConArea, .main .defaultSect3 .listConArea {
   margin-top: -8.2vw;
   width: 46.615vw;
   max-width: 895px;
@@ -752,65 +754,65 @@ header:after {
   transition: all 1s;
 }
 
-.main .awards .listConArea .topYear {
+.main .awards .listConArea .topYear, .main .defaultSect3 .listConArea .topYear {
   font-size: 24px;
   padding-bottom: 1vw;
   display: block;
 }
 
-.main .awards .listConArea .listContnets {
+.main .awards .listConArea .listContnets, .main .defaultSect3 .listConArea .listContnets {
   margin-bottom: 3.5vw;
 }
 
-.main .awards .listConArea .listContnets .listArray {
+.main .awards .listConArea .listContnets .listArray, .main .defaultSect3 .listConArea .listContnets .listArray {
   font-size: 16px;
   border-top: 1px solid #ebebeb;
   padding-top: 1.85vw;
 }
 
-.main .awards .listConArea .listContnets .listArray .listTitle {
+.main .awards .listConArea .listContnets .listArray .listTitle, .main .defaultSect3 .listConArea .listContnets .listArray .listTitle {
   float: left;
   width: 13.6vw;
   font-weight: bold;
 }
 
-.main .awards .listConArea .listContnets .listArray ul {
+.main .awards .listConArea .listContnets .listArray ul, .main .defaultSect3 .listConArea .listContnets .listArray ul {
   float: left;
   width: calc(100% - 13.6vw);
 }
 
-.main .awards .listConArea .listContnets .listArray ul li {
+.main .awards .listConArea .listContnets .listArray ul li, .main .defaultSect3 .listConArea .listContnets .listArray ul li {
   padding-bottom: .78125vw;
 }
 
-.main .awards .listConArea .listContnets .listArray ul .listType {
+.main .awards .listConArea .listContnets .listArray ul .listType, .main .defaultSect3 .listConArea .listContnets .listArray ul .listType {
   float: right;
   text-align: right;
   line-height: 2;
 }
 
-.main .awards .listConArea .listContnets .listArray ul .listName {
+.main .awards .listConArea .listContnets .listArray ul .listName, .main .defaultSect3 .listConArea .listContnets .listArray ul .listName {
   text-decoration: underline;
 }
 
-.main .awards .listConArea .listContnets .listArray::after {
+.main .awards .listConArea .listContnets .listArray::after, .main .defaultSect3 .listConArea .listContnets .listArray::after {
   content: '';
   display: block;
   clear: both;
 }
 
-.main .awards .listConArea .listContnets .listArray:first-child {
+.main .awards .listConArea .listContnets .listArray:first-child, .main .defaultSect3 .listConArea .listContnets .listArray:first-child {
   border: none;
 }
 
-.main .awards .listConArea .more {
+.main .awards .listConArea .more, .main .defaultSect3 .listConArea .more {
   display: block;
   margin: 0 auto;
   width: 30px;
   text-align: center;
 }
 
-.main .awards .listConArea .more span {
+.main .awards .listConArea .more span, .main .defaultSect3 .listConArea .more span {
   font-family: 'Text Me One', sans-serif;
   display: block;
   padding-top: .8vw;
@@ -882,6 +884,7 @@ header:after {
 
 .main .blend.ver2 .svg-blend .conTextArea {
   position: absolute;
+  z-index: 1;
 }
 
 .main .blend.ver2 .svg-blend .conTextArea .stick {
@@ -926,17 +929,17 @@ header:after {
   width: 0;
 }
 
-.main .defaultSect2 {
+.main .defaultSect2, .main .defaultSect3 {
   padding: 33.2vw 0 7vw 0 !important;
   border-bottom: 1px solid #ebebeb;
 }
 
-.main .defaultSect2 .conTextIn {
+.main .defaultSect2 .conTextIn, .main .defaultSect3 .conTextIn {
   font-size: 1.14vw;
   font-weight: 300;
 }
 
-.main .defaultSect2 .pinkLink {
+.main .defaultSect2 .pinkLink, .main .defaultSect3 .pinkLink {
   opacity: 0;
   -webkit-transform: translateY(100px);
           transform: translateY(100px);
@@ -948,7 +951,7 @@ header:after {
   transition: all 1s 0.8s;
 }
 
-.main .defaultSect2 .pinkLink .linkText {
+.main .defaultSect2 .pinkLink .linkText, .main .defaultSect3 .pinkLink .linkText {
   display: inline-block;
   font-size: 1.1vw;
   line-height: .9vw;
@@ -957,7 +960,7 @@ header:after {
   padding-bottom: 2px;
 }
 
-.main .defaultSect2 .pinkLink .linkicon {
+.main .defaultSect2 .pinkLink .linkicon, .main .defaultSect3 .pinkLink .linkicon {
   display: inline-block;
   vertical-align: -3px;
   width: .6vw;
@@ -1091,6 +1094,165 @@ header:after {
   letter-spacing: normal;
   text-align: left;
   color: #000;
+}
+
+.main .defaultSect3.ourTeam {
+  padding: 7.2vw 0 9.2vw 0 !important;
+}
+
+.main .defaultSect3.ourTeam .divInner {
+  margin-top: 3.65vw;
+}
+
+.main .defaultSect3.ourTeam .divInner:first-child .conTextbox {
+  margin-left: -7vw;
+}
+
+.main .defaultSect3.ourTeam .conTextbox {
+  margin-left: -7vw;
+}
+
+.main .defaultSect3.ourTeam .conTextbox::after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.main .defaultSect3.ourTeam .conTextArea {
+  float: right;
+  width: calc(100% - 9.45vw);
+}
+
+.main .defaultSect3.ourTeam .conTextArea .conTextTitle i {
+  width: 62px;
+  display: inline-block;
+}
+
+.main .defaultSect3.ourTeam .conTextArea .conTextTitle i img {
+  vertical-align: initial;
+}
+
+.main .defaultSect3.ourTeam .conTextIn {
+  font-size: 1.10vw;
+}
+
+.main .defaultSect3.active .innerTitle span::after, .main .defaultSect3.active .conTextTitle > span::after {
+  -webkit-animation: typo01-after 1s ease-in-out;
+          animation: typo01-after 1s ease-in-out;
+}
+
+.main .defaultSect3.active .innerTitle span::before, .main .defaultSect3.active .conTextTitle > span::before {
+  width: 0;
+}
+
+.main .defaultSect3.active .conTextIn, .main .defaultSect3.active .pinkLink {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.main .defaultSect3.ourTeam .divInner:nth-child(2) {
+  margin-top: 0;
+}
+
+.main .defaultSect3.ourTeam .divInner:nth-child(1) {
+  position: relative;
+  z-index: 2;
+}
+
+.main .defaultSect3.ourTeam.active .Text span::after, .main .defaultSect3.ourTeamactive .Text span::after {
+  -webkit-animation: typo01-after 1s ease-in-out;
+          animation: typo01-after 1s ease-in-out;
+}
+
+.main .defaultSect3.ourTeam.active .swiper-slide::after, .main .defaultSect3.ourTeam.active .swiper-slide::before {
+  width: 0 !important;
+}
+
+.conTextbox.slide .slideContent {
+  width: calc(100% - 9.65vw);
+  margin-top: -5.7vw;
+  float: right;
+}
+
+.conTextbox.slide .slideContent .slideContentinner {
+  width: 150%;
+}
+
+.conTextbox.slide .slideContent:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide {
+  width: 56.3542vw !important;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1;
+  -webkit-transition: width 1s 0.5s;
+  transition: width 1s 0.5s;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  z-index: 2;
+  background: #fff;
+  -webkit-transition: width 1s;
+  transition: width 1s;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide:nth-child(3n+2)::after {
+  background: #93adf9;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide:nth-child(3n+1)::after {
+  background: #9fca86;
+}
+
+.conTextbox.slide .swiper-container .swiper-wrapper .swiper-slide:nth-child(3n)::after {
+  background: #e57d76;
+}
+
+.conTextbox.slide .slide-nav {
+  position: absolute;
+  bottom: -0.2vw;
+  left: -7vw;
+}
+
+.conTextbox.slide .slide-nav .swiper-pagination-fraction {
+  width: auto;
+  position: static;
+  bottom: 0;
+}
+
+.conTextbox.slide .slide-nav .swiper-pagination {
+  margin: 0 10px;
+  position: static;
+  display: inline-block !important;
+  text-align: left;
+}
+
+.conTextbox.slide .slide-nav .next {
+  vertical-align: -5px;
+  display: inline-block;
+}
+
+.conTextbox.slide .slide-nav .prev {
+  vertical-align: -5px;
+  display: inline-block;
 }
 
 @-webkit-keyframes spin {
