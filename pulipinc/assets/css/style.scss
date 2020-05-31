@@ -1145,6 +1145,33 @@ header{
         }
     }
 }
+.lnb{
+    position: fixed;
+    left:1.4vw;
+    width: 3.021vw;
+    height: 2.032vw;
+    top: 2.4vw;
+    .logo{
+        .hi{
+            position: relative;
+            width: 250px;
+            font-size: .88vw;
+            letter-spacing: .5px;
+            top: 5.05vw;
+            left: 2.3vw;
+            .hi-mo{
+                transform-origin: 0 0;
+                transform: rotate(90deg);
+                display: inline-block;
+                .emoji{
+                    transform: rotate(-90deg);
+                    display: inline-block;
+                    width: 26px;
+                }
+            }
+        }
+    }
+}
 @keyframes spin{
     0%{
         //-webkit-filter:hue-rotate(-1turn);
