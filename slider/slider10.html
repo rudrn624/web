@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider10</title>
+
+   
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+         * {margin: 0;padding: 0;box-sizing: border-box;}
+        a {text-decoration: none;color: #fff;}
+        img {width: 100%;vertical-align: top;}
+        li{list-style: none;}
+        body {background:#ccc;}
+        #nav {
+            position : fixed; left : 0; top: 0; 
+            width:100%;
+            background:#fff; z-index: 1000;
+            display: flex; justify-content: space-between;
+            /* font-family: 'Playfair Display', serif; */
+            font-family: 'Roboto', sans-serif;
+            padding: 0 7vw;
+        }
+        #nav .menu{
+            flex:1;
+        }
+        #nav h1{ 
+            height:100px; line-height: 100px; 
+            font-weight: 700;letter-spacing: 10px; 
+            font-size: 14px;
+            text-align: center;
+            text-transform: uppercase;
+            flex:1;
+        }
+        
+        #nav .ham{
+            background:#ccc; 
+            cursor: pointer;
+            flex:1;
+        }
+        #nav .ham .bar{
+            float:right;
+            margin-top: 46px;
+            position: relative;
+            width:30px;
+            height: 3px;
+            background: #000;
+        }
+        #nav .ham .bar::before{
+            content:'';
+            position: absolute;
+            top:-10px; left: 0;
+            width: 50%;
+            height:3px;
+            background:#000;
+        }
+        #nav .ham .bar::after{
+            content:'';
+            position: absolute;
+            bottom:-10px; right: 0;
+            width: 50%;
+            height:3px;
+            background:#000;
+        }
+        #nav .menu li{
+        
+            display:inline-block; 
+            padding-right: 10px;height: 100px; line-height: 100px;
+        }
+        #nav .menu li.active a{font-weight: bold;}
+        #nav .menu a{
+            color:#000;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <nav id = "nav">
+        <ul class="menu">
+            <li class="active"><a href="#">Work</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+        <h1>Portfolio</h1>
+        <div class="ham">
+            <div class="bar">
+                <span> </span>
+            </div>
+        </div>
+    </nav>
+    <!-- nav -->
+
+    <section id ="contents">
+        <div class ="slide-wrap">
+            <div class ="slide-img">
+                <div calss ="slide s1">
+                    <!-- <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="img/img1.png" alt="webstandard">
+                    </div> -->
+                </div>
+                <div calss ="slide s2"></div>
+                <div calss ="slide s3"></div>
+                <div calss ="slide s4"></div>
+                <div calss ="slide s5"></div>
+                <div calss ="slide s6"></div>
+                <div calss ="slide s7"></div>
+            </div>
+        </div>
+    </section>
+    <!-- script -->
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        
+    </script>
+</body>
+
+</html>

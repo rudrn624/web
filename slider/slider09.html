@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slider09</title>
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding: 10px 20px;
+        }
+
+        body {
+            /* background: url(img/so01.jpg) no-repeat center center; */
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(50, 37, 11, 0.86);
+            z-index: -1;
+        }
+
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info h1 {
+            margin-bottom: 10px;
+        }
+
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+
+        .info2 li.active a {
+            border-bottom: 1px dashed #fff;
+        }
+
+
+        /* slide */
+        .slider-wrap {
+            width: 1000px;
+            height: 600px;
+            overflow: hidden;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            box-shadow: 4px 4px 20px rgba(0, 0, 0, .5);
+        }
+
+        .slider-img {
+            position: relative;
+            overflow: hidden;
+            width: 8000px;
+        }
+
+        .slider-img .slides {
+            float: left;
+            position: relative;
+        }
+
+        .slider-img .slides span {
+            position: absolute;
+            left: 10px;
+            top: 10px;
+        }
+
+        .slider-btn a {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            text-transform: capitalize;
+        }
+
+        .slider-btn a.prev {
+            left: 0;
+        }
+
+        .slider-btn a.next {
+            right: 0;
+        }
+
+        .slider-dot {
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            transform: translateX(-50%);
+            white-space: nowrap;
+        }
+
+        .slider-dot a {
+            width: 100px;
+            height: 40px;
+            background: rgba(0, 0, 0, .8);
+            display: inline-block;
+            text-align: center;
+            line-height: 40px;
+            font-size: 14px;
+            /* vertical-align: middle; */
+            border-radius: 3px;
+            margin: 5px;
+            transition: background 0.3s;
+            background-size : cover;
+            opacity: 0.5;
+            transition : all 0.3s;
+        }
+
+        .slider-dot a.active {
+            color:#f00;
+            background-size : cover;
+            opacity: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="info">
+        <h1>Image Slider09</h1>
+        <p>좌우로 움직이기</p>
+        <ul>
+            <li>연속적으로 움직이기</li>
+            <li>버튼 만들기</li>
+            <li>닷 버튼 만들기</li>
+        </ul>
+    </div>
+    <div class="info2">
+        <ul>
+            <li><a href="slider01.html">Slider01</a></li>
+            <li><a href="slider02.html">Slider02</a></li>
+            <li><a href="slider03.html">Slider03</a></li>
+            <li><a href="slider04.html">Slider04</a></li>
+            <li><a href="slider05.html">Slider05</a></li>
+            <li><a href="slider06.html">Slider06</a></li>
+            <li><a href="slider07.html">Slider07</a></li>
+            <li><a href="slider08.html">Slider08</a></li>
+            <li class="active"><a href="slider09.html">Slider09</a></li>
+        </ul>
+    </div>
+
+    <!-- slider -->
+    <div class="slider-wrap">
+        <div class="slider-img">
+            <div class="slides s1"><img src="assets/img/su01.jpg" alt="이미지1"><span>1</span></div>
+            <div class="slides s2"><img src="assets/img/su02.jpg" alt="이미지2"><span>2</span></div>
+            <div class="slides s3"><img src="assets/img/su03.jpg" alt="이미지3"><span>3</span></div>
+            <div class="slides s4"><img src="assets/img/su04.jpg" alt="이미지4"><span>4</span></div>
+            <div class="slides s5"><img src="assets/img/su05.jpg" alt="이미지5"><span>5</span></div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
+    <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script>
+        //버튼, 닷 태그 추가하기
+        //append를 이용해서 버튼을 추가해주세요!
+        $(".slider-wrap").append("<div class='slider-btn'><a href='#' class='prev'>prev</a><a href='#' class='next'>next</a></div>");
+        $(".slider-wrap").append("<div class='slider-dot'></div>");
+        
+        const sliderWrap = $(".slider-wrap");
+        const sliderImg = $(".slider-img");
+        const sliders = $(".slides");
+        const sliderBtn = $(".slider-btn");
+        const sliderDot = $(".slider-dot");
+
+        let sliderCount = sliders.length;
+        let sliderWidth = sliders.width();
+        let currentIndex = 0;
+        let dotIndex = "";
+        let timer = "";
+
+        //이미지 움직이기
+        function gotoSlide(index){
+            sliderImg.animate({left : -sliderWidth * index},400,"easeInOutSine");
+            currentIndex = index;
+            updateDot();
+        }
+
+        //버튼 클릭하기
+        sliderBtn.on("click", "a", function(){
+
+            let nextIndex = (currentIndex +1) % sliderCount;
+            let prevIndex = (currentIndex -1) % sliderCount;
+
+            if(currentIndex == 0){
+                prevIndex = sliderCount-1;
+            }
+
+            
+
+            if($(this).hasClass("prev")){
+                gotoSlide(prevIndex);
+            }else{
+                gotoSlide(nextIndex);
+            }
+        });
+        //닷 버튼 만들기
+        sliders.each(function(i,e){
+            let slideName = $(this).find("img").attr("alt");
+            let slideimg = $(this).find("img").attr("src");
+            //dotIndex +="<a href='#' class='dot'>"+(i+1)+"</a>";
+            dotIndex +="<a href='#' class='dot' style ='background-image: url("+slideimg+"); '>"+slideName+"</a>";
+        });
+        sliderDot.html(dotIndex);
+
+        sliderDot.children().eq(0).addClass("active");
+
+        //닷 버튼 클릭하기
+        sliderDot.on("click", "a", function(){
+            gotoSlide($(this).index());
+        });
+
+        function updateDot(){
+            sliderDot.find("a").removeClass().eq(currentIndex).addClass("active");
+        }
+        //자동 플레이
+        function startTimer(){
+            timer = setInterval(function(){
+                let nextIndex = (currentIndex +1) % sliderCount;
+                gotoSlide(nextIndex);
+            },3000);
+        }
+        startTimer();
+        //정지
+        function stopTimer(){
+            clearInterval(timer);
+        }
+
+        // sliderWrap.hover(function(){stopTimer()},function(){startTimer()});
+        sliderWrap.on({mouseenter:stopTimer, mouseleave: startTimer});
+        // sliderWrap.on({mousehover:stopTimer, mouseleave: startTimer});
+    </script>
+</body>
+
+</html>
