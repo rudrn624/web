@@ -1,84 +1,192 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Slider10</title>
+    <title>Slider Portfolio</title>
 
-   
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
     <style>
-         * {margin: 0;padding: 0;box-sizing: border-box;}
+        * {margin: 0; padding: 0; box-sizing: border-box;}
         a {text-decoration: none;color: #fff;}
-        img {width: 100%;vertical-align: top;}
-        li{list-style: none;}
-        body {background:#ccc;}
+        body{overflow: hidden;}
+        img {width: 100%; vertical-align: top;}
+        li {list-style: none;}
+
         #nav {
-            position : fixed; left : 0; top: 0; 
-            width:100%;
-            background:#fff; z-index: 1000;
-            display: flex; justify-content: space-between;
-            /* font-family: 'Playfair Display', serif; */
-            font-family: 'Roboto', sans-serif;
+            position: fixed; left: 0; top: 0; 
+            width: 100%; 
+            background: #fff; z-index: 1000;
+            display: flex;
+            font-family: "Roboto";
             padding: 0 7vw;
         }
-        #nav .menu{
-            flex:1;
+        #nav .menu {
+            flex: 1 1 0;
         }
-        #nav h1{ 
-            height:100px; line-height: 100px; 
-            font-weight: 700;letter-spacing: 10px; 
-            font-size: 14px;
-            text-align: center;
+        #nav .menu li {
+            display: inline-block;
+            margin:  2.3vw 1vw 2.3vw 0;
+        }
+        #nav .menu li.active a {font-weight: bold;} 
+        #nav .menu a {color: #000; font-size: 14px;}
+
+        #nav h1 { 
+            flex: 1 1 0;
+            font-weight: 700; 
+            letter-spacing: 10px; font-size: 14px;
             text-transform: uppercase;
-            flex:1;
+            text-align: center;
+            margin: 2.3vw 1vw;
         }
-        
-        #nav .ham{
-            background:#ccc; 
-            cursor: pointer;
-            flex:1;
-        }
-        #nav .ham .bar{
-            float:right;
-            margin-top: 46px;
+        #nav .ham {
+            flex: 1 1 0;
             position: relative;
-            width:30px;
+        }
+        #nav .ham .bar { 
+            position: absolute; 
+            right: 0;
+            top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px;
+            cursor: pointer;
+        }
+        #nav .ham .bar span {
+            width: 30px;
             height: 3px;
             background: #000;
+            position: relative;
+            display: block;
+            transition: all 0.5s ease;
+            margin-top: 25px;
+            margin-left: 10px;
         }
-        #nav .ham .bar::before{
-            content:'';
-            position: absolute;
-            top:-10px; left: 0;
+        #nav .ham .bar span::before {
+            content: '';
             width: 50%;
-            height:3px;
-            background:#000;
+            height: 3px;
+            background: #000;
+            position: absolute; top: -10px; left: 0;
+            transform-origin: left;
+            transition: all 0.5s ease;
         }
-        #nav .ham .bar::after{
-            content:'';
-            position: absolute;
-            bottom:-10px; right: 0;
+        #nav .ham .bar span::after {
+            content: '';
             width: 50%;
-            height:3px;
-            background:#000;
+            height: 3px;
+            background: #000;
+            position: absolute; bottom: -10px; right: 0;
+            transform-origin: right;
+            transition: all 0.5s ease;
         }
-        #nav .menu li{
-        
-            display:inline-block; 
-            padding-right: 10px;height: 100px; line-height: 100px;
+        #nav .ham .bar.on span {transform: rotate(135deg);}
+        #nav .ham .bar.on span::before {top:0; transform: translateX(100%) rotate(-90deg);}
+        #nav .ham .bar.on span::after {bottom:0; transform:  translateX(-100%) rotate(-90deg);}
+
+      
+
+        /* slide-wrap */
+        .slide-wrap {position: relative; height: 100vh;}
+        .slide-img {position:relative; width: 100%; height: 100%;}
+        .slide-img .slide {position: absolute; width: 100%; height: 100%; overflow: hidden;}
+        .slide-img .slide .stext {
+            position: absolute; left: 50%; top: 50%; 
+            font-size: 8vw; color: #fff;
+            font-family: "Roboto";
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            transform: translate(-50%,-50%) scale(0.8);
+            font-weight: 700;
         }
-        #nav .menu li.active a{font-weight: bold;}
-        #nav .menu a{
-            color:#000;
-            font-size: 14px;
+        .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+        .slide-img .slide .simg img {max-width: 500px;}
+        .slide-img .slide .snum {
+            position: absolute; left: 7.5vw; top: 11vh;
+            font-size: 5vw;
+            color: #000;
+            font-family: "Playfair Display";
+            font-style: italic;
+        }
+        .slide-img .slide .snum .currentIndex {
+            margin-right: 4.5vw;
+            position: relative;
+        }
+        .slide-img .slide .snum .currentIndex::before {
+            content: ' ';
+            width: 4vw;
+            height: 2px;
+            background: #000;
+            position: absolute;
+            right: -5.3vw; bottom: 2.5vw;
+        }
+
+
+        /* slide-dot */
+        .slide-dot {
+            position: absolute; left: 50%; transform: translateX(-50%);
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            text-align: center;
+        }
+        .slide-dot a {
+            color: #000;
+            display: inline-block;
+            width: 10px; height: 10px;
+            border-radius: 50%;
+            margin: 2.5vw 1.2vw;
+            border: 1px solid #ccc;
+            text-indent: -9999px;
+            transition: all 0.3s ease;
+        }
+        .slide-dot a.active{
+            border:3px; color:#333; text-indent: 0;
+            font-family: "Playfair Display";
+            font-style: italic;
+            font-size: 18px;
+            vertical-align: 9px;
+        }
+
+        /* slide-btn */
+        .slide-btn{position : absolute; top:0; left:0; width:100%;z-index: 2;}
+        .slide-btn a{position: absolute;}
+        .slide-btn a.prev{ left: 0; width: 5vw; height: 100vh; background:#fff;}
+        .slide-btn a.next{ right: 0; width: 5vw; height: 100vh; background:#fff;}
+
+        .slide-btn a.prev::before{
+            content:'';
+            width:10px; height:2px; background:#000;
+            position: absolute; bottom:3vw; left:2.2vw;
+            transform:rotate(-45deg);
+            transform-origin: left;
+        }
+        .slide-btn a.prev::after{
+            content:'';
+            width:10px; height:2px; background:#000;
+            position: absolute; bottom:3vw; left:2.2vw;
+            transform:rotate(45deg);
+            
+            transform-origin: left;
+        }
+        .slide-btn a.next::before{
+            content:'';
+            width:10px; height:2px; background:#000;
+            position: absolute; bottom:3vw; left:2.2vw;
+            transform:rotate(-45deg);
+            transform-origin: right;
+        }
+        .slide-btn a.next::after{
+            content:'';
+            width:10px; height:2px; background:#000;
+            position: absolute; bottom:3vw; left:2.2vw;
+            transform:rotate(45deg);
+            transform-origin: right;
         }
     </style>
 </head>
-
 <body>
-    <nav id = "nav">
+    <nav id="nav">
         <ul class="menu">
             <li class="active"><a href="#">Work</a></li>
             <li><a href="#">About</a></li>
@@ -87,38 +195,140 @@
         <h1>Portfolio</h1>
         <div class="ham">
             <div class="bar">
-                <span> </span>
+                <span></span>
             </div>
         </div>
     </nav>
-    <!-- nav -->
-
-    <section id ="contents">
-        <div class ="slide-wrap">
-            <div class ="slide-img">
-                <div calss ="slide s1">
-                    <!-- <div class="stext">
+    <!-- //nav -->
+    
+    <section id="contents">
+        <div class="slide-wrap">
+            <div class="slide-img">
+                <div class="slide s1">
+                    <div class="stext">
                         <h2>webstandard</h2>
                     </div>
                     <div class="simg">
-                        <img src="img/img1.png" alt="webstandard">
-                    </div> -->
+                        <img src="assets/img/img1.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">01</span>
+                        <span class="slideCount">07</span>
+                    </div>
                 </div>
-                <div calss ="slide s2"></div>
-                <div calss ="slide s3"></div>
-                <div calss ="slide s4"></div>
-                <div calss ="slide s5"></div>
-                <div calss ="slide s6"></div>
-                <div calss ="slide s7"></div>
+                <div class="slide s2">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="assets/img/img2.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">02</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s3">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="assets/img/img3.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">03</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s4">
+                    <div class="stext">
+                        <h2>webstandard</h2>
+                    </div>
+                    <div class="simg">
+                        <img src="assets/img/img4.png" alt="webstandard">
+                    </div>
+                    <div class="snum">
+                        <span class="currentIndex">04</span>
+                        <span class="slideCount">07</span>
+                    </div>
+                </div>
+                <div class="slide s5"></div>
+                <div class="slide s6"></div>
+                <div class="slide s7"></div>
             </div>
+            <!-- <div class="slide-dot">
+                <a href="#" class="active">01</a>
+                <a href="#">02</a>
+                <a href="#">03</a>
+                <a href="#">04</a>
+                <a href="#">05</a>
+                <a href="#">06</a>
+                <a href="#">07</a>
+            </div> -->
         </div>
     </section>
-    <!-- script -->
+
+
     <script src="assets/js/jquery.min_1.12.4.js"></script>
     <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
     <script>
+        //닷, 버튼 태그 생성
+        $(".slide-wrap").append("<div class='slide-dot'></div>")
+        $(".slide-wrap").append("<div class='slide-btn'><a href ='#' class='prev'></a><a href ='#' class='next'></a></div>")
         
+        const slideWrap = $(".slide-wrap");
+        const slideImg = $(".slide-img");
+        const slide = $(".slide");
+        const slideDot = $(".slide-dot");
+        const slideBtn = $(".slide-btn");
+
+        let slideCount = slide.length;          //슬라이드 이미지 갯수
+        let currentIndex = 0;                   //현재 보이는 이미지
+        let dotIndex = "";                       //닷 버튼 HTML
+        let duration = 1000;                    //이미지 슬라이드 이동 시간
+        let easing = "easeOutExpo";             //이미지 움직임 효과
+        slideBg = ["#fcefe9", "#e9effd","#fae3f5", "#fbe368","#ccebea","#e9effd","#f4f2ec"];
+        //01. 각 이미지 absolute
+        //left : currentIndex * 100% = 0%
+        //left : currentIndex(1) * 100% = 100%
+        //left : currentIndex(2) * 100% = 200%
+        //left : currentIndex(3) * 100% = 300%
+        slide.each(function(i){
+            $(this).css({"left":i * 100+"%","background":slideBg[i]});    //각 슬라이드 이미지 위치설정
+            dotIndex += "<a href='#'>"+(i+1)+"</a>";
+        });
+        slideDot.html(dotIndex);
+
+
+        slideBtn.on("click","a", function(){
+            let nextIndex = (currentIndex + 1) % slideCount;
+            let prevIndex = (currentIndex - 1) % slideCount;
+                
+            if(currentIndex == 0){
+                prevIndex = slideCount - 1;
+            }
+
+            if($(this).hasClass("prev")){
+                //왼
+                gotoSlide(prevIndex);
+            }else{
+                //오른
+                gotoSlide(nextIndex);
+            }
+            
+        });
+
+
+        //햄버그 메뉴
+        $("#nav .ham .bar").click(function(){
+            $(this).toggleClass("on");
+        });
+        function gotoSlide(num){
+            // console.log("d");
+            slideImg.animate({left : -100 * num + "%"},duration,easing);
+            currentIndex = num;
+        }
+        //gotoSlide(1);
     </script>
 </body>
-
 </html>
