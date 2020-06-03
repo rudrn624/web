@@ -50,6 +50,17 @@
   display: inline-block;
   -webkit-transform-origin: left;
           transform-origin: left;
+  opacity: 0;
+  -webkit-transform: translateY(100px) rotate(10deg);
+          transform: translateY(100px) rotate(10deg);
+  -webkit-transition: all 0.5s 0.3s;
+  transition: all 0.5s 0.3s;
+}
+
+.intro_title .word.show {
+  opacity: 1;
+  -webkit-transform: translateY(0) rotate(0);
+          transform: translateY(0) rotate(0);
 }
 
 .intro_link {
@@ -248,5 +259,12 @@
 
 .hide {
   display: none;
+}
+
+#canvas {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
 }
 /*# sourceMappingURL=style.css.map */

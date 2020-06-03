@@ -92,12 +92,23 @@
         .slide-img .slide {position: absolute; width: 100%; height: 100%; overflow: hidden;}
         .slide-img .slide .stext {
             position: absolute; left: 50%; top: 50%; 
-            font-size: 8vw; color: #fff;
+           
+            transform: translate(-50%,-50%) scale(0.8);
+        }
+        .slide-img .slide .stext h2{
+            font-size: 11vw; 
+            line-height: 8vw;
+            color: #fff;
             font-family: "Roboto";
             text-transform: uppercase;
-            letter-spacing: 0.15em;
-            transform: translate(-50%,-50%) scale(0.8);
             font-weight: 700;
+            letter-spacing: 0.1rem;
+            overflow: hidden;
+            display: flex;
+        }
+        .slide-img .slide .stext h2 span{
+            /* display: inline-block; */
+            transform:translateY(102%);
         }
         .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
         .slide-img .slide .simg img {max-width: 500px;}
@@ -141,11 +152,11 @@
             transition: all 0.3s ease;
         }
         .slide-dot a.active{
-            border:3px; color:#333; text-indent: 0;
+            /* border:3px; color:#333; text-indent: 0;
             font-family: "Playfair Display";
             font-style: italic;
             font-size: 18px;
-            vertical-align: 9px;
+            vertical-align: 9px; */
         }
 
         /* slide-btn */
@@ -288,13 +299,26 @@
         let duration = 1000;                    //이미지 슬라이드 이동 시간
         let easing = "easeOutExpo";             //이미지 움직임 효과
         slideBg = ["#fcefe9", "#e9effd","#fae3f5", "#fbe368","#ccebea","#e9effd","#f4f2ec"];
+        
+
+        //글씨 분할
+
+        $(".slide .stext h2").each(function(){
+            let split = $(this).text().split("").join('</span><span aria-hidden="true">');
+            split = "<span aria-hidden='true'>" + split + "</span>";
+            
+            $(this).html(split).attr("aria-label", $(this).text());
+        });
+        
+        
+        
         //01. 각 이미지 absolute
         //left : currentIndex * 100% = 0%
         //left : currentIndex(1) * 100% = 100%
         //left : currentIndex(2) * 100% = 200%
         //left : currentIndex(3) * 100% = 300%
         slide.each(function(i){
-            $(this).css({"left":i * 100+"%","background":slideBg[i]});    //각 슬라이드 이미지 위치설정
+            $(this).css({"left":i * 100+"%", backgroundColor : slideBg[i]});    //각 슬라이드 이미지 위치설정
             dotIndex += "<a href='#'>"+(i+1)+"</a>";
         });
         slideDot.html(dotIndex);
@@ -318,7 +342,6 @@
             
         });
 
-
         //햄버그 메뉴
         $("#nav .ham .bar").click(function(){
             $(this).toggleClass("on");
@@ -327,6 +350,13 @@
             // console.log("d");
             slideImg.animate({left : -100 * num + "%"},duration,easing);
             currentIndex = num;
+
+            updateDot();
+        }
+
+        function updateDot(){
+            slideDot.find("a").removeClass().eq(currentIndex).addClass("active");
+            slide.removeClass("active").eq(currentIndex).addClass("active");
         }
         //gotoSlide(1);
     </script>

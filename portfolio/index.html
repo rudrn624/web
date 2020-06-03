@@ -22,6 +22,9 @@
                 </div>
             </div>
     </header>
+    <canvas id="canvas">
+
+    </canvas>
     <section id="intro">
         <div class="container">
             <span class="js-title hide">Welcome home!</span>
@@ -58,19 +61,135 @@
    
 
     <script>
+        
+        let balls = [];
+        let interval;
         $(window).load(function(){
             $("#intro").addClass("active");
             $("#header").addClass("active");
         });
+        let word = $(".word");
+        console.log(word);
+
         let title = $(".js-title").text();
         //console.log(title);
         $(".header-title").text(title);
 
-        let title2 = new TimelineMax();
+        word.each(function(i){
+            setInterval(function(){
+                word.eq(i).addClass("show");
+            },i*100);
+        });
+        setTimeout(function(){
+            word.each(function(i){
+                
+                // clearInterval(i+1);
+            });
+        },1000);
+        
+        function point(pX,pY){
+            this.pX = pX;
+            this.pY = pY;
+        }
+        function ball(point , radius)
+        {
+            this.position = point;
+            this.currentPosition = point;
+            this.radius = radius;
+            this.getpositionX = function(){
+                return this.position.pX;
+            }
+            this.getpositionY = function(){
+                return this.position.pY;
+            }
+            this.getCurrentPositon = function(){
+                return this.currentPosition;
+            }
+            this.getRadius = function(){
+                return this.radius;
+            }
+            this.setposition = function(point){
+                this.position = point;
+            }
+        }
+        for(let i = 0; i < 5; i++){
+            var randX = Math.random() * $(window).width();
+            var randY = Math.random() * $(window).height();
+            balls[i]= new ball(new point(randX,randY), (i+1) * 20);
+        }
 
-        title2.fromTo(".word", 1,
-        {ease:Back.easeOut.config(1.7),transform:"translateY(100px) rotate(5deg)", opacity:0, },
-                      {ease:Back.easeOut.config(1.7),  transform:"translateY(0) rotate(0deg)", opacity:1, stagger:0.05});
+        $(window).resize(function(){
+            // var canvas = document.getElementById("canvas");
+            
+            // if (canvas.getContext) {
+            //     var ctx = canvas.getContext("2d");
+
+            //     ctx.canvas.width  = window.innerWidth;
+            //     ctx.canvas.height = window.innerHeight;
+            // }
+        });
+        function draw() {
+            //console.log("드로우");
+           
+            var canvas = document.getElementById("canvas");
+            if (canvas.getContext) {
+                randomPosition();
+                movePosition()
+                var ctx = canvas.getContext("2d");
+
+                ctx.canvas.width  = window.innerWidth;
+                ctx.canvas.height = window.innerHeight;
+
+                for(let i=0; i < balls.length; i++){
+                    ctx.beginPath();
+
+                    x = balls[i].getCurrentPositon().pX;
+                    y = balls[i].getCurrentPositon().pY;
+                    
+                    radius = balls[i].getRadius();
+                    startAngle = 0;
+                    endAngle = Math.PI + Math.PI;
+                    // console.log(x);
+                    // console.log(y);
+                    // console.log(radius);
+                    // console.log(startAngle);
+                    // console.log(endAngle);
+                    ctx.arc(x, y, radius, startAngle, endAngle, false);
+
+                    ctx.stroke();
+                    ctx.closePath();
+                }
+            }
+        }
+        setInterval(function(){
+           draw();
+        },100);
+        function randomPosition(){
+            if(balls[0].position == balls[0].currentPosition){
+                let ranpoint = new point(Math.random() * $(window).width(), Math.random() * $(window).height() )
+                balls[0].setposition(ranpoint);
+                //console.log(balls[0].getpositionX(), balls[0].getpositionY());
+            }
+        }
+        function movePosition(){
+            //console.log("");
+            // if(balls[0].getpositionX() > balls[0].getCurrentPositon().pX){
+            //     balls[0].getCurrentPositon().pX += 1; 
+            // }else{
+            //     balls[0].getCurrentPositon().pX -= 1; 
+            // }
+
+            // if(balls[0].getpositionY() > balls[0].getCurrentPositon().pY){
+            //     balls[0].getCurrentPositon().pY += 1; 
+            // }else{
+            //     balls[0].getCurrentPositon().pY -= 1; 
+            // }
+        }
+        let ranpoint = new point(Math.random() * $(window).width(), Math.random() * $(window).height());
+        balls[0].setposition(ranpoint);
+        console.log(balls[0].position);
+        console.log(balls[0].currentPosition);
+        // setInterval(draw(),100);
     </script>
 </body>
 </html>
