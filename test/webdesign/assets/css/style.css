@@ -1,0 +1,173 @@
+*{margin : 0; padding: 0; box-sizing: border-box;}
+li{list-style: none;}
+a{text-decoration: none; color : #000;}
+img{width:100%; vertical-align: top;}
+.container{width:1200px; margin: 0 auto;
+position: relative;}
+
+#header{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+#header .logo{
+    width:100px;
+}
+#nav{
+    width:800px;
+    padding-top: 40px;
+    height:70px;
+}
+#nav .main{
+    display: flex;
+    height :100%;
+}
+#nav .main li{
+    text-align: center;
+    flex-basis: 20%;
+    font-weight: 600;
+}
+#nav .main li:hover{
+    background : #ccc;
+}
+#nav .main li:last-child{
+    margin-right: 0;
+}
+#nav .sub{
+    position: relative;
+    
+    z-index: 1;
+    display: none;
+    background: #ccc;
+    width:100%;
+}
+#nav .sub li:hover{
+    background:#fff;
+}
+#banner{
+    overflow: hidden;
+    margin: 20px 0;
+}
+.slideWrap{
+    display: flex;
+    position: relative;
+    width : 3600px;
+}
+.slideWrap .slide{
+    width : 1200px;
+    position: relative;
+}
+.slideWrap .slide .num{
+    position: absolute;
+    top:20px;
+    left:20px;
+    color:#000;
+    z-index: 1;
+}
+#cont1{
+    display: flex;
+    justify-content: space-between;
+}
+#cont1 .notice1{
+    flex-basis: 49%;
+    display: flex;
+    position: relative;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+#cont1 .notice2{
+    cursor: pointer;
+    flex-basis: 49%;
+}
+
+
+#cont1 .notice1 .more {
+    position: absolute;
+    top:40px;
+    right:20px;
+}
+#cont1 .notice1 .tab{
+    color : #ccc;
+}
+#cont1 .notice1 .tab.active{
+    color : #000;
+}
+#cont1 .notice1 .more .plus{
+    vertical-align: -2px;
+    display: inline-block;
+    width:18px;
+}
+#cont1 .notice1 ul{
+    margin-top: 20px;
+}
+#cont1 .notice1 ul:first-child h1::after{
+    content: '|';
+    margin: 0 10px;
+}
+#cont1 .notice1 ul .tabcont{
+    position: absolute;
+    width:100%;
+    bottom: 40px;
+    left: 20px;
+    padding-right: 40px;
+    display: none;
+}
+#cont1 .notice1 ul:first-child .tabcont{
+    display: block;
+}
+#cont1 .notice1 li{
+    display: flex;
+    margin: 10px 0;
+    justify-content: space-between;
+}
+#cont2{
+    margin-bottom: 30px;
+}
+#cont2 h1{
+    padding: 10px 0;
+}
+#cont2 ul{
+    display : flex;
+    justify-content: space-between;
+}
+#cont2 ul li{
+    flex-basis: 24%;
+}
+#cont2 ul li span{
+    display: inline-block;
+    padding : 10px 0;
+}
+
+#footer{
+    border-top: 1px solid #ccc;
+    padding-top: 20px;
+}
+#footer ul{
+    display: flex;
+    margin-bottom: 5px;
+}
+#footer ul li::after{
+    content : '|';
+    margin: 0 10px;
+}
+#footer ul li:last-child::after{
+    content : '';
+}
+#footer span{
+    display: inline-block;
+    margin:20px 0;
+}
+
+.popup{
+    display: none;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    left: 50%;
+    width:1000px;
+    height:500px;
+    border: #ccc;
+    background: #fff;
+    transform: translate(-50% , -50%);
+
+}
