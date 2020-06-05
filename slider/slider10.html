@@ -108,20 +108,90 @@
         }
         .slide-img .slide .stext h2 span{
             /* display: inline-block; */
-            transform:translateY(102%);
+            transform:translate(150px, 350px) rotate(20deg);
+            opacity: 0;
+            transform-origin: bottom left;
+            transition : all 1s ease;
+        }
+        .slide-img .slide.active .stext h2 span{
+            transform:translate(0%) rotate(0);
+            opacity: 1;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(1){
+            transition-delay: 0.05s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(2){
+            transition-delay: 0.10s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(3){
+            transition-delay: 0.15s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(4){
+            transition-delay: 0.20s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(5){
+            transition-delay: 0.25s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(6){
+            transition-delay: 0.30s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(7){
+            transition-delay: 0.35s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(8){
+            transition-delay: 0.40s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(9){
+            transition-delay: 0.45s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(10){
+            transition-delay: 0.50s;
+        }
+        .slide-img .slide.active .stext h2 span:nth-child(11){
+            transition-delay: 0.55s;
         }
         .slide-img .slide .simg {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
         .slide-img .slide .simg img {max-width: 500px;}
         .slide-img .slide .snum {
+            
             position: absolute; left: 7.5vw; top: 11vh;
             font-size: 5vw;
             color: #000;
             font-family: "Playfair Display";
             font-style: italic;
+            
+        }
+        .slide-img .slide .snum::before{
+            content:'';
+            position:absolute;
+            padding:10px;
+            width:100%;
+            height:3.5vw;
+            left : 0;
+            top: 2vw;
+            background:#fff;
+            z-index: 1;
+            transform: scaleX(0);
+        }
+        .slide-img .slide.active .snum::before{
+            animation : ani1 0.7s 0.6s ease;
+        }
+        @keyframes ani1{
+            0%{transform-origin: left; transform : scaleX(0);}
+            50%{transform-origin: left; transform : scaleX(1);}
+            51%{transform-origin: right; transform : scaleX(1);}
+            100%{transform-origin: right; transform : scaleX(0);}
         }
         .slide-img .slide .snum .currentIndex {
             margin-right: 4.5vw;
             position: relative;
+        }
+        .slide-img .slide .snum span {
+            opacity: 0;
+            transition: opacity 0.1s 1s;
+        }
+        .slide-img .slide.active .snum span{
+            opacity: 1;
         }
         .slide-img .slide .snum .currentIndex::before {
             content: ' ';
@@ -131,7 +201,7 @@
             position: absolute;
             right: -5.3vw; bottom: 2.5vw;
         }
-
+        
 
         /* slide-dot */
         .slide-dot {
@@ -149,16 +219,17 @@
             margin: 2.5vw 1.2vw;
             border: 1px solid #ccc;
             text-indent: -9999px;
-            transition: all 0.3s ease;
+            /* transition: border 0.3s ease; */
         }
         .slide-dot a.active{
-            /* border:3px; color:#333; text-indent: 0;
+            border:3px; color:#333; 
+            text-indent: 0;
             font-family: "Playfair Display";
             font-style: italic;
             font-size: 18px;
-            vertical-align: 9px; */
+            vertical-align: 9px;
         }
-
+        
         /* slide-btn */
         .slide-btn{position : absolute; top:0; left:0; width:100%;z-index: 2;}
         .slide-btn a{position: absolute;}
@@ -193,6 +264,14 @@
             position: absolute; bottom:3vw; left:2.2vw;
             transform:rotate(45deg);
             transform-origin: right;
+        }
+
+        .slide-img .slide.active .simg img{
+            animation: scale1 0.5s ease-in-out forwards;
+        }
+        @keyframes scale1{
+            0%{transform: scale(0.5);}
+            100%{transform: scale(1.2);}
         }
     </style>
 </head>
@@ -309,8 +388,9 @@
             
             $(this).html(split).attr("aria-label", $(this).text());
         });
-        
-        
+        $(window).load(function(){
+            gotoSlide(currentIndex);
+        });
         
         //01. 각 이미지 absolute
         //left : currentIndex * 100% = 0%
@@ -319,7 +399,7 @@
         //left : currentIndex(3) * 100% = 300%
         slide.each(function(i){
             $(this).css({"left":i * 100+"%", backgroundColor : slideBg[i]});    //각 슬라이드 이미지 위치설정
-            dotIndex += "<a href='#'>"+(i+1)+"</a>";
+            dotIndex += "<a href='#'>0"+(i+1)+"</a>";
         });
         slideDot.html(dotIndex);
 
@@ -358,7 +438,22 @@
             slideDot.find("a").removeClass().eq(currentIndex).addClass("active");
             slide.removeClass("active").eq(currentIndex).addClass("active");
         }
+        $(slideDot.find("a")).click(function(){
+            gotoSlide($(this).index());
+        });
         //gotoSlide(1);
+        let timer ; 
+        function autoplay(){
+            timer = setInterval(function(){
+                let nextIndex = (currentIndex +1) % slideCount;
+                gotoSlide(nextIndex);
+            },1000);
+        }
+        autoplay();
+        function stopTimer(){
+            clearInterval(timer);
+        }
+        slideWrap.on({mouseenter:stopTimer, mouseleave: autoplay});
     </script>
 </body>
 </html>
