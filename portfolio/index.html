@@ -25,6 +25,7 @@
     <canvas id="canvas">
 
     </canvas>
+    <!-- <img src="assets/img/han.jpg" alt="한경구"> -->
     <section id="intro">
         <div class="container">
             <span class="js-title hide">Welcome home!</span>
@@ -61,11 +62,26 @@
    
 
     <script>
-        
+        // $(".container").ready(function(){
+        //     $(".js-title.hide").addClass("active").ready(function(){
+        //         setTimeout(function(){
+        //             $(".container").addClass("active");
+        //         },8000);
+                
+        //     });
+        // });
+        let mouseX =0 , mouseY=0;
+        let movemouseX=0, movemouseY=0;
+        let u = false;
         let mousehover = false;
+        let mouseMove = false;
         let balls = [];
         let relativePoint = [];
         let interval;
+        let ImageBall = new Imageball(new point(0,0));
+        var canvas = document.getElementById("canvas");
+        $(window).resize(function(){
+        });
         $(window).load(function(){
             $("#intro").addClass("active");
             $("#header").addClass("active");
@@ -95,6 +111,7 @@
         function relativepoint(point){
             this.position = point;
             this.currentPosition = point;
+            this.currentMove = point;
             this.movePosition = point;
             this.dt = 0;
             this.draw = function(ctx){
@@ -103,64 +120,154 @@
                 startAngle = 0;
                 endAngle = Math.PI + Math.PI;
 
-                ctx.arc(this.movePosition.pX, this.movePosition.pY, 1, startAngle, endAngle, true);
+                ctx.arc(this.movePosition.pX, this.movePosition.pY, 0, startAngle, endAngle, true);
                 ctx.stroke();
-                
+
+               
+
                 ctx.fillStyle = '#0095DD';
                 ctx.fill();
                 ctx.closePath();
             }
         }
-        function ball(point , radius)
-        {
+        function ball(point , radius){
             this.position = point;
             this.currentPosition = point;
             this.movePosition = point; 
             this.radius = radius;
-            this.dt = 0.000;
+            this.dt = 1;
+            this.rotate = 0;
             this.draw = function(ctx){
+               
                 ctx.beginPath();
                 
                 startAngle = 0;
                 endAngle = Math.PI + Math.PI;
                 //
+                // 
+                ctx.save();
+                ctx.translate(this.movePosition.pX, this.movePosition.pY);
+                ctx.rotate(this.rotate);
+                ctx.translate(-this.movePosition.pX, -this.movePosition.pY);
                 ctx.arc(this.movePosition.pX, this.movePosition.pY, this.radius, startAngle, endAngle, true);
-                ctx.stroke();
+                ctx.restore();
                 
-                ctx.fillStyle = '#0095DD';
+                
+                ctx.fillStyle = '#f9e6d4';
                 ctx.fill();
+                
+                
                 ctx.closePath();
             }
             this.update = function(time){
-                this.dt += time;
+                
+                if(this.rotate > 360){
+                    this.rotate = 0;
+                }else{
+                    this.rotate++;
+                }
+                //console.log(this.dt);
+                if(this.dt < 1){
+                    
+                    this.dt = this.dt + (0.001  * Math.pow(2, time));
+                   
+                }else{
+                    this.dt = 1;
+                }
                 this.movePosition = lerp(this.currentPosition, this.position, this.dt);
                 // this.movePosition.
-                console.log(this.movePosition);
+                // console.log(this.movePosition);
             }
 
         }
-        
+        function Imageball(point){
+            this.movePosition = point;
+            this.radius = 0;
+            this.dt = 1;
+            this.rotate = 0;
+            this.draw = function(ctx){
+               
+               let x = this.movePosition.pX;
+               let y = this.movePosition.pY;
+               let radius = this.radius;
+
+               let startAngle = 0;
+               let endAngle = Math.PI + Math.PI;
+
+                var img = new Image();
+                
+                img.src="assets/img/han.jpg";
+                // img.width
+                
+              
+               
+                ctx.beginPath();
+
+                ctx.save();
+                ctx.translate(x, y);
+                ctx.rotate(0);
+                ctx.translate(-x, -y);
+                
+                ctx.arc(x, y, radius, startAngle, endAngle, true);
+                
+                ctx.fillStyle = '#f9e6d4';
+                ctx.fill();
+                ctx.clip();
+                ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
+               
+                
+                
+                ctx.closePath();
+                ctx.restore();
+           }
+           this.update = function(radius, dt){
+               
+               if(mousehover){
+                   if(dt >= 1){
+                    this.radius += (0.05  * Math.pow(2, radius));
+                    }
+               }else{
+                    this.radius -= (0.9  * Math.pow(2, radius));
+               }
+
+                if(this.radius <= 0 ){
+                    this.radius = 0
+                }else if(this.radius >= 300){
+                    this.radius = 300;
+                }
+           }
+        }
            
         for(let i = 0; i < 5; i++){
             relativePoint[i] = new relativepoint(random());
             relativePoint[i].position = random();
             balls[i] = new ball(relativePoint[i].movePosition, (i+1) * 15);
         }
-        
-        console.log(balls[0]);
+        // console.log(ImageBall);
         function draw() {
-            var canvas = document.getElementById("canvas");
+            
             if (canvas.getContext) {
                 
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
                 var ctx = canvas.getContext("2d");
-
-                ctx.canvas.width  = window.innerWidth;
-                ctx.canvas.height = window.innerHeight;
+                // ctx.fillStyle = '#f9e6d4';
+                // ctx.fillRect(0,0,canvas.width, canvas.height);
+                // redraw();
+               
                 for(let i = 0; i < relativePoint.length; i++){
                     relativePoint[i].draw(ctx);
                     balls[i].draw(ctx);
                 }
                 
+                ImageBall.draw(ctx);
+                
+                ctx.beginPath();
+                // var img = new Image();
+                
+                // img.src="assets/img/han.jpg";
+                // ctx.drawImage(img, 500,500)
+                ctx.restore();
             }
         }
         function random(){
@@ -202,9 +309,12 @@
             return returnPoint;
         };
         let speed = 0.001;
+        let movespeed = 0.3;
+        let time = 0;
         function update(){
+            time += 0.14;
                 for(let i = 0; i < relativePoint.length; i++){
-                    let position = lerp(relativePoint[i].currentPosition, relativePoint[i].position,relativePoint[i].dt);
+                    let position = lerp(relativePoint[i].currentMove, relativePoint[i].position,relativePoint[i].dt);
                     
                   
                         if(relativePoint[i].dt >= 1){
@@ -216,42 +326,89 @@
                         }else{
                             relativePoint[i].dt = relativePoint[i].dt + speed;
                         }
-                    relativePoint[i].movePosition = position;
-                    if(!mousehover)
-                    balls[i].movePosition = relativePoint[i].movePosition;
+                            relativePoint[i].movePosition=position;
+                            if(i%2){
+                                relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX + (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY + (movemouseY*movespeed) ) ;
+                            }else{
+                                relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX - (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY - (movemouseY*movespeed) ) ;
+                            }
+                    
+                    // console.log(mousehover);
+                    if(!mousehover){
+                        balls[i].position = relativePoint[i].movePosition;
+                        
+                        balls[i].update(time);
+                        
+                        ImageBall.update(time);
+                    }else{
+                        
+                        balls[i].update(time);
+                        if(u){
+                            ImageBall.update(time , balls[i].dt);
+                        }else{
+                            ImageBall.radius = 0;
+                        }
+                    }
                 }
+            // console.log(test);
             draw();
             requestAnimationFrame(update);
         }
         update();
 
-        let prevPosition = [];
-        let prevCurrentPosition = [];
-        let prevMovePosition = [];
-        let prevdt = [];
-        let mouseX , mouseY;
+       
+       
         $(window).mousemove(function(e){
+            mouseMove = true;
             mouseX = e.clientX;
             mouseY = e.clientY;
-            if(mousehover){
-                for(let i = 0 ; i < balls.length; i++){
-                    balls[i].position = new point(mouseX, mouseY);
-                }
+            
+            movemouseX = mouseX - ($(window).width()/2);
+            movemouseY = mouseY - ($(window).height()/2);
+            
+            ImageBall.movePosition = new point(mouseX, mouseY);
+            for(let i = 0 ; i < balls.length; i++){
+                balls[i].position = new point(mouseX, mouseY);
+                // balls[i].currentPosition = new point(mouseX, mouseY);
+                // relativePoint[i].currentPosition = new point(relativePoint[i].getCurrentPosition().pX +100 ,relativePoint[i].getCurrentPosition().pY +100);
+                // console.log(relativePoint[i].getCurrentPosition());
             }
-            // console.log(mouseX);
+           
+
+            
+            // relativePoint[0].position = new point(relativePoint[0].position.pX + movemouseX, relativePoint[0].position.pY + movemouseY);
+            
+            // console.log(relativePoint[0].position);
             // console.log(mouseY);
         });
-        $("u").hover(function(){
+        $("u, .intro_link, .bugar, .logo").hover(function(){
+            // console.log("d");
+           u = $(this).is("u");
+           mouseHover();
+        },function(){
+           mouseUnhover();
+           u = false;
+        });
+
+        function mouseHover(){
             mousehover = true;
             speed = 0.001;
             for(let i = 0; i < balls.length; i++){
-                balls[i].currentPosition = relativePoint[i].movePosition; 
-                balls[i].update(0.01);
+                balls[i].dt = 0;
+                balls[i].currentPosition = balls[i].movePosition;
+                
+                time = 0; 
             }
-
-        },function(){
+        }
+        function mouseUnhover(){
             mousehover = false;
-        });
+            for(let i = 0; i < balls.length; i++){
+                balls[i].position = relativePoint[i].movePosition;
+                balls[i].currentPosition = balls[i].movePosition;
+                balls[i].dt = 0;
+                time = 0;
+            }
+        }
     </script>
 </body>
 </html>
