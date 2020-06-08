@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/reset.css">
 </head>
@@ -57,19 +58,40 @@
             </div>
         </div>
     </section>
+    <section id="slide">
+        <span class="js-title hide">slide</span>
+        <div class="slideshow">
+            <div class="slideshow_loop">
+                <div class="double-loop">
+                    <span>bengol <i>&middot;</i></span>
+                    <span>bengol <i>&middot;</i></span>
+                    <span>bengol <i>&middot;</i></span>
+                </div>
+                <div class="double-loop">
+                    <span>lion <i>&middot;</i></span>
+                    <span>lion <i>&middot;</i></span>
+                    <span>lion <i>&middot;</i></span>
+                </div>
+            </div>
+        </div>
+    </section>
     <script src="assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
    
 
     <script>
+        // let ready = false;
         // $(".container").ready(function(){
         //     $(".js-title.hide").addClass("active").ready(function(){
         //         setTimeout(function(){
         //             $(".container").addClass("active");
+        //             ready = true;
         //         },8000);
-                
         //     });
         // });
+        // if(ready){
+        //     $(펭귄).animate({transform : scale(2)},400);
+        // }
         let mouseX =0 , mouseY=0;
         let movemouseX=0, movemouseY=0;
         let u = false;
@@ -409,6 +431,41 @@
                 time = 0;
             }
         }
+        //슬라이드 부분
+        let doubleLoop
+        // let doubleLoop = $(".double-loop span").innerWidth();
+        $(document).ready(function(){
+            // console.log("ready");
+            // doubleLoop = $(".double-loop span").outerWidth();
+           
+        });
+        setTimeout(function(){
+            doubleLoop = $(".double-loop span").outerWidth();
+            console.log(doubleLoop);
+        },1000);
+         
+        let mouseDown = false;
+        function loop(){
+            $(".double-loop span").each(function(){
+                
+                switch($(this).index()){
+                    case 0:
+                       
+                        // $(this).css({left : -test});
+                        break;
+                    case 1:
+
+                        break;
+                    case 2:
+
+                        break;
+                }
+                
+
+            });
+            requestAnimationFrame(loop);
+        }
+        loop();
     </script>
 </body>
 </html>

@@ -11,7 +11,7 @@
     <style>
         * {margin: 0; padding: 0; box-sizing: border-box;}
         a {text-decoration: none;color: #fff;}
-        body{overflow: hidden;}
+        body{overflow: hidden; position: relative;}
         img {width: 100%; vertical-align: top;}
         li {list-style: none;}
 
@@ -273,6 +273,32 @@
             0%{transform: scale(0.5);}
             100%{transform: scale(1.2);}
         }
+        .dotfollower{
+            position: absolute;
+            left:0;
+            top:0;
+            z-index: 1000;
+            width:30px; height: 30px;
+            background : #fcefe9;
+            border-radius: 50%;
+            user-select : none;
+            pointer-events: none;
+            transform: scale(1);
+            transition:transform 0.5s, background 0.5s;
+        }
+        .dotfollower::after{
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            top: 0;
+            left:0;
+            background:rgba(0, 0, 0, 0.05);
+        }
+        .dotfollower.active{
+            transform: scale(3);
+        }
     </style>
 </head>
 <body>
@@ -355,13 +381,24 @@
                 <a href="#">06</a>
                 <a href="#">07</a>
             </div> -->
+           
         </div>
     </section>
+    <div class="dotfollower">
 
+    </div>
 
     <script src="assets/js/jquery.min_1.12.4.js"></script>
     <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script src="../parallax/assets/js/gsap.min.js"></script>
     <script>
+        document.querySelectorAll("a").forEach(function(elem){
+            elem.addEventListener("mouseenter",function(){
+                document.querySelector(".cursor").classList.add("active")
+                document.querySelector(".follower").classList.add("active")
+            })
+        });
+
         //닷, 버튼 태그 생성
         $(".slide-wrap").append("<div class='slide-dot'></div>")
         $(".slide-wrap").append("<div class='slide-btn'><a href ='#' class='prev'></a><a href ='#' class='next'></a></div>")
@@ -371,7 +408,7 @@
         const slide = $(".slide");
         const slideDot = $(".slide-dot");
         const slideBtn = $(".slide-btn");
-
+        const dotfollow = $(".dotfollower");
         let slideCount = slide.length;          //슬라이드 이미지 갯수
         let currentIndex = 0;                   //현재 보이는 이미지
         let dotIndex = "";                       //닷 버튼 HTML
@@ -379,6 +416,12 @@
         let easing = "easeOutExpo";             //이미지 움직임 효과
         slideBg = ["#fcefe9", "#e9effd","#fae3f5", "#fbe368","#ccebea","#e9effd","#f4f2ec"];
         
+        // console.log(dotfollow);
+        $(window).mousemove(function(e){
+            // console.log(dotfollow.width());
+            gsap.to(dotfollow , 0.3 , {left : e.pageX-(dotfollow.width()/2), top : e.pageY - (dotfollow.height()/2)});
+
+        });
 
         //글씨 분할
 
@@ -421,7 +464,11 @@
             }
             
         });
-
+        $("a").hover(function(){
+            dotfollow.addClass("active");
+        },function(){
+            dotfollow.removeClass("active");
+        });
         //햄버그 메뉴
         $("#nav .ham .bar").click(function(){
             $(this).toggleClass("on");
@@ -430,7 +477,7 @@
             // console.log("d");
             slideImg.animate({left : -100 * num + "%"},duration,easing);
             currentIndex = num;
-
+            dotfollow.css({backgroundColor:slideBg[num]});
             updateDot();
         }
 
@@ -447,7 +494,7 @@
             timer = setInterval(function(){
                 let nextIndex = (currentIndex +1) % slideCount;
                 gotoSlide(nextIndex);
-            },1000);
+            },4000);
         }
         autoplay();
         function stopTimer(){

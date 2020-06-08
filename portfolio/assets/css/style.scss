@@ -11,13 +11,59 @@ body::before{
     left: 0;
     top:0;
     width:100%;
-    height:100vw;
+    bottom: 0;
     background-color:white;
     z-index:0;
     opacity:0.7;
 }
-
+#slide{
+    
+    height : 100vh;
+    position: relative;
+    z-index: 3;
+    .slideshow{
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        .slideshow_loop{
+            height: .77em;
+            padding-top: 0.01em;
+            padding-bottom: 0.01em;
+            overflow: hidden;
+            margin-top: 14rem;
+            margin-bottom: 10rem;
+            // font-family: Druk;
+            font-size: 34rem;
+            
+            
+            text-transform: uppercase;
+            .double-loop{
+                position: relative;
+                // margin-bottom: .07em;
+                display: flex;
+                height: .77em;
+                span{
+                    letter-spacing : -20px;
+                    display: inline-block;
+                    font-family: 'Anton', sans-serif;
+                    height: 0.78em;
+                    position: relative;
+                    white-space: nowrap;
+                    top: -.06em;
+                    padding-right: .43em;
+                    line-height: 1;
+                    font-size: 29rem;
+                    i{
+                        font-style: normal;
+                    }
+                }
+            }
+        }
+    }
+}
 #intro{
+    height : 100vh;
     padding-top: 16rem;
 }
 #intro.active .intro_link{
