@@ -18,7 +18,7 @@ body::before {
 #slide {
   height: 100vh;
   position: relative;
-  z-index: 3;
+  z-index: 1;
 }
 
 #slide .slideshow {
@@ -209,12 +209,11 @@ body::before {
 
 #header {
   position: fixed;
-  z-index: 2;
+  z-index: 4;
   top: 0;
   left: 0;
   width: 100%;
   padding-top: 5rem;
-  padding-bottom: 5rem;
 }
 
 .header-wrap {
@@ -334,13 +333,17 @@ body::before {
           transform: translateX(65%);
 }
 
+#test {
+  height: 100vh;
+}
+
 .hide {
   display: none;
 }
 
 #canvas {
   position: fixed;
-  z-index: 1;
+  z-index: 2;
   top: 0;
   left: 0;
 }

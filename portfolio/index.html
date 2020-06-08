@@ -75,6 +75,9 @@
             </div>
         </div>
     </section>
+    <section id="test">
+
+    </section>
     <script src="assets/js/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
    
@@ -102,6 +105,22 @@
         let interval;
         let ImageBall = new Imageball(new point(0,0));
         var canvas = document.getElementById("canvas");
+        
+        $(window).scroll(function(){
+            
+            let scrollTop = $(window).scrollTop();
+            console.log($("#slide").offset().top + $("#slide").height());
+            console.log(scrollTop + $("#slide").height());
+            if($("#slide").offset().top + $("#slide").height() < scrollTop + $("#slide").height()|| $("#slide").offset().top > scrollTop){
+                for(let i = 0; i < balls.length; i++){
+                    balls[i].updateRadius(-2,(i+1));
+                }
+            }else{
+                for(let i = 0; i < balls.length; i++){
+                     balls[i].updateRadius(+2,(i+1));
+                }
+            }
+        });
         $(window).resize(function(){
         });
         $(window).load(function(){
@@ -161,25 +180,39 @@
             this.rotate = 0;
             this.draw = function(ctx){
                
+               
+                ctx.save();
+
                 ctx.beginPath();
                 
                 startAngle = 0;
                 endAngle = Math.PI + Math.PI;
-                //
-                // 
+
+                var img = new Image();
+                
+                img.src="assets/img/cover-kalios-bottom.jpg";
+                
                 ctx.save();
+                
                 ctx.translate(this.movePosition.pX, this.movePosition.pY);
                 ctx.rotate(this.rotate);
                 ctx.translate(-this.movePosition.pX, -this.movePosition.pY);
+                
                 ctx.arc(this.movePosition.pX, this.movePosition.pY, this.radius, startAngle, endAngle, true);
+                
                 ctx.restore();
                 
                 
                 ctx.fillStyle = '#f9e6d4';
                 ctx.fill();
                 
+                ctx.clip();
+                
+                ctx.drawImage(img,0,0);
                 
                 ctx.closePath();
+                ctx.restore();
+               
             }
             this.update = function(time){
                 
@@ -199,6 +232,16 @@
                 this.movePosition = lerp(this.currentPosition, this.position, this.dt);
                 // this.movePosition.
                 // console.log(this.movePosition);
+            }
+            this.updateRadius = function(radius , i){
+                this.radius += radius; 
+                if(this.radius >= i * 30){
+                    this.radius = i * 30;
+                }else{
+                    if(this.radius < i * 15){
+                        this.radius = i * 15;
+                    }
+                }   
             }
 
         }
@@ -444,28 +487,40 @@
             console.log(doubleLoop);
         },1000);
          
-        let mouseDown = false;
+        let mouseDown = true;
+        //휠 이벤트
+        $(window).on('mousewheel',function(e){ 
+              var wheel = e.originalEvent.wheelDelta; 
+
+              if(wheel>0){ 
+                mouseDown = false;
+              } else { 
+                mouseDown = true;
+              }
+        });
+
         function loop(){
-            $(".double-loop span").each(function(){
-                
-                switch($(this).index()){
-                    case 0:
+            $(".double-loop span").each(function(i){
+                let left = $(this).css('left').replace('px', '');
+                if(!mouseDown){
+                    if(left <= -$(this).outerWidth()*($(this).index()+1)){
+                        $(this).css({"left": parseInt(left) + ($(this).outerWidth()*(($(this).index()+1)))});
                        
-                        // $(this).css({left : -test});
-                        break;
-                    case 1:
-
-                        break;
-                    case 2:
-
-                        break;
+                    }else{
+                        $(this).css({"left" : parseInt(left) - 1});
+                    }
+                }else{
+                    // console.log(left);
+                    if(left >= ($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1)){
+                        $(this).css({"left": -($(this).outerWidth() * ($(this).index() + 1))});
+                    }else{
+                        $(this).css({"left" : parseInt(left) + 1});
+                    }
                 }
-                
-
             });
             requestAnimationFrame(loop);
         }
-        loop();
+        setTimeout(loop,400);
     </script>
 </body>
 </html>
