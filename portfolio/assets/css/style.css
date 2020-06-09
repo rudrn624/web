@@ -55,6 +55,7 @@ body::before {
 }
 
 #slide .slideshow .slideshow_loop .double-loop span {
+  will-change: transform;
   letter-spacing: -20px;
   display: inline-block;
   font-family: 'Anton', sans-serif;
@@ -242,6 +243,7 @@ body::before {
 
 .header-wrap .header-logo .logo {
   color: #000;
+  mix-blend-mode: exclusion;
   font-size: 1.7rem;
   position: relative;
 }
@@ -265,6 +267,8 @@ body::before {
   line-height: 1.3;
   letter-spacing: 0em;
   font-weight: 600;
+  color: #000;
+  mix-blend-mode: exclusion;
 }
 
 .header-wrap .header-title {
@@ -276,6 +280,8 @@ body::before {
   line-height: 1.3;
   letter-spacing: 0em;
   font-weight: 600;
+  mix-blend-mode: exclusion;
+  color: #000;
 }
 
 .header-wrap .header-ham {
@@ -346,5 +352,10 @@ body::before {
   z-index: 2;
   top: 0;
   left: 0;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  pointer-events: none;
 }
 /*# sourceMappingURL=style.css.map */

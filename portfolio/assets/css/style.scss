@@ -44,6 +44,7 @@ body::before{
                 display: flex;
                 height: .77em;
                 span{
+                    will-change: transform;
                     letter-spacing : -20px;
                     display: inline-block;
                     font-family: 'Anton', sans-serif;
@@ -190,11 +191,14 @@ opacity: 1;
     justify-content: space-between;
     opacity: 0;
     transition: opacity 0.5s;
+    
+    
     .header-logo{
         flex: 1;
         position: relative;
         .logo{
             color:#000;
+            mix-blend-mode: exclusion;
             font-size: 1.7rem;
             position: relative;
             &:before{
@@ -217,6 +221,8 @@ opacity: 1;
             line-height: 1.3;
             letter-spacing: 0em;
             font-weight: 600;
+            color:#000;
+            mix-blend-mode: exclusion;
         }
     }
     .header-title{
@@ -226,6 +232,8 @@ opacity: 1;
         line-height: 1.3;
         letter-spacing: 0em;
         font-weight: 600;
+        mix-blend-mode: exclusion;
+        color:#000;
     }
     .header-ham{
         
@@ -280,6 +288,8 @@ opacity: 1;
     z-index: 2;
     top:0;
     left:0;
+    user-select : none;
+    pointer-events: none;
     // width:100%;
     // height:100vh;
 }

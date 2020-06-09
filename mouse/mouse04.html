@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mouse Effect02</title>
+    <title>Mouse Effect04</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
 
@@ -42,7 +42,7 @@
             color: #fff;
             height: 100vh;
             transition:all 0.2s;
-            cursor: none;
+            /* cursor: none; */
         }
 
         body::before {
@@ -52,7 +52,7 @@
             top: 0;
             width: 100%;
             height: 100vh;
-            background: rgba(66, 42, 94, 0.8);
+            background: rgba(31, 66, 37, 0.8);
             z-index: -1;
         }
         .info {
@@ -111,6 +111,7 @@
             justify-content: center;
             width:100%; height:100vh;
             flex-direction: column;
+            color:#000;
         }
         .contents p{
             max-width:80vw;
@@ -137,24 +138,49 @@
             pointer-events: none;
             transform: scale(1);
             background: #fff;
-            transition:transform 0.3s ease-in-out, opacity 0.2s ease-in-out;
+            transition:transform 0.8s ease-in-out;
+           
         }
-        .cursor.active{
-            opacity: .5;
-            transform: scale(0);
-        }
-        .cursor-follower{
+        .cursor strong{
+            background : rgba(255,255,255,0.9);
+            color:#000;
             position: absolute;
-            width: 30px; height: 30px;
-            background : rgba(255,255,255,0.3);
-            border-radius : 50%;
-            user-select : none;
-            pointer-events: none;
-            transition:transform 0.6s ease-in-out, opacity 0.2s ease-in-out;
+            left:50%;
+            padding: 3px;
         }
-        .cursor-follower.active{
-            opacity: .7;
-            transform:scale(4);
+        .cursor strong:first-child{ top:-65px;}
+        .cursor strong:last-child{ top:-40px;}
+        .move-image{
+            position: absolute; left: 50%; top: 50%;
+            transform: translate(-50%, -50%) perspective(600px) rotateX(-10deg) rotateY(-10deg) scale(0.8);
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+        .move-image .mimg img{
+            border-radius: 5px;
+            position:relative;
+        }
+        .move-image .mimg::before{
+            content : '';
+            position:absolute;
+            left: 5%; bottom: -20px;
+            width: 90%; height:40px;
+            z-index: -1;
+            background : url(../parallax/assets/img/su01.jpg) no-repeat;
+            background-size: 100% 30px;
+            filter : blur(15px);
+            opacity: 0.9;
+        }
+        .move-image .mtext{
+            color:#fff;
+            font-size: 1vw;
+            position: absolute;
+            left: 50%; bottom: 50%;
+            transform: translate3d(-50%, 68% , 150px);
+            background: rgba(0,0,0,.5);
+            text-align: center;
+            padding: 1vw;
+            border-radius: 2px;
         }
         ::-webkit-scrollbar {
             width: 10px;  /* 세로축 스크롤바 길이 */
@@ -181,7 +207,7 @@
 </head>
 <body>
     <div class="info">
-        <h1>Mouse Effect02</h1>
+        <h1>Mouse Effect04</h1>
         <p>마우스 따라다니기</p>
         <ul>
             <li>GSAP</li>
@@ -190,16 +216,15 @@
     <div class="info2">
         <ul>
             <li><a href="mouse01.html">Mouse01</a></li>
-            <li class="active"><a href="mouse02.html">Mouse02</a></li>
+            <li><a href="mouse02.html">Mouse02</a></li>
             <li><a href="mouse03.html">Mouse03</a></li>
-            <li><a href="mouse04.html">Mouse04</a></li>
+            <li class="active"><a href="mouse04.html">Mouse04</a></li>
             <li><a href="mouse05.html">Mouse05</a></li>
         </ul>
     </div>
     <div class="info3">
         <ul>
-            <li>pageX:<span class="pageX">0</span></li>
-            <li>pageY:<span class="pageY">0</span></li>
+           
         </ul>
     </div>
     <div class="infor4">
@@ -210,43 +235,61 @@
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-<pre class="line-numbers"><code class="language-js">const cursor = document.querySelector(".cursor");
-    const follwer = document.querySelector(".cursor-follower");
-    
-    // console.log(cursor.offsetWidth);
-    $(document).mousemove(function(e){
-        gsap.to(cursor,0.3,{left :e.pageX -(cursor.offsetWidth /2) ,top:e.pageY - (cursor.offsetHeight/2)})    
-        gsap.to(follwer,0.8,{left :e.pageX-(follwer.offsetWidth/2), top:e.pageY - (follwer.offsetHeight/2)})    
-    });
-    // 출력용
-    // $(document).mousemove(function(e){ //마우스가 움직였을 때 이벤트 함수
-    //     $(".pageX").text(e.pageX);  //이벤트 pageX값을 화면에 출력
-    //     $(".pageY").text(e.pageY);  //이벤트 pageX값을 화면에 출력
-    // });
+<pre class="line-numbers"><code class="language-js">let x = 0;
+    let y = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let angleX = 0;
+    let angleY = 0;
+    let fmouseX = 0;
+    let fmouseY = 0;
+    $(window).mousemove(function(e){
+        x = $(window).width()/2 - e.pageX;
+        y = $(window).height()/2 - e.pageY;
+                       
 
-    document.addEventListener("mousemove", function(e){
-        document.querySelector(".pageX").textContent = e.pageX;
-        document.querySelector(".pageY").textContent = e.pageY;
-    });
-    // $("a").hover(function(){
-    //     cursor.addClass("active");
-    //     follwer.addClass("active");
-    // },function(){
-    //     cursor.removeClass("active");
-    //     follwer.removeClass("active");
-    // });
+        //마우스의 x축 y축 최소값 -100 최대값 100으로 설정
+        mouseX = Math.max(-100, Math.min(100, x));
+        mouseY = Math.max(-100, Math.min(100, y));
 
-    document.querySelectorAll("a").forEach(function(e){
-        e.addEventListener("mouseenter",function(){
-            cursor.classList.add("active");
-            follwer.classList.add("active");
-        });
-        e.addEventListener("mouseleave",function(){
-            cursor.classList.remove("active");
-            follwer.classList.remove("active");
-        });
+        angleX = (10 * mouseX)/100;
+        angleY = (10 * mouseY)/100;
+        
+        fmouseX += (angleX - fmouseX) * 1/8;
+        fmouseY += (angleY - fmouseY) * 1/8;
+
+
+        animation();
+
+        $(".pageX").text(-angleX);       
+        $(".pageY").text(angleY);       
+
+        gsap.to(".cursor", 0.3, {left:e.pageX , top:e.pageY});
+
+        //mouseX의 값을 최고값 20 최저값 -20 제한
+        // let arr = [100,200,300];
+        // let max = Math.max(...arr);
+        
+        //주어진 숫자보다 크거나 같은 숫자중 가장 작은 숫자
+        // let ceil = Math.ceil(0.95);
+
+        //주어진 수 이하의 가장 큰 정수
+        // let floor = Math.floor(37.35);
+
+        //입력값을 반올림한 값과 가장 가까운 정수를 출력
+        // let round = Math.round(20.49); //20
+        // let round = Math.round(20.5); //21
+        // let round = Math.round(20); //20
+
+        //랜덤 0~1 사이 값
+        // let random = Math.floor(Math.random()*10);
 
     });
+
+    function animation(){
+        $(".move-image").css({"transform":"translate(-50%,-50%) perspective(600px) rotateX("+fmouseY+"deg) rotateY("+-fmouseX+"deg)"});
+        requestAnimationFrame(animation);
+    }
 </code></pre>
                 
                 
@@ -268,11 +311,18 @@
         screenY : 전체 모니터 스크린에서의 y좌표 위치를 반환합니다.
     -->
     <!-- contents -->
-    <div class="cursor"></div>
+    <div class="cursor">
+        <strong>pageX:<span class="pageX">0</span></strong>
+        <strong>pageY:<span class="pageY">0</span></strong>
+    </div>
     <div class="cursor-follower"></div>
     <div class="contents">
-        <p>Whe money speaks, the <a>truth</a> keeps silent.</p> 
-        <p>돈이 말할 때는 <a>진실</a>은 입을 다문다</p>
+        <div class="move-image">
+            <div class="mimg">
+                <img src="../parallax/assets/img/su01.jpg" alt="이미지1">
+            </div>
+            <div class="mtext">SSang SSun</div>   
+        </div>
     </div>
 
     <!-- script -->
@@ -281,43 +331,62 @@
     <script src = "../parallax/assets/js/gsap.min.js"></script>
     <script src = "js/prism.js"></script>
     <script>
-        const cursor = document.querySelector(".cursor");
-        const follwer = document.querySelector(".cursor-follower");
+        let x = 0;
+        let y = 0;
+        let mouseX = 0;
+        let mouseY = 0;
+        let angleX = 0;
+        let angleY = 0;
+        let fmouseX = 0;
+        let fmouseY = 0;
+        $(window).mousemove(function(e){
+            x = $(window).width()/2 - e.pageX;
+            y = $(window).height()/2 - e.pageY;
+                           
+
+            //마우스의 x축 y축 최소값 -100 최대값 100으로 설정
+            mouseX = Math.max(-100, Math.min(100, x));
+            mouseY = Math.max(-100, Math.min(100, y));
+
+            angleX = (10 * mouseX)/100;
+            angleY = (10 * mouseY)/100;
+            
+            fmouseX += (angleX - fmouseX) * 1/8;
+            fmouseY += (angleY - fmouseY) * 1/8;
+
+
+            animation();
+
+            $(".pageX").text(-angleX);       
+            $(".pageY").text(angleY);       
+
+            gsap.to(".cursor", 0.3, {left:e.pageX , top:e.pageY});
+
+            //mouseX의 값을 최고값 20 최저값 -20 제한
+            // let arr = [100,200,300];
+            // let max = Math.max(...arr);
+            
+            //주어진 숫자보다 크거나 같은 숫자중 가장 작은 숫자
+            // let ceil = Math.ceil(0.95);
+
+            //주어진 수 이하의 가장 큰 정수
+            // let floor = Math.floor(37.35);
+
+            //입력값을 반올림한 값과 가장 가까운 정수를 출력
+            // let round = Math.round(20.49); //20
+            // let round = Math.round(20.5); //21
+            // let round = Math.round(20); //20
+
+            //랜덤 0~1 사이 값
+            // let random = Math.floor(Math.random()*10);
+
+        });
+
+        function animation(){
+            $(".move-image").css({"transform":"translate(-50%,-50%) perspective(600px) rotateX("+fmouseY+"deg) rotateY("+-fmouseX+"deg)"});
+            requestAnimationFrame(animation);
+        }
         
-        // console.log(cursor.offsetWidth);
-        $(document).mousemove(function(e){
-            gsap.to(cursor,0.3,{left :e.pageX -(cursor.offsetWidth /2) ,top:e.pageY - (cursor.offsetHeight/2)})    
-            gsap.to(follwer,0.8,{left :e.pageX-(follwer.offsetWidth/2), top:e.pageY - (follwer.offsetHeight/2)})    
-        });
-        // 출력용
-        // $(document).mousemove(function(e){ //마우스가 움직였을 때 이벤트 함수
-        //     $(".pageX").text(e.pageX);  //이벤트 pageX값을 화면에 출력
-        //     $(".pageY").text(e.pageY);  //이벤트 pageX값을 화면에 출력
-        // });
-
-        document.addEventListener("mousemove", function(e){
-            document.querySelector(".pageX").textContent = e.pageX;
-            document.querySelector(".pageY").textContent = e.pageY;
-        });
-        // $("a").hover(function(){
-        //     cursor.addClass("active");
-        //     follwer.addClass("active");
-        // },function(){
-        //     cursor.removeClass("active");
-        //     follwer.removeClass("active");
-        // });
-
-        document.querySelectorAll("a").forEach(function(e){
-            e.addEventListener("mouseenter",function(){
-                cursor.classList.add("active");
-                follwer.classList.add("active");
-            });
-            e.addEventListener("mouseleave",function(){
-                cursor.classList.remove("active");
-                follwer.classList.remove("active");
-            });
-
-        });
     </script>
 </body>
 </html>
