@@ -43,6 +43,7 @@ body::before{
                 // margin-bottom: .07em;
                 display: flex;
                 height: .77em;
+                transform: translateY(0);
                 span{
                     will-change: transform;
                     letter-spacing : -20px;

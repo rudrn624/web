@@ -110,6 +110,10 @@
         let left ; 
         let spanSpeed = 0;
         
+        let slideballY = $("#slide").offset().top + $("#slide").height()/2;
+        let slideballX = $(window).width()/2;
+      
+
         $(window).scroll(function(){
             let scrollTop = $(window).scrollTop();
             
@@ -132,9 +136,10 @@
                 left = $(this).css('left').replace('px', '');
                 console.log(mouseDown);
                 if(mouseDown){
-                    $(this).css({left : left + 5});
+                    // console.log(left + 5);
+                    $(this).css({left : parseInt(left) + 5});
                 }else{
-                    $(this).css({left : left - 5});
+                    $(this).css({left : parseInt(left) - 5});
                 }
             });
             // else{
@@ -349,7 +354,8 @@
                 }
                 
                 ImageBall.draw(ctx);
-                
+              
+
                 ctx.beginPath();
                 // var img = new Image();
                 
@@ -523,28 +529,42 @@
 
               }
         });
-        // function loop(){
-        //     $(".double-loop span").each(function(i){
-        //         left = $(this).css('left').replace('px', '');
-        //         if(!mouseDown){
-        //             if(left <= -$(this).outerWidth()*($(this).index()+1)){
-        //                 $(this).css({"left":($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1) });
+        function loop(){
+            $(".double-loop span").each(function(i){
+                left = $(this).css('left').replace('px', '');
+                if(!mouseDown){
+                    if(left <= -$(this).outerWidth()*($(this).index()+1)){
+                        $(this).css({"left":($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1) });
                        
-        //             }else{
-        //                 $(this).css({"left" : parseInt(left) - 1});
-        //             }
-        //         }else{
-        //             // console.log(left);
-        //             if(left >= ($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1)){
-        //                 $(this).css({"left": -($(this).outerWidth() * ($(this).index() + 1))});
-        //             }else{
-        //                 $(this).css({"left" : parseInt(left) + 1});
-        //             }
-        //         }
-        //     });
-        //     requestAnimationFrame(loop);
-        // }
-        // setTimeout(loop,400);
+                    }else{
+                        $(this).css({"left" : parseInt(left) - 1});
+                    }
+                }else{
+                    // console.log(left);
+                    if(left >= ($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1)){
+                        $(this).css({"left": -($(this).outerWidth() * ($(this).index() + 1))});
+                    }else{
+                        $(this).css({"left" : parseInt(left) + 1});
+                    }
+                }
+            });
+            requestAnimationFrame(loop);
+        }
+        setTimeout(loop,400);
+        setInterval(doubleLoops,5000);
+        let doubleT = true;
+        function doubleLoops(){
+            let loopHeight = $(".double-loop").height();
+            console.log(loopHeight);
+            if(doubleT){
+                $(".double-loop").animate({top : -loopHeight},500);
+                doubleT = false;
+            }else{
+                $(".double-loop").animate({top : 0},500);
+                doubleT = true;
+            }
+        };
+        // doubleLoops();
     </script>
 </body>
 </html>
