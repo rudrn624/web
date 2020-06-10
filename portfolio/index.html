@@ -96,6 +96,7 @@
         //     $(펭귄).animate({transform : scale(2)},400);
         // }
         
+        let change = false;
         let mouseDown = true;
         let mouseX =0 , mouseY=0;
         let movemouseX=0, movemouseY=0;
@@ -550,7 +551,7 @@
 
         function mouseHover(){
             mousehover = true;
-            speed = 0.001;
+            // speed = 0.001;
             for(let i = 0; i < balls.length; i++){
                 balls[i].dt = 0;
                 balls[i].currentPosition = balls[i].movePosition;
@@ -638,7 +639,8 @@
             }else{
                 src = "cover-kalios-bottom.jpg";
                 imgindex--;
-            } 
+            }
+           
         }
     </script>
 </body>
