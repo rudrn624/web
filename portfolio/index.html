@@ -112,7 +112,7 @@
         let spanSpeed = 0;
         let src = "cover-kalios-bottom.jpg";
         let globalAlpha = 0;
-
+        let scrollTop;
         let slideballX = $("#slide").width()/2;
         let slideballY = $("#slide").offset().top + $("#slide").height()/2;
         let slideBall = new Slideball(new point(slideballX,slideballY));
@@ -120,7 +120,7 @@
         console.log(slideBall.position);
 
         $(window).scroll(function(){
-            let scrollTop = $(window).scrollTop();
+            scrollTop = $(window).scrollTop();
             
             // let slideTop = $("#slide").offset().top + $("#slide").height();
             if(scrollTop < $("#slide").offset().top + 100 && mouseDown){
@@ -640,7 +640,12 @@
                 src = "cover-kalios-bottom.jpg";
                 imgindex--;
             }
-           
+            for(let i = 0; i < balls.length; i++){
+                balls[i].dt = 0;
+                balls[i].currentPosition = balls[i].movePosition;
+                balls[i].position = new point($(window).width()/2 ,($("#slide").offset().top + $("#slide").height()/2) - scrollTop)
+                time = 0; 
+            }
         }
     </script>
 </body>
