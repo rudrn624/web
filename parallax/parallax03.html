@@ -249,6 +249,7 @@
             transform: translateY(0);
         }
     </style>
+    <link rel="stylesheet" href="assets/css/prism.css">
 </head>
 
 <body>
@@ -359,9 +360,221 @@
             </section>
         </div>
     </section>
+    <div class="infor4">
+        <a href="#" class="view">소스보기</a>
+        <!-- modal -->
+        <div class="modal">
+            <div class="code-editor">   
+                <span class="control"></span>
+                <span class="control"></span>
+                <span class="control"></span>
+<pre class="line-numbers"><code class="language-js">//제이쿼리
+    // $(window).scroll(function () {
+    //     const scrollTop = $(window).scrollTop() + $(window).height() / 2;
+    //     //console.log($(window).height()/2)
+    //     //console.log(scrollTop)
+    //     $(".scrollTop").text(scrollTop);
 
-    <script src="assets/js/jquery-1.12.4.min.js"></script>
+    //     // $(".s1OT").text( parseInt( $("#section1").offset().top ));
+    //     // $(".s2OT").text( parseInt( $("#section2").offset().top ));
+    //     // $(".s3OT").text( parseInt( $("#section3").offset().top ));
+    //     // $(".s4OT").text( parseInt( $("#section4").offset().top ));
+    //     // $(".s5OT").text( parseInt( $("#section5").offset().top ));
+    //     // $(".s6OT").text( parseInt( $("#section6").offset().top ));
+    //     // $(".s7OT").text( parseInt( $("#section7").offset().top ));
+    //     // $(".s8OT").text( parseInt( $("#section8").offset().top ));
+    //     // $(".s9OT").text( parseInt( $("#section9").offset().top ));
+
+    //     // if( scrollTop > parseInt( $("#section1").offset().top )){
+    //     //     $("#section1").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section2").offset().top )){
+    //     //     $("#section2").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section3").offset().top )){
+    //     //     $("#section3").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section4").offset().top )){
+    //     //     $("#section4").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section5").offset().top )){
+    //     //     $("#section5").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section6").offset().top )){
+    //     //     $("#section6").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section7").offset().top )){
+    //     //     $("#section7").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section8").offset().top )){
+    //     //     $("#section8").addClass("show");
+    //     // }
+    //     // if( scrollTop > parseInt( $("#section9").offset().top )){
+    //     //     $("#section9").addClass("show");
+    //     // }
+
+    //     //한번에(infor)
+    //     for (let i = 1; i <= 9; i++) {
+    //         $(".s" + i + "OT").text(parseInt($("#section" + i).offset().top));
+
+    //         if (scrollTop > parseInt($("#section" + i).offset().top)) {
+    //             $(".s" + i + "OT").css("color", "red");
+    //         } else {
+    //             $(".s" + i + "OT").css("color", "white");
+    //         }
+    //     }
+
+    //     //한번에
+    //     $(".content-item").each(function () {
+    //         if (scrollTop > $(this).offset().top) {
+    //             $(this).addClass("show");
+    //         }
+    //     });
+    // });
+
+
+    //자바스크립트
+    window.addEventListener("scroll", () => {
+        let pageYOffset = (window.pageYOffset || document.documentElement.scrollTop) + screen.height / 2;
+        console.log("1:" + screen.height / 2)
+        console.log("2:" + document.documentElement.scrollTop)
+        console.log("3:" + window.pageYOffset)
+
+        document.querySelector(".scrollTop").textContent = pageYOffset;
+
+        // document.querySelector(".s1OT").textContent = document.getElementById("section1").offsetTop;
+        // document.querySelector(".s2OT").textContent = document.getElementById("section2").offsetTop;
+        // document.querySelector(".s3OT").textContent = document.getElementById("section3").offsetTop;
+        // document.querySelector(".s4OT").textContent = document.getElementById("section4").offsetTop;
+        // document.querySelector(".s5OT").textContent = document.getElementById("section5").offsetTop;
+        // document.querySelector(".s6OT").textContent = document.getElementById("section6").offsetTop;
+        // document.querySelector(".s7OT").textContent = document.getElementById("section7").offsetTop;
+        // document.querySelector(".s8OT").textContent = document.getElementById("section8").offsetTop;
+        // document.querySelector(".s9OT").textContent = document.getElementById("section9").offsetTop;
+
+        // if( pageYOffset > document.getElementById("section1").offsetTop ){
+        //     document.querySelector(".s1OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s1OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section2").offsetTop ){
+        //     document.querySelector(".s2OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s2OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section3").offsetTop ){
+        //     document.querySelector(".s3OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s3OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section4").offsetTop ){
+        //     document.querySelector(".s4OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s4OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section5").offsetTop ){
+        //     document.querySelector(".s5OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s5OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section6").offsetTop ){
+        //     document.querySelector(".s6OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s6OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section7").offsetTop ){
+        //     document.querySelector(".s7OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s7OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section8").offsetTop ){
+        //     document.querySelector(".s8OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s8OT").style.color = "white";
+        // }
+        // if( pageYOffset > document.getElementById("section9").offsetTop ){
+        //     document.querySelector(".s9OT").style.color = "red";
+        // } else {
+        //     document.querySelector(".s9OT").style.color = "white";
+        // }
+
+        // if( pageYOffset > document.getElementById("section1").offsetTop ){
+        //     document.getElementById("section1").classList.add("show");
+        // } else {
+        //     document.getElementById("section1").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section2").offsetTop ){
+        //     document.getElementById("section2").classList.add("show");
+        // } else {
+        //     document.getElementById("section2").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section3").offsetTop ){
+        //     document.getElementById("section3").classList.add("show");
+        // } else {
+        //     document.getElementById("section3").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section4").offsetTop ){
+        //     document.getElementById("section4").classList.add("show");
+        // } else {
+        //     document.getElementById("section4").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section5").offsetTop ){
+        //     document.getElementById("section5").classList.add("show");
+        // } else {
+        //     document.getElementById("section5").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section6").offsetTop ){
+        //     document.getElementById("section6").classList.add("show");
+        // } else {
+        //     document.getElementById("section6").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section7").offsetTop ){
+        //     document.getElementById("section7").classList.add("show");
+        // } else {
+        //     document.getElementById("section7").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section8").offsetTop ){
+        //     document.getElementById("section8").classList.add("show");
+        // } else {
+        //     document.getElementById("section8").classList.remove("show");
+        // }
+        // if( pageYOffset > document.getElementById("section9").offsetTop ){
+        //     document.getElementById("section9").classList.add("show");
+        // } else {
+        //     document.getElementById("section9").classList.remove("show");
+        // }
+
+        //한번에
+        for (let i = 1; i <= 9; i++) {
+            document.querySelector(".s" + i + "OT").textContent = document.getElementById("section" + i).offsetTop;
+
+            if (pageYOffset > document.getElementById("section" + i).offsetTop) {
+                document.querySelector(".s" + i + "OT").style.color = "red";
+            } else {
+                document.querySelector(".s" + i + "OT").style.color = "white";
+            }
+        }
+
+        //한번에
+        document.querySelectorAll(".content-item").forEach(elem => {
+            console.log(elem.offsetTop);
+            if (pageYOffset > elem.offsetTop) {
+                elem.classList.add("show");
+            } else {
+                elem.classList.remove("show");
+            }
+        });
+
+    });
+</code></pre>
+        </div>
+        
+        <a class="close">Close</a>
+    </div>
+</div>
+    <script src="assets/js/jquery.min_1.12.4.js"></script>
     <script src="assets/js/jquery-ui.min.js"></script>
+    <script src="assets/js/prism.js"></script>
     <script>
         //제이쿼리
         // $(window).scroll(function () {

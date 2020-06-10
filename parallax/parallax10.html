@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax04</title>
+    <title>Parallax10</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
@@ -30,14 +30,13 @@
             --color-link: #000;
             --color-bg: #111;
             --font-family: 'lato', sans-serif;
-            --aspect-ratio: 36/17;
+            --aspect-ratio: 32/18;
             --image-width-max: 500px;
 
             background-color: var(--color-bg);
             font-family: var(--font-family);
             color: var(--color-title);
         }
-
         .title {
             position: fixed; 
             right: 0;
@@ -88,7 +87,7 @@
             --image-width : calc(var(--image-width-max) * var(--aspect-ratio));
             width: var(--image-width);
             max-width: 90vw;
-            margin: 30vh 0 50vh;
+            padding: 30vh 0 50vh;
         }
 
         .content-item:nth-child(even){
@@ -99,9 +98,10 @@
             font-size: 20vw;
             font-weight: 100;
             position: absolute;
-            right: -5vw; top: -15vw;
+            right: -5vw; top: -3vw;
             opacity: 0.041;
             will-change: transform;
+            
         }
 
         .content-item:nth-child(even) .content-item-num {
@@ -163,7 +163,7 @@
         }
 
 
-        #section1 .content-item-img {background-image: url(assets/img/su09.jpg);}
+        /* #section1 .content-item-img {background-image: url(assets/img/su09.jpg);}
         #section2 .content-item-img {background-image: url(assets/img/su02.jpg);}
         #section3 .content-item-img {background-image: url(assets/img/su03.jpg);}
         #section4 .content-item-img {background-image: url(assets/img/su04.jpg);}
@@ -171,7 +171,7 @@
         #section6 .content-item-img {background-image: url(assets/img/su06.jpg);}
         #section7 .content-item-img {background-image: url(assets/img/su07.jpg);}
         #section8 .content-item-img {background-image: url(assets/img/su08.jpg);}
-        #section9 .content-item-img {background-image: url(assets/img/su01.jpg);}
+        #section9 .content-item-img {background-image: url(assets/img/su01.jpg);} */
 
         /* info */
         .info { 
@@ -198,12 +198,12 @@
             display: inline-block;
             min-width: 20px;
             opacity: 0;
-            transform: translateY(70px);
+            /* transform: translateY(70px); */
             transition:all 0.44s ease;
         }
         #section1 .content-item-desc span.show{
             opacity: 1;
-            transform: translateY(0);
+            /* transform: translateY(0); */
         }
         #section2 .content-item-desc span{
             display: inline-block;
@@ -284,6 +284,22 @@
                 transform: scale3d(1, 1, 1);
             }
         }
+        #nav{
+            position: fixed; left:50%; top:20px; z-index: 1000;
+            transform: translateX(-50%);
+            font-family: 'Abel';
+        }
+        #nav li{display:inline;}
+        #nav li a{color:#fff; padding: 10px; color:#fff}
+        .top a{
+            display: inline-block;
+            width:50px;
+            height:50px;
+            margin : 50px 200px 50px; background: #fff; color:#000;
+            font-size: 20px;
+            padding: 20px;
+            border-radius: 50%;
+        }
     </style>
     <link rel="stylesheet" href="assets/css/prism.css">
 </head>
@@ -294,8 +310,8 @@
     </div>
 
     <div class="title">
-        <h1>Parallax08</h1>
-        <p>텍스트 효과</p>
+        <h1>Parallax10</h1>
+        <p>링크 효과</p>
         <ul>
             <li><a href="parallax01.html">Parallax01</a></li>
             <li><a href="parallax02.html">Parallax02</a></li>
@@ -304,89 +320,132 @@
             <li><a href="parallax05.html">Parallax05</a></li>
             <li><a href="parallax06.html">Parallax06</a></li>
             <li><a href="parallax07.html">Parallax07</a></li>
-            <li class="active"><a href="parallax08.html">Parallax08</a></li>
+            <li><a href="parallax08.html">Parallax08</a></li>
+            <li><a href="parallax09.html">Parallax09</a></li>
+            <li class="active"><a href="parallax10.html">Parallax10</a></li>
         </ul>
     </div>
 
     <!-- parallax -->
+
+    <nav id="nav">
+        <ul>
+            <li><a href="#section1">s1</a></li>
+            <li><a href="#section2">s2</a></li>
+            <li><a href="#section3">s3</a></li>
+            <li><a href="#section4">s4</a></li>
+            <li><a href="#section5">s5</a></li>
+            <li><a href="#section6">s6</a></li>
+            <li><a href="#section7">s7</a></li>
+            <li><a href="#section8">s8</a></li>
+            <li><a href="#section9">s9</a></li>
+        </ul>
+    </nav>
     <section id="wrap">
         <h1>Parallax <em>Scrolling</em></h1>
         <div class="contents">
             <section id="section1" class="content-item">
                 <span class="content-item-num">01</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section2">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img" data-delay = "100">
+                        <img src="assets/img/su01.jpg" alt="이미지1">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section2" class="content-item">
                 <span class="content-item-num">02</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section3">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img" data-delay = "100">
+                        <img src="assets/img/su02.jpg" alt="이미지2">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section3" class="content-item">
                 <span class="content-item-num">03</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section4">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img" data-delay = "100">
+                        <img src="assets/img/su03.jpg" alt="이미지3">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section4" class="content-item">
                 <span class="content-item-num">04</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section5">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img" data-delay = "500">
+                        <img src="assets/img/su04.jpg" alt="이미지4">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section5" class="content-item">
                 <span class="content-item-num">05</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section6">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su05.jpg" alt="이미지5">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section6" class="content-item">
                 <span class="content-item-num">06</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section7">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su06.jpg" alt="이미지6">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section7" class="content-item">
                 <span class="content-item-num">07</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section8">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su07.jpg" alt="이미지7">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section8" class="content-item">
                 <span class="content-item-num">08</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section9">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su08.jpg" alt="이미지8">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
             <section id="section9" class="content-item">
                 <span class="content-item-num">09</span>
-                <h2 class="content-item-title">Basic Coding</h2>
+                <h2 class="content-item-title"><a href="#section1">Next Section</a></h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su09.jpg" alt="이미지9">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 안한다.</p>
             </section>
         </div>
     </section>
-    <div class="infor4">
+    <div class="top"><a href="#wrap">Top</a></div>
+<div class="infor4">
         <a href="#" class="view">소스보기</a>
         <!-- modal -->
         <div class="modal">
@@ -394,64 +453,35 @@
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-<pre class="line-numbers"><code class="language-js"> // let desc = $(".content-item-desc");
-
-    // desc.each(function(){
-    //     let split = $(this).text().split("").join('&lt;/span>&lt;span aria-hidden="true">');
-    //     split = "&lt;span aria-hidden='true'>" + split + "&lt;/span>";
-        
-    //     $(this).html(split).attr("aria-label", $(this).text());
-    // });
-
-
-    // 자바스크립트
-    let jsdesc = document.querySelectorAll(".content-item-desc");
-    jsdesc.forEach(function(e){
-        let split = e.textContent.split("").join('&lt;/span>&lt;span aria-hidden="true">');
-            split = "&lt;span aria-hidden='true'>" + split + "&lt;/span>";
-            
-            e.innerHTML = split;
-            e.setAttribute('aria-label', e.textContent)
-    });
-
-    //패럴럭스 이벤트
-    $(window).scroll(function(){
-        // $(".content-item").each(function(){
-        //     if($(window).scrollTop() > $(this).offset().top){
-        //         $(this).find(".content-item-desc").addClass("show");
-        //     }else{
-        //         $(this).find(".content-item-desc").removeClass("show");
-        //     }
-        // });
-        if($(window).scrollTop() > $("#section1").offset().top){
-            $("#section1 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section1 .content-item-desc span").eq(i).addClass("show");
-                },i*100);
+<pre class="line-numbers"><code class="language-js">   //네비 버튼을 클릭하면 모든 글씨를 빨간색으로 변경
+    //    $("#nav a").click(function(){
+    //        console.log("dd");
+    //        $("*").css({color : "red"});
+    //    })
+    //    document.querySelectorAll("#nav a").forEach(function(e){
+    //         e.addEventListener("click",function(){
+    //             document.querySelectorAll("*").forEach(function(e){
+    //                     e.style.color = "red";
+    //             });
+    //         });
+    //    });
+    //    a태그 선택(href="$")
+    //    $("a[href^='#']").click(function(e){
+    //        e.preventDefault();
+    //         let target = $(this).attr("href");
+    //         let offsetTop = $(target).offset().top;
+    //         // console.log(section);
+    //         $("html, body").animate({scrollTop: offsetTop},600,"easeInOutExpo");
+    //    });
+       document.querySelectorAll("a[href^='#']").forEach(function(elem){
+            elem.addEventListener("click",function(e){
+                e.preventDefault();
+                
+                document.querySelector(elem.getAttribute("href")).scrollIntoView({
+                    behavior : "smooth"
+                });
             });
-        }
-        if($(window).scrollTop() > $("#section2").offset().top){
-            $("#section2 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section2 .content-item-desc span").eq(i).addClass("show");
-                },i*10);
-            });
-        }
-        if($(window).scrollTop() > $("#section3").offset().top){
-            $("#section3 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section3 .content-item-desc span").eq(i).addClass("show");
-                },i*100);
-            });
-        }
-        if($(window).scrollTop() > $("#section4").offset().top){
-            $("#section4 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section4 .content-item-desc span").eq(i).addClass("show");
-                },i*10);
-            });
-        }
-    });
+       });
 </code></pre>
         </div>
         
@@ -464,65 +494,35 @@
     <script src="assets/js/gsap.min.js"></script>
     <script src="assets/js/prism.js"></script>
     <script>
-        // let desc = $(".content-item-desc");
+       //네비 버튼을 클릭하면 모든 글씨를 빨간색으로 변경
+    //    $("#nav a").click(function(){
+    //        console.log("dd");
+    //        $("*").css({color : "red"});
+    //    })
+    //    document.querySelectorAll("#nav a").forEach(function(e){
+    //         e.addEventListener("click",function(){
+    //             document.querySelectorAll("*").forEach(function(e){
+    //                     e.style.color = "red";
+    //             });
+    //         });
+    //    });
+    //    a태그 선택(href="$")
+    //    $("a[href^='#']").click(function(e){
+    //        e.preventDefault();
+    //         let target = $(this).attr("href");
+    //         let offsetTop = $(target).offset().top;
+    //         // console.log(section);
+    //         $("html, body").animate({scrollTop: offsetTop},600,"easeInOutExpo");
+    //    });
+       document.querySelectorAll("a[href^='#']").forEach(function(elem){
+            elem.addEventListener("click",function(e){
+                e.preventDefault();
 
-        // desc.each(function(){
-        //     let split = $(this).text().split("").join('</span><span aria-hidden="true">');
-        //     split = "<span aria-hidden='true'>" + split + "</span>";
-            
-        //     $(this).html(split).attr("aria-label", $(this).text());
-        // });
-
-
-        // 자바스크립트
-        let jsdesc = document.querySelectorAll(".content-item-desc");
-        jsdesc.forEach(function(e){
-            let split = e.textContent.split("").join('</span><span aria-hidden="true">');
-                split = "<span aria-hidden='true'>" + split + "</span>";
-                
-                e.innerHTML = split;
-                e.setAttribute('aria-label', e.textContent)
-        });
-
-        //패럴럭스 이벤트
-        $(window).scroll(function(){
-            // $(".content-item").each(function(){
-            //     if($(window).scrollTop() > $(this).offset().top){
-            //         $(this).find(".content-item-desc").addClass("show");
-            //     }else{
-            //         $(this).find(".content-item-desc").removeClass("show");
-            //     }
-            // });
-            if($(window).scrollTop() > $("#section1").offset().top){
-                $("#section1 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section1 .content-item-desc span").eq(i).addClass("show");
-                    },i*100);
+                document.querySelector(elem.getAttribute("href")).scrollIntoView({
+                    behavior : "smooth"
                 });
-            }
-            if($(window).scrollTop() > $("#section2").offset().top){
-                $("#section2 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section2 .content-item-desc span").eq(i).addClass("show");
-                    },i*10);
-                });
-            }
-            if($(window).scrollTop() > $("#section3").offset().top){
-                $("#section3 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section3 .content-item-desc span").eq(i).addClass("show");
-                    },i*100);
-                });
-            }
-            if($(window).scrollTop() > $("#section4").offset().top){
-                $("#section4 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section4 .content-item-desc span").eq(i).addClass("show");
-                    },i*10);
-                });
-            }
-        });
-
+            });
+       });
     </script>
 </body>
 </html>

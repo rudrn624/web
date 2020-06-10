@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Parallax04</title>
+    <title>Parallax09</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700;900&display=swap" rel="stylesheet">
 
@@ -30,14 +30,14 @@
             --color-link: #000;
             --color-bg: #111;
             --font-family: 'lato', sans-serif;
-            --aspect-ratio: 36/17;
+            --aspect-ratio: 32/18;
             --image-width-max: 500px;
 
             background-color: var(--color-bg);
             font-family: var(--font-family);
             color: var(--color-title);
         }
-
+        img{}
         .title {
             position: fixed; 
             right: 0;
@@ -163,7 +163,7 @@
         }
 
 
-        #section1 .content-item-img {background-image: url(assets/img/su09.jpg);}
+        /* #section1 .content-item-img {background-image: url(assets/img/su09.jpg);}
         #section2 .content-item-img {background-image: url(assets/img/su02.jpg);}
         #section3 .content-item-img {background-image: url(assets/img/su03.jpg);}
         #section4 .content-item-img {background-image: url(assets/img/su04.jpg);}
@@ -171,7 +171,7 @@
         #section6 .content-item-img {background-image: url(assets/img/su06.jpg);}
         #section7 .content-item-img {background-image: url(assets/img/su07.jpg);}
         #section8 .content-item-img {background-image: url(assets/img/su08.jpg);}
-        #section9 .content-item-img {background-image: url(assets/img/su01.jpg);}
+        #section9 .content-item-img {background-image: url(assets/img/su01.jpg);} */
 
         /* info */
         .info { 
@@ -198,12 +198,12 @@
             display: inline-block;
             min-width: 20px;
             opacity: 0;
-            transform: translateY(70px);
+            /* transform: translateY(70px); */
             transition:all 0.44s ease;
         }
         #section1 .content-item-desc span.show{
             opacity: 1;
-            transform: translateY(0);
+            /* transform: translateY(0); */
         }
         #section2 .content-item-desc span{
             display: inline-block;
@@ -284,6 +284,77 @@
                 transform: scale3d(1, 1, 1);
             }
         }
+        /* reveal */
+        .reveal span,
+        .reveal img{ opacity: 0;}
+        .reveal.show span,
+        .reveal.show img{ animation : text 0.1s 1.1s forwards;}
+        @keyframes text{
+            0%{opacity: 0;}
+            100%{opacity: 1;}
+        }
+        .reveal.show:before , 
+        .reveal.show:after{
+            content : '';
+            position:absolute;
+            bottom:0;
+            right:0;
+            height:100%;
+            /* width:100%; */
+            z-index: 10;
+        }
+        .reveal.show:before{
+            background-color : cornflowerblue;
+        }
+        .reveal.show:after{
+            background-color : cyan;
+            animation-delay:.5s;
+        }
+        .reveal.reveal-ltr.show:before{
+            animation: revealLTR 1.8s ease-in-out;
+        }
+        .reveal.reveal-ltr.show:after{
+            animation: revealLTR 1s .6s ease-in-out;
+        }
+        .reveal.reveal-rtl.show:before{
+            animation: revealRTL 1.8s ease-in-out;
+        }
+        .reveal.reveal-rtl.show:after{
+            animation: revealRTL 1s .6s ease-in-out;
+        }
+        .reveal.reveal-ttb.show:before{
+            animation: revealTTB 1.8s ease-in-out;
+        }
+        .reveal.reveal-ttb.show:after{
+            animation: revealTTB 1s .6s ease-in-out;
+        }
+        .reveal.reveal-btt.show:before{
+            animation: revealBTT 1.8s ease-in-out;
+        }
+        .reveal.reveal-btt.show:after{
+            animation: revealBTT 1s .6s ease-in-out;
+        }
+
+        @keyframes revealLTR{
+            0%{width:0;left:0;}
+            65%{width:100%; left:0;}
+            100%{width:0; left:100%; }
+        }
+        @keyframes revealRTL{
+            0%{width:0;right:0;}
+            65%{width:100%; right:0;}
+            100%{width:0; right:100%; }
+        }
+        @keyframes revealTTB{
+            0%{width : 100%; height:0;top:0;}
+            65%{width : 100%; height:100%; top:0;}
+            100%{width : 100%; height:0; top:100%; }
+        }
+        @keyframes revealBTT{
+            0%{width : 100%; height:0;bottom:0;}
+            65%{width : 100%; height:100%; bottom:0;}
+            100%{width : 100%; height:0; bottom:100%; }
+        }
     </style>
     <link rel="stylesheet" href="assets/css/prism.css">
 </head>
@@ -294,7 +365,7 @@
     </div>
 
     <div class="title">
-        <h1>Parallax08</h1>
+        <h1>Parallax09</h1>
         <p>텍스트 효과</p>
         <ul>
             <li><a href="parallax01.html">Parallax01</a></li>
@@ -304,7 +375,8 @@
             <li><a href="parallax05.html">Parallax05</a></li>
             <li><a href="parallax06.html">Parallax06</a></li>
             <li><a href="parallax07.html">Parallax07</a></li>
-            <li class="active"><a href="parallax08.html">Parallax08</a></li>
+            <li><a href="parallax08.html">Parallax08</a></li>
+            <li class="active"><a href="parallax09.html">Parallax09</a></li>
         </ul>
     </div>
 
@@ -316,39 +388,57 @@
                 <span class="content-item-num">01</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal reveal-ltr" data-delay = "100">
+                        <img src="assets/img/su01.jpg" alt="이미지1">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc reveal reveal-ltr" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section2" class="content-item">
                 <span class="content-item-num">02</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal reveal-rtl" data-delay = "100">
+                        <img src="assets/img/su02.jpg" alt="이미지2">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc reveal reveal-rtl" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section3" class="content-item">
                 <span class="content-item-num">03</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal reveal-ttb" data-delay = "100">
+                        <img src="assets/img/su03.jpg" alt="이미지3">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc reveal reveal-ttb" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section4" class="content-item">
                 <span class="content-item-num">04</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal reveal-btt" data-delay = "500">
+                        <img src="assets/img/su04.jpg" alt="이미지4">
+                    </div>
                 </figure>
-                <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
+                <p class="content-item-desc reveal reveal-btt" data-delay = "500">
+                    <span>높은 목표를 세우고, 스스로 채직찔 한다.</span>
+                </p>
             </section>
             <section id="section5" class="content-item">
                 <span class="content-item-num">05</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su05.jpg" alt="이미지5">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -356,7 +446,9 @@
                 <span class="content-item-num">06</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su06.jpg" alt="이미지6">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -364,7 +456,9 @@
                 <span class="content-item-num">07</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su07.jpg" alt="이미지7">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -372,7 +466,9 @@
                 <span class="content-item-num">08</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img reveal">
+                        <img src="assets/img/su08.jpg" alt="이미지8">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 한다.</p>
             </section>
@@ -380,7 +476,9 @@
                 <span class="content-item-num">09</span>
                 <h2 class="content-item-title">Basic Coding</h2>
                 <figure class="content-item-imgWrap">
-                    <div class="content-item-img"></div>
+                    <div class="content-item-img">
+                        <img src="assets/img/su09.jpg" alt="이미지9">
+                    </div>
                 </figure>
                 <p class="content-item-desc">높은 목표를 세우고, 스스로 채직찔 안한다.</p>
             </section>
@@ -394,64 +492,17 @@
                 <span class="control"></span>
                 <span class="control"></span>
                 <span class="control"></span>
-<pre class="line-numbers"><code class="language-js"> // let desc = $(".content-item-desc");
-
-    // desc.each(function(){
-    //     let split = $(this).text().split("").join('&lt;/span>&lt;span aria-hidden="true">');
-    //     split = "&lt;span aria-hidden='true'>" + split + "&lt;/span>";
-        
-    //     $(this).html(split).attr("aria-label", $(this).text());
-    // });
-
-
-    // 자바스크립트
-    let jsdesc = document.querySelectorAll(".content-item-desc");
-    jsdesc.forEach(function(e){
-        let split = e.textContent.split("").join('&lt;/span>&lt;span aria-hidden="true">');
-            split = "&lt;span aria-hidden='true'>" + split + "&lt;/span>";
-            
-            e.innerHTML = split;
-            e.setAttribute('aria-label', e.textContent)
-    });
-
-    //패럴럭스 이벤트
-    $(window).scroll(function(){
-        // $(".content-item").each(function(){
-        //     if($(window).scrollTop() > $(this).offset().top){
-        //         $(this).find(".content-item-desc").addClass("show");
-        //     }else{
-        //         $(this).find(".content-item-desc").removeClass("show");
-        //     }
-        // });
-        if($(window).scrollTop() > $("#section1").offset().top){
-            $("#section1 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section1 .content-item-desc span").eq(i).addClass("show");
-                },i*100);
+<pre class="line-numbers"><code class="language-js">$(window).scroll(function(){
+    $(".reveal").each(function(){
+        if($(window).scrollTop() + $(window).height()/2 > $(this).offset().top){
+            $(this).delay($(this).data("delay")).queue(function(){
+                $(this).addClass("show");
             });
-        }
-        if($(window).scrollTop() > $("#section2").offset().top){
-            $("#section2 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section2 .content-item-desc span").eq(i).addClass("show");
-                },i*10);
-            });
-        }
-        if($(window).scrollTop() > $("#section3").offset().top){
-            $("#section3 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section3 .content-item-desc span").eq(i).addClass("show");
-                },i*100);
-            });
-        }
-        if($(window).scrollTop() > $("#section4").offset().top){
-            $("#section4 .content-item-desc span").each(function(i){
-                setInterval(function(){
-                    $("#section4 .content-item-desc span").eq(i).addClass("show");
-                },i*10);
-            });
+            //data-delay값을 가져와서 alert 출력!
+            // alert($(this).data().delay);
         }
     });
+});
 </code></pre>
         </div>
         
@@ -464,63 +515,16 @@
     <script src="assets/js/gsap.min.js"></script>
     <script src="assets/js/prism.js"></script>
     <script>
-        // let desc = $(".content-item-desc");
-
-        // desc.each(function(){
-        //     let split = $(this).text().split("").join('</span><span aria-hidden="true">');
-        //     split = "<span aria-hidden='true'>" + split + "</span>";
-            
-        //     $(this).html(split).attr("aria-label", $(this).text());
-        // });
-
-
-        // 자바스크립트
-        let jsdesc = document.querySelectorAll(".content-item-desc");
-        jsdesc.forEach(function(e){
-            let split = e.textContent.split("").join('</span><span aria-hidden="true">');
-                split = "<span aria-hidden='true'>" + split + "</span>";
-                
-                e.innerHTML = split;
-                e.setAttribute('aria-label', e.textContent)
-        });
-
-        //패럴럭스 이벤트
         $(window).scroll(function(){
-            // $(".content-item").each(function(){
-            //     if($(window).scrollTop() > $(this).offset().top){
-            //         $(this).find(".content-item-desc").addClass("show");
-            //     }else{
-            //         $(this).find(".content-item-desc").removeClass("show");
-            //     }
-            // });
-            if($(window).scrollTop() > $("#section1").offset().top){
-                $("#section1 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section1 .content-item-desc span").eq(i).addClass("show");
-                    },i*100);
-                });
-            }
-            if($(window).scrollTop() > $("#section2").offset().top){
-                $("#section2 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section2 .content-item-desc span").eq(i).addClass("show");
-                    },i*10);
-                });
-            }
-            if($(window).scrollTop() > $("#section3").offset().top){
-                $("#section3 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section3 .content-item-desc span").eq(i).addClass("show");
-                    },i*100);
-                });
-            }
-            if($(window).scrollTop() > $("#section4").offset().top){
-                $("#section4 .content-item-desc span").each(function(i){
-                    setInterval(function(){
-                        $("#section4 .content-item-desc span").eq(i).addClass("show");
-                    },i*10);
-                });
-            }
+            $(".reveal").each(function(){
+                if($(window).scrollTop() + $(window).height()/2 > $(this).offset().top){
+                    $(this).delay($(this).data("delay")).queue(function(){
+                        $(this).addClass("show");
+                    });
+                    //data-delay값을 가져와서 alert 출력!
+                    // alert($(this).data().delay);
+                }
+            });
         });
 
     </script>
