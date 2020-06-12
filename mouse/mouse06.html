@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect06</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        img {
+            width: 100%;
+            vertical-align: top;
+        }
+
+        ul {
+            padding:10px 20px;
+        }
+
+        body {
+            
+            overflow: hidden;
+            background: url(img/su01.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+            /* transition:all 0.2s; */
+            /* cursor: none; */
+        }
+
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(89, 121, 151, 0.8);
+            z-index: -1;
+        }
+        .info {
+            position: absolute;
+            left: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .info h1 {
+            margin-bottom: 10px;
+        }
+        .info2 {
+            position: absolute;
+            right: 0;
+            top: 0;
+            z-index: 1000;
+            padding: 20px;
+        }
+        .info2 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        .info2 li.active a {
+            border-bottom: 1px dashed #fff;
+        }
+        .info3{
+            position: absolute; right: 0; bottom: 0; z-index:1000;
+            padding:20px;
+        }
+        .info3 li {
+            list-style: none;
+            margin-bottom: 5px;
+        }
+        .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px}
+        .infor4 .modal {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            text-align: left;
+            transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .infor4 .modal.show {
+            top: 0;
+        }
+        .infor4 .modal .close {
+            position: absolute; right: 10px; top: 20px;
+        }
+        .contents{
+            display : flex;
+            align-items:center;
+            justify-content: center;
+            width:100%; height:100vh;
+            flex-direction: column;
+            color:#000;
+        }
+        .contents p{
+            max-width:80vw;
+            font-size: 3vw;
+            line-height: 1.5;
+        }
+        .contents p a {
+            text-decoration: none; color: orange;
+            border-bottom: 2px dashed orange;
+            transition: all 0.5s;
+        }
+        /* .contents p a:hover {
+            color: yellow;
+            border-bottom: 2px dashed yellow;
+        } */
+        .cursor{
+            position: absolute;
+            left:0; top:0;
+            width:10px; height:10px;
+            border-radius: 50%;
+            z-index:1000;
+            user-select: none;
+            pointer-events: none;
+            transform: scale(1);
+            background: #fff;
+            transition:transform 0.8s ease-in-out;
+            padding-top: 10px;
+           
+        }
+        .cursor strong{
+            background : rgba(255,255,255,0.9);
+            color:#000;
+            position: absolute;
+            left:50%;
+            padding: 3px;
+        }
+        .mousewrap{
+            display: none;
+            width:100px;
+        }
+        .cursor span{
+            display: block;
+            font-size: 16px;
+            font-weight: 900;
+            color:#fff;
+        }
+        .cursor strong:first-child{ top:-65px;}
+        .cursor strong:last-child{ top:-40px;}
+       
+        ::-webkit-scrollbar {
+            width: 10px;  /* 세로축 스크롤바 길이 */
+            height: 20px;  /* 가로축 스크롤바 길이 */
+        }
+        ::-webkit-scrollbar-track {
+          background-color: lightblue;
+        }
+        ::-webkit-scrollbar-track-piece {
+           background-color: gray;
+        }
+        ::-webkit-scrollbar-thumb {
+            border-radius: 8px;
+            background-color: black;
+        }
+        ::-webkit-scrollbar-corner {
+            background-color: violet; /* 우측 하단의 코너 부분 */
+        }
+        ::-webkit-resizer {
+            background-color: green;
+        }
+        /* move-image */
+        .move-image{
+            
+           --x: 0;
+           --y: 0;
+           --d: 50;
+           
+            position: relative;
+           cursor:none;
+        }
+        .move-image:hover .mimg{
+        }
+        .move-image .mimg{
+         
+        }
+        .move-image .mimg .img{
+            
+        }
+        .move-image .mtext{
+           
+        }
+        .move-image .mtext{
+            text-align: center;
+            font-size: 2.5vw;
+            color:#fff;
+        }
+        .move-image .mtext em{
+            font-style: normal;
+            color:orange;
+            border-bottom: 2px dashed orange;
+        }
+        .move-image .mtext .word{
+            /* text-shadow : 
+            10px 10px 0 rgba(255,255,255,0.7),
+            10px -10px 0 rgba(255,255,255,0.7),
+            -10px 10px 0 rgba(255,255,255,0.7),
+            -10px -10px 0 rgba(255,255,255,0.7); */
+        }
+    </style>
+    <link rel="stylesheet" href="css/prism.css">
+</head>
+<body>
+    <div class="info">
+        <h1>Mouse Effect06</h1>
+        <p>마우스 따라다니기</p>
+        <ul>
+            <li>GSAP</li>
+        </ul>
+    </div>
+    <div class="info2">
+        <ul>
+            <li><a href="mouse01.html">Mouse01</a></li>
+            <li><a href="mouse02.html">Mouse02</a></li>
+            <li><a href="mouse03.html">Mouse03</a></li>
+            <li><a href="mouse04.html">Mouse04</a></li>
+            <li><a href="mouse05.html">Mouse05</a></li>
+            <li  class="active"><a href="mouse06.html">Mouse06</a></li>
+        </ul>
+    </div>
+    <div class="info3">
+        <ul>
+           
+        </ul>
+    </div>
+    <div class="infor4">
+        <a href="#" class="view">소스보기</a>
+        <a href="#" class="cord">좌표보기</a>
+        <!-- modal -->
+        <div class="modal">
+            <div class="code-editor">   
+                <span class="control"></span>
+                <span class="control"></span>
+                <span class="control"></span>
+<pre class="line-numbers"><code class="language-js">
+</code></pre>
+                
+                
+            </div>
+            <a class="close">Close</a>
+        </div>
+    </div>
+    <!--
+        clientX : 브라우저 페이지에서의 X좌표 위치를 반환하나 스크롤은 무시하고 해당 페이지의 상단을 0으로 측정합니다.
+        clientY : 브라우저 페이지에서의 Y좌표 위치를 반환하나 스크롤은 무시하고 해당 페이지의 상단을 0으로 측정합니다.
+
+        offsetX : 이벤트 대상 객체에서의 상대적 마우스 x좌표 위치를 반환합니다.
+        offsetY : 이벤트 대상 객체에서의 상대적 마우스 y좌표 위치를 반환합니다.
+
+        pageX : 브라우저 페이지에서의 x좌표 위치를 반환합니다.
+        pageY : 브라우저 페이지에서의 Y좌표 위치를 반환합니다.
+
+        screenX : 전체 모니터 스크린에서의 x좌표 위치를 반환합니다.
+        screenY : 전체 모니터 스크린에서의 y좌표 위치를 반환합니다.
+    -->
+    <!-- contents -->
+    <!-- <div class="cursor-follower"></div> -->
+    <div class="contents">
+        <div class="cursor">
+            <div class="mousewrap">
+                <span class="mouseX"></span>
+                <span class="mouseY"></span>
+            </div>
+        </div>
+        <div class="move-image">
+            <div class="mimg">
+                
+            </div>
+            <div class="mtext">
+                <p>go <em class="word">home</em></p>
+                <p>쉬고싶네 <em class="word">집가서</em></p>
+                <p><em class="word">한경구(Bengol)</em></p>
+            </div>   
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src = "../assets/js/jquery-1.12.4.min.js"></script>
+    <script src = "../assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script src = "../parallax/assets/js/gsap.min.js"></script>
+    <script src = "js/prism.js"></script>
+    <script>
+        // const word = document.querySelectorAll(".word");
+
+        // const shadow = e => {
+        //     const {x,y} = e;
+        //     // console.log(x,y);
+        //     const rect = word.getBoundingClientRect();
+        //     // console.log(rect);
+        //     const mouseX = ( x - rect.left - rect.width/2) / 20;
+        //     const mouseY = ( y - rect.top - rect.height/2) / 20;
+
+            
+        //     word.style.textShadow = `${mouseX}px ${-mouseY}px 0 rgba(102,249,255,0.7),
+        //                             ${-mouseX}px ${mouseY}px 0 rgba(255,35,251,0.7),
+        //                             ${mouseY}px ${-mouseX}px 0 rgba(255,255,73,0.7),
+        //                             ${-mouseY}px ${mouseX}px 0 rgba(102,149,255,0.7)`;
+           
+        //     // console.log(document.querySelector(".word").style.textShadow);
+        //     // text-shadow : 
+        //     // 10px 10px 0 rgba(255,255,255,0.7),
+        //     // 10px -10px 0 rgba(255,255,255,0.7),
+        //     // -10px 10px 0 rgba(255,255,255,0.7),
+        //     // -10px -10px 0 rgba(255,255,255,0.7);
+        // };
+        // window.addEventListener("mousemove",shadow);
+
+        window.addEventListener("mousemove",function(e){
+            document.querySelectorAll(".word").forEach(elem=>{
+                const {x,y} = e;
+            // console.log(x,y);
+                const rect = elem.getBoundingClientRect();
+                // console.log(rect);
+                const mouseX = ( x - rect.left - rect.width/2) / 20;
+                const mouseY = ( y - rect.top - rect.height/2) / 20;
+
+                
+                elem.style.textShadow = `${mouseX}px ${-mouseY}px 0 rgba(102,249,255,0.7),
+                                         ${-mouseX}px ${mouseY}px 0 rgba(255,35,251,0.7),
+                                         ${mouseY}px ${-mouseX}px 0 rgba(255,255,73,0.7),
+                                         ${-mouseY}px ${mouseX}px 0 rgba(102,149,255,0.7)`;
+                });
+        });
+    </script>
+</body>
+</html>

@@ -2,6 +2,7 @@ body{
     
     position: relative;
     background : #f9e6d4;
+    transition: background 1s;
     // mix-blend-mode: exclusion;
     // back--ground-color:white;z-index:1;opacity:0.7;
 }
@@ -17,7 +18,7 @@ body::before{
     opacity:0.7;
 }
 #slide{
-    
+    overflow: hidden;
     height : 100vh;
     position: relative;
     z-index: 1;
@@ -56,11 +57,33 @@ body::before{
                     padding-right: .43em;
                     line-height: 1;
                     font-size: 29rem;
+                    color : #fbac65;
+                    transition: color 1s;
                     i{
                         font-style: normal;
                     }
                 }
             }
+            
+        }
+        .barwrap{
+            position: relative;
+            top:-5vw;
+            left : 15vw;
+            
+            font-size: 1.5rem;
+                .bar{
+                    display: inline-block;
+                    width:6vw;
+                    height: 4px;
+                    vertical-align: 0.4vw;
+                    background : #f9e6d4;
+                   .bargauge{
+                       width:0;
+                       height:100%;
+                       background : #fbac65;
+                   }
+                }
         }
     }
 }
@@ -278,8 +301,52 @@ opacity: 1;
         }
     }
 }
-#test{
-    height:100vh;
+#site{
+    position: relative;
+    z-index: 3;
+    margin-top: 20rem;
+    padding-bottom: 30rem;
+    .container{display: flex;}
+    .listwrap{
+        display: inline-block;
+        li{
+            font-size: 8.5rem;
+            line-height: 1.25;
+            letter-spacing: 0em;
+            font-weight: 600;
+            display: inline-block;
+            position: relative;
+            a{
+                display: inline-block;
+                padding-top: 1rem;
+                padding-bottom: 1rem;
+                position: relative;
+                color : #000;
+                &::before{
+                    content:'';
+                    position: absolute;
+                    width:0;
+                    height:8px;
+                    background-color: #000;
+                    bottom: 0;
+                    left:0;
+                    transition: width 0.5s;
+                }
+                &.active:before{
+                    width:100%;
+                }
+            }
+            .listnum{
+                position: absolute;
+                font-size: 1.3rem;
+                right: -1vw;
+                top: 1.8vw;
+            }
+        }
+    }
+    .imgs{
+
+    }
 }
 .hide{
     display: none;

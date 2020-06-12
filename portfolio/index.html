@@ -73,12 +73,43 @@
                     <span>lion <i>&middot;</i></span>
                 </div>
             </div>
+            <div class="barwrap">
+                <span class="currentindex">01</span>
+                <div class="bar">
+                    <div class="bargauge"></div>
+                </div>
+                <span>05</span>
+            </div>
+        </div>
+        
+    </section>
+    <section id="site">
+        <div class="container">
+            <span class="js-title hide">site</span>
+            <ul class="listwrap">
+                <li><a href="#">웹표준사이트</a><span class="listnum">01</span></li>
+                <li><a href="#">반응형사이트</a><span class="listnum">02</span></li>
+                <li><a href="#">메가박스사이트</a><span class="listnum">03</span></li>
+                <li><a href="#">풀잎사이트</a><span class="listnum">04</span></li>
+            </ul>
+            <div class="imgs">
+                <div class="smallImg">
+                    <div class="samllList"><img src="assets/img/han.jpg" alt="뱅골"></div>
+                    <div class="samllList"></div>
+                    <div class="samllList"></div>
+                    <div class="samllList"></div>
+                </div>
+                <div class="mainImg">
+                    <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
+                    <div class="mainList"></div>
+                    <div class="mainList"></div>
+                    <div class="mainList"></div>
+                </div>
+            </div>
         </div>
     </section>
-    <section id="test">
-
-    </section>
     <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
    
 
@@ -112,34 +143,49 @@
         let spanSpeed = 0;
         let src = "cover-kalios-bottom.jpg";
         let globalAlpha = 0;
-        let scrollTop;
+        let scrollTop = $(window).scrollTop();;
         let slideballX = $("#slide").width()/2;
         let slideballY = $("#slide").offset().top + $("#slide").height()/2;
         let slideBall = new Slideball(new point(slideballX,slideballY));
+        let changeslide = false;
+        let ReadySection = false;
+        let ballColor = "#f9e6d4";
+        let backgroundColor = ["#f9e6d4" ,"#ebfbe0"];
+        let TColor = ["#fbac65","#aeed82"];
 
-        console.log(slideBall.position);
 
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop();
-            
+
+            console.log(scrollTop);
+            console.log($("#slide").offset().top);
+
+            if(($("#slide").offset().top + $("#slide").height()) < (scrollTop +300)){
+                ReadySection = false;
+            }else if($("#slide").offset().top < (scrollTop +400)){
+                ReadySection = true;
+            }else{
+                ReadySection = false;
+            }
+            console.log(ReadySection);
             // let slideTop = $("#slide").offset().top + $("#slide").height();
             if(scrollTop < $("#slide").offset().top + 100 && mouseDown){
                 for(let i = 0; i < balls.length; i++){
                     balls[i].updateRadius(2,(i+1));
                     slideBall.update(2);
-                    globalAlpha += 0.005;
+                    globalAlpha += 0.007;
                 }
             }else if(scrollTop > $("#slide").offset().top - 100 && !mouseDown){
                 for(let i = 0; i < balls.length; i++){
                     balls[i].updateRadius(2,(i+1));
                     slideBall.update(2);
-                    globalAlpha += 0.005;
+                    globalAlpha += 0.007;
                 }
             }else{
                 for(let i = 0; i < balls.length; i++){
                     balls[i].updateRadius(-2,(i+1));
                     slideBall.update(-2);
-                    globalAlpha -= 0.01;
+                    globalAlpha -= 0.009;
                 }
             }
             if(globalAlpha > 1){
@@ -147,15 +193,11 @@
             }else if(globalAlpha < 0){
                 globalAlpha = 0;
             }
-            // console.log($("#slide").offset().top);
-            console.log(slideBall.Position.pX);
             slideBall.Position.pY = ($("#slide").offset().top + $("#slide").height()/2) - scrollTop;
-            // console.log(slideBall);
+            
             $(".double-loop span").each(function(){
                 left = $(this).css('left').replace('px', '');
-                console.log(mouseDown);
                 if(mouseDown){
-                    // console.log(left + 5);
                     $(this).css({left : parseInt(left) + 5});
                 }else{
                     $(this).css({left : parseInt(left) - 5});
@@ -177,7 +219,6 @@
         let word = $(".word");
 
         let title = $(".js-title").text();
-        //console.log(title);
         $(".header-title").text(title);
 
         word.each(function(i){
@@ -237,7 +278,7 @@
 
                 var img = new Image();
                 
-                img.src="assets/img/cover-kalios-bottom.jpg";
+                img.src="assets/img/"+src;
                 
                 ctx.save();
                 
@@ -250,7 +291,7 @@
                 ctx.restore();
                 
                 
-                ctx.fillStyle = '#f9e6d4';
+                ctx.fillStyle = ballColor;
                 ctx.fill();
                 
                 ctx.clip();
@@ -261,24 +302,43 @@
                 ctx.restore();
                
             }
-            this.update = function(time){
+            this.update = function(timer , i){
                 
                 if(this.rotate > 360){
                     this.rotate = 0;
                 }else{
                     this.rotate++;
                 }
-                //console.log(this.dt);
                 if(this.dt < 1){
                     
-                    this.dt = this.dt + (0.001  * Math.pow(2, time));
-                   
+                    this.dt = this.dt + (0.001  * Math.pow(2, timer));
+                    if(changeslide){
+                        this.radius -= 1; 
+                        if(this.radius < 1){
+                            this.radius = 0;
+                        }
+                    }else{
+                        this.radius += 1;
+                        if(this.radius > i * 30){
+                            this.radius = i * 30;
+                        }
+                    }
                 }else{
-                    this.dt = 1;
+                    
+                    if(changeslide){
+                        for(let i = 0; i < balls.length; i++){
+                            balls[i].position = relativePoint[i].movePosition;
+                            balls[i].currentPosition = balls[i].movePosition;
+                            balls[i].dt = 0;
+                            time = 0;
+                        }
+                        changeslide = false;
+                    }else{
+                        this.dt = 1;
+                    }
                 }
                 this.movePosition = lerp(this.currentPosition, this.position, this.dt);
-                // this.movePosition.
-                // console.log(this.movePosition);
+                
             }
             this.updateRadius = function(radius , i){
                 this.radius += radius; 
@@ -322,7 +382,7 @@
                 
                 ctx.arc(x, y, radius, startAngle, endAngle, true);
                 
-                ctx.fillStyle = '#f9e6d4';
+                ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
                 ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
@@ -347,6 +407,7 @@
                 }else if(this.radius >= 300){
                     this.radius = 300;
                 }
+                    
            }
         }
         function Slideball(point){
@@ -376,7 +437,7 @@
                 
                 ctx.arc(x, y, radius, startAngle, endAngle, true);
                 
-                ctx.fillStyle = '#f9e6d4';
+                ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
                 ctx.globalAlpha = globalAlpha;
@@ -390,7 +451,7 @@
                 if(this.radius >= 330){
                     this.radius = 330;
                 }else{
-                    if(this.radius < 0){
+                    if(this.radius <= 0){
                         this.radius = 0;
                     }
                 }   
@@ -402,7 +463,6 @@
             relativePoint[i].position = random();
             balls[i] = new ball(relativePoint[i].movePosition, (i+1) * 15);
         }
-        // console.log(ImageBall);
         function draw() {
             
             if (canvas.getContext) {
@@ -452,8 +512,6 @@
                 }
                 width = parseInt(Math.random()*$(window).width());
             }
-            // console.log(width);
-            // console.log(height);
             return new point(width,height);
         }
         function lerp(a, b, r) {
@@ -491,17 +549,24 @@
                             }else{
                                 relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX - (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY - (movemouseY*movespeed) ) ;
                             }
-                    
-                    // console.log(mousehover);
-                    if(!mousehover){
+                        if(ReadySection){
+                            if(changeslide){
+                                slideBall.update(-2);
+                                globalAlpha = 1;
+                            }else{
+                                slideBall.update(2);
+                            }
+                        }
+                    if(!mousehover && !changeslide){
                         balls[i].position = relativePoint[i].movePosition;
                         
-                        balls[i].update(time);
+                        balls[i].update(time , i);
                         
                         ImageBall.update(time);
+                        
                     }else{
                         
-                        balls[i].update(time);
+                        balls[i].update(time, i);
                         if(u){
                             ImageBall.update(time , balls[i].dt);
                         }else{
@@ -509,7 +574,6 @@
                         }
                     }
                 }
-            // console.log(test);
             draw();
             requestAnimationFrame(update);
         }
@@ -525,23 +589,18 @@
             movemouseX = mouseX - ($(window).width()/2);
             movemouseY = mouseY - ($(window).height()/2);
             
-            ImageBall.movePosition = new point(mouseX, mouseY);
-            for(let i = 0 ; i < balls.length; i++){
-                balls[i].position = new point(mouseX, mouseY);
-                // balls[i].currentPosition = new point(mouseX, mouseY);
-                // relativePoint[i].currentPosition = new point(relativePoint[i].getCurrentPosition().pX +100 ,relativePoint[i].getCurrentPosition().pY +100);
-                // console.log(relativePoint[i].getCurrentPosition());
+            if(mousehover){
+                ImageBall.movePosition = new point(mouseX, mouseY);
+                for(let i = 0 ; i < balls.length; i++){
+                    balls[i].position = new point(mouseX, mouseY);
+                    
+                }
             }
-           
 
             
-            // relativePoint[0].position = new point(relativePoint[0].position.pX + movemouseX, relativePoint[0].position.pY + movemouseY);
-            
-            // console.log(relativePoint[0].position);
-            // console.log(mouseY);
         });
         $("u, .intro_link, .bugar, .logo").hover(function(){
-            // console.log("d");
+         
            u = $(this).is("u");
            mouseHover();
         },function(){
@@ -570,15 +629,11 @@
         }
         //슬라이드 부분
         let doubleLoop;
-        // let doubleLoop = $(".double-loop span").innerWidth();
         $(document).ready(function(){
-            // console.log("ready");
-            // doubleLoop = $(".double-loop span").outerWidth();
            
         });
         setTimeout(function(){
             doubleLoop = $(".double-loop span").outerWidth();
-            console.log(doubleLoop);
         },1000);
          
         //휠 이벤트
@@ -605,7 +660,6 @@
                         $(this).css({"left" : parseInt(left) - 1});
                     }
                 }else{
-                    // console.log(left);
                     if(left >= ($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1)){
                         $(this).css({"left": -($(this).outerWidth() * ($(this).index() + 1))});
                     }else{
@@ -615,12 +669,12 @@
             });
             requestAnimationFrame(loop);
         }
+        
         setTimeout(loop,400);
         setInterval(doubleLoops,5000);
         let doubleT = true;
         function doubleLoops(){
             let loopHeight = $(".double-loop").height();
-            console.log(loopHeight);
             if(doubleT){
                 $(".double-loop").animate({top : -loopHeight},500);
                 doubleT = false;
@@ -630,23 +684,60 @@
             }
         };
         imgindex = 0;
-        // doubleLoops();
-        setInterval(imageChange,5000);
+        
+        $(".bargauge").animate({width : 100+"%"},10000,function(){
+            $(".bargauge").css({width : 0});
+        });
+        setInterval(imageChange,10000);
+        let currentnum = 1;
         function imageChange(){
-            if(imgindex == 0){
-                src = "jnollet-cover-bottom.jpg";
-                imgindex++;
-            }else{
-                src = "cover-kalios-bottom.jpg";
-                imgindex--;
-            }
-            for(let i = 0; i < balls.length; i++){
-                balls[i].dt = 0;
-                balls[i].currentPosition = balls[i].movePosition;
-                balls[i].position = new point($(window).width()/2 ,($("#slide").offset().top + $("#slide").height()/2) - scrollTop)
-                time = 0; 
+            
+            if(ReadySection){
+                currentnum++;
+                if(currentnum > 5){
+                    currentnum = 1;
+                }
+                $(".currentindex").text("0"+currentnum);
+                
+                $("html, body").animate({scrollTop: $("#slide").offset().top},600,"easeInOutExpo");
+                changeslide = true;
+                if(imgindex == 0){
+                    src = "jnollet-cover-bottom.jpg";
+                    
+                    $(".bargauge").css({background : TColor[1]});
+                    $(".bar").css({background : backgroundColor[1]});
+                    ballColor = backgroundColor[1];
+                    $("body").css({background : backgroundColor[1]});
+                    $(".double-loop span").css({color : TColor[1]});
+                   
+                    imgindex++;
+                }else{
+                    src = "cover-kalios-bottom.jpg";
+
+                    $(".bar").css({background :backgroundColor[0] });
+                    $(".bargauge").css({background : TColor[0]});
+                    ballColor = backgroundColor[0];
+                    console.log(ballColor);
+                    $("body").css({background : backgroundColor[0]});
+                    $(".double-loop span").css({color : TColor[0]});
+                    imgindex--;
+                }
+                scrollTop = $(window).scrollTop();
+                for(let i = 0; i < balls.length; i++){
+                    balls[i].dt = 0;
+                    balls[i].position = new point($(window).width()/2 ,$(window).height()/2)
+                    balls[i].currentPosition = balls[i].movePosition;
+                    time = 0; 
+                }
+                $(".bargauge").animate({width : 100+"%"},10000,function(){
+                    $(".bargauge").css({width : 0});
+                });
             }
         }
+        $("a").hover(function(){
+            $(this).parent().siblings().find("a").removeClass("active");
+            $(this).addClass("active");
+        });
     </script>
 </body>
 </html>
