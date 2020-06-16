@@ -1,7 +1,8 @@
 /* reset */
 *{
     
-    margin: 0 auto;
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 body, div, ul, dd, li, ol, dt, h1, h2, h3, h4, h5, h6, input, fieldset, legend, p, select, table, th, td, tr, textarea, button, form, figure, figcaption{margin: 0; padding: 0;} 

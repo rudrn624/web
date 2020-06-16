@@ -55,7 +55,7 @@ body::before{
     padding-bottom: 0.01em;
     overflow: hidden;
     margin-top: 14rem;
-    margin-bottom: 10rem;
+    // margin-bottom: 10rem;
     // font-family: Druk;
     font-size: 34rem;
     
@@ -97,7 +97,7 @@ body::before{
     transform: translateY(0);
 }
 #header.active .header-wrap{
-opacity: 1;
+    opacity: 1;
 }
 .container{
     position: relative;
@@ -143,7 +143,7 @@ opacity: 1;
 }
 .intro_link{
     display: inline-block;
-    background-image: linear-gradient(#1E1E1E, #1E1E1E);
+    background-image: linear-gradient(#fbac65, #fbac65);
     background-repeat: no-repeat; 
     background-position: 100% 4em;
     background-size: 100%;
@@ -423,4 +423,110 @@ opacity: 1;
 }
 #loop{
     
+}
+#push{
+    .container{
+        display: flex;
+    }
+    margin-bottom: 6rem;
+    margin-top: 10rem;
+    .contact-push{
+        width: 37rem;
+        margin-right: 10rem;
+        h3{
+            font-size: 4rem;
+            line-height: 1.3;
+            letter-spacing: 0em;
+            font-weight: 600;
+        }
+        p{
+            line-height: 2.2;
+            margin-top: 3rem;
+            font-size: 1.6rem;
+        }
+        .intro_link{
+            margin-top: 3rem;
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    .pushList{
+        margin-top: 14rem;
+        li{
+            display: flex;
+            flex-direction: column;
+            padding-left: 2.5rem;
+            position: relative;
+            &::after{
+                content:'';
+                position: absolute;
+                left: 0;
+                top:10px;
+                width:6px;
+                height:6px;
+                border-radius: 50%;
+                // transform: translateY(-50%);
+                background: var(--color, #fbac65);
+            }
+        }
+        li:nth-child(2){
+            margin-top: 1rem;
+        }
+    }
+}
+#footer{
+    .container{
+        max-width: calc(110rem + 2*8.5vw);
+    }
+    padding-bottom: 6rem;
+    padding-top: 6rem;
+    .social-links{
+        display: flex;
+        li{
+            margin-right: 3rem;
+           
+            a{
+                display: flex;
+                justify-content: center;
+                width: 98px;
+                color:#000;
+                font-size: 1.3rem;
+                font-weight: 600;
+                text-align: center;
+                span{
+                    display: inline-block;
+                    transition: width 0.5s;
+                    overflow: hidden;
+            
+                }
+                
+            }
+            .Fb{
+                .hover-hide:nth-child(2){
+                    width:34px;
+                }
+                .hover-hide:nth-child(4){
+                    width:35px;
+                }
+            }
+            .Tw{
+                .hover-hide{
+                    width:39px;
+                }
+            }
+            .In{
+                .hover-hide{
+                    width:80px;
+                }
+            }
+            .Be{
+                .hover-hide{
+                    width:55px;
+                }
+            }
+            a:hover .hover-hide{
+                width:0 !important;
+            }
+        }
+    }
 }
