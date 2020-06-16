@@ -445,8 +445,12 @@
             dotIndex += "<a href='#'>0"+(i+1)+"</a>";
         });
         slideDot.html(dotIndex);
+        function test( num ){
+            let i = num;
 
-
+            return i*5;
+        }
+        let e = test(20);
         slideBtn.on("click","a", function(){
             let nextIndex = (currentIndex + 1) % slideCount;
             let prevIndex = (currentIndex - 1) % slideCount;

@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse Effect07</title>
+    
+    <style>
+         @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        @font-face {
+            font-family: 'GmarketSansMedium';
+            src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+            font-weight: normal;
+            font-style: normal;
+        }
+        @font-face { font-family: 'S-CoreDream-2ExtraLight'; src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_six@1.2/S-CoreDream-2ExtraLight.woff') format('woff'); font-weight: normal; font-style: normal; }
+        * {margin: 0;padding: 0;box-sizing: border-box;}
+        a {text-decoration: none;color: #666;}
+        img {width: 100%; vertical-align: top;}
+        ul {padding: 10px 20px;}
+        body {
+            background: url(../parallax/assets/img/su01.jpg) no-repeat center center;
+            background-size: cover;
+            font-family: 'Abel', 'GmarketSansMedium';
+            color: #fff;
+            height: 100vh;
+            transition: all 0.2s;
+            /* cursor: none; */
+            overflow: hidden;
+        }
+        body::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(63, 47, 65, 0.3);
+            z-index: -1;
+        }
+        .info {position: absolute; left: 0; top: 0; z-index: 1000; padding: 20px;}
+        .info h1 {padding-bottom: 10px;}
+
+        .info2 {position: absolute; right: 0; top: 0; z-index: 1000; padding: 20px;}
+        .info2 li {list-style: none; margin-bottom: 5px;}
+        .info2 li a {color: #fff;}
+        .info2 li.active {border-bottom: 1px dashed #fff;}
+
+        .infor3 {position: absolute; right: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor3 li {list-style: none; margin-bottom: 5px;}
+        .infor3 li a {color: #fff;}
+
+        .infor4 {position: absolute; left: 0; bottom: 0; z-index: 1000; padding: 20px;}
+        .infor4 a {color: #fff; border: 1px solid #fff; border-radius: 30px; padding: 5px 30px; margin-right: 10px;}
+        .infor4 .modal {
+            background: rgba(0,0,0,0.8);
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            top: 100%;
+            left: 0;
+            text-align: left;
+            transition: all 600ms cubic-bezier(0.86, 0, 0.07, 1);
+        }
+        .infor4 .modal.show {
+            top: 0;
+        }
+        .infor4 .modal .close {
+            position: absolute; right: 10px; top: 20px;
+        }
+        .cursor {
+            position: absolute; 
+            width: 200px; height: 200px;
+            border-radius: 50%;
+            z-index: -1;
+            user-select: none;
+            pointer-events: none;
+        }
+
+         /* contents */
+        .contents {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%; height: 100vh;
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .textWrap {padding-top: 20vh;}
+        .textWrap .line {width: 100vw;display: flex;}
+        .textWrap .line .left {width: 50vw; color: gold; transform: skew(0deg, -15deg); overflow: hidden;}
+        .textWrap .line .left .spanWrap {width: 100vw; text-align: center;}
+        .textWrap .line .left .spanWrap span {font-size: 6vw;}
+        .textWrap .line .right {width: 50vw; transform: skew(0deg, 15deg); overflow: hidden;}
+        .textWrap .line .right .spanWrap {width: 100vw; text-align: center; transform: translate(-50vw);}
+        .textWrap .line .right .spanWrap span {font-size: 6vw;}
+        .textWrap span {display: inline-block;}
+        
+    </style>
+
+    <link rel="stylesheet" href="../assets/css/prism.css">
+</head>
+<body>
+    <div class="info">
+        <h1>Mouse Effect08</h1>
+        <p>마우스 따라다니기</p>
+    </div>
+
+    <div class="info2">
+        <ul>
+            <li><a href="mouse01.html">Mouse01</a></li>
+            <li><a href="mouse02.html">Mouse02</a></li>
+            <li><a href="mouse03.html">Mouse03</a></li>
+            <li><a href="mouse04.html">Mouse04</a></li>
+            <li><a href="mouse05.html">Mouse05</a></li>
+            <li><a href="mouse06.html">Mouse06</a></li>
+            <li><a href="mouse07.html">Mouse07</a></li>
+            <li class="active"><a href="mouse08.html">Mouse08</a></li>
+        </ul>
+    </div>
+
+    <div class="infor3">
+        <ul>
+            <li>clientX : <span class="clientX">0</span></li>
+            <li>clientY : <span class="clientY">0</span></li>
+        </ul>
+    </div>
+
+    <div class="infor4">
+        <a href="#" class="view">소스보기</a>
+
+        <!-- modal -->
+        <div class="modal">
+            <div class="code-editor">   
+                <h3>Script Editor
+                    <span class="control"></span>
+                    <span class="control"></span>
+                    <span class="control"></span>
+                </h3>
+                <div class="code">
+<pre class="line-numbers"><code class="language-js">
+</code></pre>
+                </div>
+
+            </div>
+            <a class="close">Close</a>
+        </div>
+    </div>
+
+    <!-- contents -->
+    <div class="contents">
+        <div class="cursor"></div>
+
+        <div class="move-image">
+            <div class="textWrap">
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanSlow">Pain past</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanSlow">Pain past</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanFast">is pleasure.</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanFast">is pleasure.</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanSlow">지나간 고통은</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanSlow">지나간 고통은</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="line">
+                    <div class="left">
+                        <div class="spanWrap">
+                            <span class="spanFast">쾌락이다</span>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="spanWrap">
+                            <span class="spanFast">쾌락이다</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- script -->
+    <script src="../parallax/assets/js/jquery.min_1.12.4.js"></script>
+    <script src="../parallax/assets/js/jquery-ui-1.12.1.min.js"></script>
+    <script src="../parallax/assets/js/gsap.min.js"></script>
+    <script src="../assets/js/prism.js"></script>
+    <script>
+        // const spanSlow = document.querySelectorAll(".spanSlow");
+        // const spanFast = document.querySelectorAll(".spanFast");
+
+        // window.addEventListener("mousemove", mouseMove);
+
+        // function mouseMove(e){
+        //     let position = e.pageX / (window.innerWidth/2) * 100;
+           
+        //     spanSlow.forEach((span) => {
+        //         span.style.transform = `translate(${position}px)`;
+        //     })
+        //     spanFast.forEach((span) => {
+        //         span.style.transform = `translate(${-position}px)`;
+        //     })
+
+        // }
+
+        const spanSlow = $(".spanSlow");
+        const spanFast = $(".spanFast");
+
+        $(window).mousemove(function(e){
+            mouseMove(e);
+        });
+
+        function mouseMove(e){
+            let position = e.pageX / ($(window).width()/2) * 100;
+           
+            spanSlow.css({transform : `translate(${position}px)`});
+            spanFast.css({transform : `translate(${-position}px)`});
+        }
+
+    </script>
+
+</body>
+</html>

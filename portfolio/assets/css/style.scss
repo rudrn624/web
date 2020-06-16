@@ -27,45 +27,7 @@ body::before{
         display: flex;
         flex-direction: column;
         justify-content: center;
-        .slideshow_loop{
-            height: .77em;
-            padding-top: 0.01em;
-            padding-bottom: 0.01em;
-            overflow: hidden;
-            margin-top: 14rem;
-            margin-bottom: 10rem;
-            // font-family: Druk;
-            font-size: 34rem;
-            
-            
-            text-transform: uppercase;
-            .double-loop{
-                position: relative;
-                // margin-bottom: .07em;
-                display: flex;
-                height: .77em;
-                transform: translateY(0);
-                span{
-                    will-change: transform;
-                    letter-spacing : -20px;
-                    display: inline-block;
-                    font-family: 'Anton', sans-serif;
-                    height: 0.78em;
-                    position: relative;
-                    white-space: nowrap;
-                    top: -.06em;
-                    padding-right: .43em;
-                    line-height: 1;
-                    font-size: 29rem;
-                    color : #fbac65;
-                    transition: color 1s;
-                    i{
-                        font-style: normal;
-                    }
-                }
-            }
-            
-        }
+       
         .barwrap{
             position: relative;
             top:-5vw;
@@ -86,6 +48,45 @@ body::before{
                 }
         }
     }
+}
+.slideshow_loop{
+    height: .77em;
+    padding-top: 0.01em;
+    padding-bottom: 0.01em;
+    overflow: hidden;
+    margin-top: 14rem;
+    margin-bottom: 10rem;
+    // font-family: Druk;
+    font-size: 34rem;
+    
+    
+    text-transform: uppercase;
+    .double-loop, .singleloop{
+        position: relative;
+        // margin-bottom: .07em;
+        display: flex;
+        height: .77em;
+        transform: translateY(0);
+        span{
+            will-change: transform;
+            letter-spacing : -20px;
+            display: inline-block;
+            font-family: 'Anton', sans-serif;
+            height: 0.78em;
+            position: relative;
+            white-space: nowrap;
+            top: -.06em;
+            padding-right: .43em;
+            line-height: 1;
+            font-size: 29rem;
+            color : #fbac65;
+            transition: color 1s;
+            i{
+                font-style: normal;
+            }
+        }
+    }
+    
 }
 #intro{
     height : 100vh;
@@ -305,11 +306,13 @@ opacity: 1;
     position: relative;
     z-index: 3;
     margin-top: 20rem;
-    padding-bottom: 30rem;
+    padding-bottom: 40rem;
     .container{display: flex;}
     .listwrap{
-        display: inline-block;
+        display: flex;
+        flex-direction: column;
         li{
+            margin: 0.5vw 0vw;
             font-size: 8.5rem;
             line-height: 1.25;
             letter-spacing: 0em;
@@ -345,7 +348,64 @@ opacity: 1;
         }
     }
     .imgs{
-
+        .smallImg{
+            background-color: #1E1E1E;
+            width: 20rem;
+            height: 12.8rem;
+            position: relative;
+            top: -5rem;
+            overflow: hidden;
+            .smallList{
+                width:100%;
+                height:100%;
+                position: absolute;
+                left: 0;
+                top:0;
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transform: scale(1.2);
+                    transition:all 0.5s;
+                }
+            }
+            .smallList.active img{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+        .mainImg{
+            background-color: #1E1E1E;
+            width: 37rem;
+            height: 48rem;
+            position: relative;
+            left: 8rem;
+            overflow: hidden;
+            .mainList{
+                width:100%;
+                height:100%;
+                position: absolute;
+                left: 0;
+                top:0;
+                img{
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    opacity: 0;
+                    transform: scale(1.2);
+                    transition:all 0.5s;
+                }
+            }
+            .mainList.active img{
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
     }
 }
 .hide{
@@ -360,4 +420,7 @@ opacity: 1;
     pointer-events: none;
     // width:100%;
     // height:100vh;
+}
+#loop{
+    
 }

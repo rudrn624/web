@@ -38,48 +38,6 @@ body::before {
           justify-content: center;
 }
 
-#slide .slideshow .slideshow_loop {
-  height: .77em;
-  padding-top: 0.01em;
-  padding-bottom: 0.01em;
-  overflow: hidden;
-  margin-top: 14rem;
-  margin-bottom: 10rem;
-  font-size: 34rem;
-  text-transform: uppercase;
-}
-
-#slide .slideshow .slideshow_loop .double-loop {
-  position: relative;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  height: .77em;
-  -webkit-transform: translateY(0);
-          transform: translateY(0);
-}
-
-#slide .slideshow .slideshow_loop .double-loop span {
-  will-change: transform;
-  letter-spacing: -20px;
-  display: inline-block;
-  font-family: 'Anton', sans-serif;
-  height: 0.78em;
-  position: relative;
-  white-space: nowrap;
-  top: -.06em;
-  padding-right: .43em;
-  line-height: 1;
-  font-size: 29rem;
-  color: #fbac65;
-  -webkit-transition: color 1s;
-  transition: color 1s;
-}
-
-#slide .slideshow .slideshow_loop .double-loop span i {
-  font-style: normal;
-}
-
 #slide .slideshow .barwrap {
   position: relative;
   top: -5vw;
@@ -99,6 +57,48 @@ body::before {
   width: 0;
   height: 100%;
   background: #fbac65;
+}
+
+.slideshow_loop {
+  height: .77em;
+  padding-top: 0.01em;
+  padding-bottom: 0.01em;
+  overflow: hidden;
+  margin-top: 14rem;
+  margin-bottom: 10rem;
+  font-size: 34rem;
+  text-transform: uppercase;
+}
+
+.slideshow_loop .double-loop, .slideshow_loop .singleloop {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: .77em;
+  -webkit-transform: translateY(0);
+          transform: translateY(0);
+}
+
+.slideshow_loop .double-loop span, .slideshow_loop .singleloop span {
+  will-change: transform;
+  letter-spacing: -20px;
+  display: inline-block;
+  font-family: 'Anton', sans-serif;
+  height: 0.78em;
+  position: relative;
+  white-space: nowrap;
+  top: -.06em;
+  padding-right: .43em;
+  line-height: 1;
+  font-size: 29rem;
+  color: #fbac65;
+  -webkit-transition: color 1s;
+  transition: color 1s;
+}
+
+.slideshow_loop .double-loop span i, .slideshow_loop .singleloop span i {
+  font-style: normal;
 }
 
 #intro {
@@ -372,7 +372,7 @@ body::before {
   position: relative;
   z-index: 3;
   margin-top: 20rem;
-  padding-bottom: 30rem;
+  padding-bottom: 40rem;
 }
 
 #site .container {
@@ -382,10 +382,17 @@ body::before {
 }
 
 #site .listwrap {
-  display: inline-block;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 #site .listwrap li {
+  margin: 0.5vw 0vw;
   font-size: 8.5rem;
   line-height: 1.25;
   letter-spacing: 0em;
@@ -423,6 +430,78 @@ body::before {
   font-size: 1.3rem;
   right: -1vw;
   top: 1.8vw;
+}
+
+#site .imgs .smallImg {
+  background-color: #1E1E1E;
+  width: 20rem;
+  height: 12.8rem;
+  position: relative;
+  top: -5rem;
+  overflow: hidden;
+}
+
+#site .imgs .smallImg .smallList {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#site .imgs .smallImg .smallList img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#site .imgs .smallImg .smallList.active img {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+
+#site .imgs .mainImg {
+  background-color: #1E1E1E;
+  width: 37rem;
+  height: 48rem;
+  position: relative;
+  left: 8rem;
+  overflow: hidden;
+}
+
+#site .imgs .mainImg .mainList {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
+
+#site .imgs .mainImg .mainList img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  -webkit-transform: scale(1.2);
+          transform: scale(1.2);
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+#site .imgs .mainImg .mainList.active img {
+  opacity: 1;
+  -webkit-transform: scale(1);
+          transform: scale(1);
 }
 
 .hide {

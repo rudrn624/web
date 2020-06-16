@@ -23,6 +23,7 @@
                 </div>
             </div>
     </header>
+
     <canvas id="canvas">
 
     </canvas>
@@ -87,26 +88,36 @@
         <div class="container">
             <span class="js-title hide">site</span>
             <ul class="listwrap">
-                <li><a href="#">웹표준사이트</a><span class="listnum">01</span></li>
-                <li><a href="#">반응형사이트</a><span class="listnum">02</span></li>
-                <li><a href="#">메가박스사이트</a><span class="listnum">03</span></li>
-                <li><a href="#">풀잎사이트</a><span class="listnum">04</span></li>
+                <li><a href="#">웹표준사이트<span class="listnum">01</span></a></li>
+                <li><a href="#">반응형사이트<span class="listnum">02</span></a></li>
+                <li><a href="#">메가박스사이트<span class="listnum">03</span></a></li>
+                <li><a href="#">풀잎사이트<span class="listnum">04</span></a></li>
             </ul>
             <div class="imgs">
                 <div class="smallImg">
-                    <div class="samllList"><img src="assets/img/han.jpg" alt="뱅골"></div>
-                    <div class="samllList"></div>
-                    <div class="samllList"></div>
-                    <div class="samllList"></div>
+                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
+                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
+                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
+                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
                 </div>
                 <div class="mainImg">
                     <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
-                    <div class="mainList"></div>
-                    <div class="mainList"></div>
-                    <div class="mainList"></div>
+                    <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
+                    <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
+                    <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
                 </div>
             </div>
         </div>
+    </section>
+    <section id="loop">
+        <div class="slideshow_loop">
+            <div class="singleloop">
+                <span>bengol <i>&middot;</i></span>
+                <span>bengol <i>&middot;</i></span>
+                <span>bengol <i>&middot;</i></span>
+            </div>
+        </div>
+        
     </section>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
@@ -152,7 +163,8 @@
         let ballColor = "#f9e6d4";
         let backgroundColor = ["#f9e6d4" ,"#ebfbe0"];
         let TColor = ["#fbac65","#aeed82"];
-
+        let Interval ;
+        let Flag = true;
 
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop();
@@ -162,30 +174,32 @@
 
             if(($("#slide").offset().top + $("#slide").height()) < (scrollTop +300)){
                 ReadySection = false;
-            }else if($("#slide").offset().top < (scrollTop +400)){
+            }else if($("#slide").offset().top < (scrollTop +500)){
                 ReadySection = true;
             }else{
                 ReadySection = false;
             }
-            console.log(ReadySection);
+            // console.log(ReadySection);
             // let slideTop = $("#slide").offset().top + $("#slide").height();
-            if(scrollTop < $("#slide").offset().top + 100 && mouseDown){
-                for(let i = 0; i < balls.length; i++){
-                    balls[i].updateRadius(2,(i+1));
-                    slideBall.update(2);
-                    globalAlpha += 0.007;
-                }
-            }else if(scrollTop > $("#slide").offset().top - 100 && !mouseDown){
-                for(let i = 0; i < balls.length; i++){
-                    balls[i].updateRadius(2,(i+1));
-                    slideBall.update(2);
-                    globalAlpha += 0.007;
-                }
-            }else{
-                for(let i = 0; i < balls.length; i++){
-                    balls[i].updateRadius(-2,(i+1));
-                    slideBall.update(-2);
-                    globalAlpha -= 0.009;
+            if(ReadySection){
+                if(scrollTop < $("#slide").offset().top + 100 && mouseDown){
+                    for(let i = 0; i < balls.length; i++){
+                        balls[i].updateRadius(2,(i+1));
+                        slideBall.update(2);
+                        globalAlpha += 0.007;
+                    }
+                }else if(scrollTop > $("#slide").offset().top - 100 && !mouseDown){
+                    for(let i = 0; i < balls.length; i++){
+                        balls[i].updateRadius(2,(i+1));
+                        slideBall.update(2);
+                        globalAlpha += 0.007;
+                    }
+                }else{
+                    for(let i = 0; i < balls.length; i++){
+                        balls[i].updateRadius(-2,(i+1));
+                        slideBall.update(-2);
+                        globalAlpha -= 0.02;
+                    }
                 }
             }
             if(globalAlpha > 1){
@@ -195,7 +209,7 @@
             }
             slideBall.Position.pY = ($("#slide").offset().top + $("#slide").height()/2) - scrollTop;
             
-            $(".double-loop span").each(function(){
+            $(".double-loop span, .singleloop span").each(function(){
                 left = $(this).css('left').replace('px', '');
                 if(mouseDown){
                     $(this).css({left : parseInt(left) + 5});
@@ -203,11 +217,21 @@
                     $(this).css({left : parseInt(left) - 5});
                 }
             });
-            // else{
-            //     for(let i = 0; i < balls.length; i++){
-            //         balls[i].updateRadius(-2,(i+1));
-            //     }
-            // }
+            console.log(!ReadySection);
+            if(ReadySection){
+                if(Flag){
+                    $(".bargauge").stop(true,true);
+                    $(".bargauge").css({width:0});
+                    $(".bargauge").animate({width : 100+"%"}, 10000);
+
+                    Interval = setInterval(imageChange,10000);
+                }
+                Flag = false;
+            }else{
+                Flag = true;
+                clearInterval(Interval);
+            }
+            
             
         });
         $(window).resize(function(){
@@ -232,7 +256,7 @@
                 // clearInterval(i+1);
             });
         },1000);
-        
+        // let Point = new point(0 ,1);
         function point(pX,pY){
             this.pX = pX;
             this.pY = pY;
@@ -259,6 +283,20 @@
                 ctx.closePath();
             }
         }
+        function i(left, right){
+            this.left = left;
+            this.right = right;
+            this.sum = function(){
+                return this.left + this.right;
+            }
+        }
+        let arr = [0,1,2];
+        console.log(arr[0]);
+        console.log(arr[1]);
+        console.log(arr[2]);
+        console.log(arr);
+        let m = new i(15,16);
+        // console.log(m.sum());
         function ball(point , radius){
             this.position = point;
             this.currentPosition = point;
@@ -650,7 +688,7 @@
               }
         });
         function loop(){
-            $(".double-loop span").each(function(i){
+            $(".double-loop span, .singleloop span").each(function(i){
                 left = $(this).css('left').replace('px', '');
                 if(!mouseDown){
                     if(left <= -$(this).outerWidth()*($(this).index()+1)){
@@ -685,14 +723,24 @@
         };
         imgindex = 0;
         
-        $(".bargauge").animate({width : 100+"%"},10000,function(){
-            $(".bargauge").css({width : 0});
-        });
-        setInterval(imageChange,10000);
+        // $(".bargauge").animate({width : 100+"%"},10000,function(){
+        //     $(".bargauge").css({width : 0});
+        // });
+        // if(ReadySection){
+        //     imageChange();
+
+        // }
+        
+        // imageChange();
+        
         let currentnum = 1;
         function imageChange(){
-            
             if(ReadySection){
+                
+                $(".bargauge").stop(true,true);
+                $(".bargauge").css({width:0});
+                $(".bargauge").animate({width : 100+"%"}, 10000);
+
                 currentnum++;
                 if(currentnum > 5){
                     currentnum = 1;
@@ -729,14 +777,17 @@
                     balls[i].currentPosition = balls[i].movePosition;
                     time = 0; 
                 }
-                $(".bargauge").animate({width : 100+"%"},10000,function(){
-                    $(".bargauge").css({width : 0});
-                });
+                
             }
         }
         $("a").hover(function(){
             $(this).parent().siblings().find("a").removeClass("active");
             $(this).addClass("active");
+
+            $(".smallImg .smallList").eq($(this).parent().index()).siblings().removeClass("active");
+            $(".smallImg .smallList").eq($(this).parent().index()).addClass("active");
+            $(".mainImg .mainList").eq($(this).parent().index()).siblings().removeClass("active");
+            $(".mainImg .mainList").eq($(this).parent().index()).addClass("active");
         });
     </script>
 </body>
