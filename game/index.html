@@ -57,59 +57,59 @@
             transition: transform 1s;
             backface-visibility: hidden;
         }
-
-        .card:hover .front {
+        /*카드를 클릭했을때*/
+        .card.is-selected .front {
             transform: rotatey(180deg);
             transition: transform 1s;
         }
 
-        .card:hover .back {
+        .card.is-selected .back {
             transform: rotatey(0deg);
             transition: transform 1s;
         }
 
         [data-type="img1"] .back {
-            background: url(assets/img/Group1.png);
+            background: url(assets/img/Group1.png) center center;
             background-size: cover;
         }
 
         [data-type="img2"] .back {
-            background: url(assets/img/Group2.png);
+            background: url(assets/img/Group2.png) center center;
             background-size: cover;
         }
 
         [data-type="img3"] .back {
-            background: url(assets/img/Group3.png);
+            background: url(assets/img/Group3.png) center center;
             background-size: cover;
         }
 
         [data-type="img4"] .back {
-            background: url(assets/img/Group4.png);
+            background: url(assets/img/Group4.png) center center;
             background-size: cover;
         }
 
         [data-type="img5"] .back {
-            background: url(assets/img/Group5.png);
+            background: url(assets/img/Group5.png) center center;
             background-size: cover;
         }
 
         [data-type="img6"] .back {
-            background: url(assets/img/Group6.png);
+            background: url(assets/img/Group6.png) center center;
             background-size: cover;
         }
 
         [data-type="img7"] .back {
-            background: url(assets/img/Group7.png);
+            background: url(assets/img/Group7.png) center center;
             background-size: cover;
         }
 
         [data-type="img8"] .back {
-            background: url(assets/img/Group8.png);
+            background: url(assets/img/Group8.png) center center;
             background-size: cover;
         }
 
         [data-type="img9"] .back {
-            background: url(assets/img/Group9.png);
+            background: url(assets/img/Group9.png) center center;
             background-size: cover;
         }
     </style>
@@ -190,11 +190,40 @@
             <div class="back"></div>
         </div>
     </main>
-    <select name="" id="">
-        <option value="">dd</option>
-        <option value="">dd</option>
-        <option value="">dd</option>
-    </select>
+    <script src="assets/script/jquery.min.js"></script>
+    <script>
+        const $board = $('main'),
+              $card = $('.card'),
+
+              selectedClass = 'is-selected';
+              dataMatch = 'data-matched';
+              dataType = "data-type";
+
+        let card1, card2;
+
+        $(".card").click(function(){
+            $(this).addClass(selectedClass);
+
+            let selectedCadrs = $("."+selectedClass); //선택된 카드를 클래스로 변경
+
+            //만약에 카드가 똑같다면
+            if(selectedCadrs.length == 2){
+                card1 = selectedCadrs.eq(0).attr(dataType);
+                card2 = selectedCadrs.eq(1).attr(dataType);
+            
+                //만약에 카드1과 카드2가 같다면
+                if(card1 == card2){
+                    selectedCadrs.attr(dataMatch,true);
+                }
+            }
+            console.log(card1);
+            console.log(card2);
+            //만약에 두개의 카드가 똑같다면
+            
+            //만약에 두개의 카드가 다르다면
+            
+        });
+    </script>
 </body>
 
 </html>

@@ -440,6 +440,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
     <script>
+        $("*").addClass("active");
         let scrollTop = $(window).scrollTop()+$(window).height();
         let step = $(".step");
         
@@ -453,29 +454,29 @@
             $(".container").addClass("fadein");
         });
         
-        $(window).scroll(function(){
-            scrollTop = $(window).scrollTop()+$(window).height();
+        // $(window).scroll(function(){
+        //     scrollTop = $(window).scrollTop()+$(window).height();
             
-            init();
-        });
+        //     init();
+        // });
 
-        function init(){
-            step.each(function(){
+        // function init(){
+        //     step.each(function(){
                 
-                let stepTop = $(this).offset().top;
-                let stepBottom = (stepTop + $(this).height() + $(window).height()+500);
+        //         let stepTop = $(this).offset().top;
+        //         let stepBottom = (stepTop + $(this).height() + $(window).height()+500);
                 
-                if(scrollTop > stepBottom){
-                    $(this).removeClass("active");
-                }else if(scrollTop > stepTop){
-                    $(this).addClass("active");
-                }else{
-                    $(this).removeClass("active");
-                }
-                //console.log(stepBottom);
+        //         if(scrollTop > stepBottom){
+        //             $(this).removeClass("active");
+        //         }else if(scrollTop > stepTop){
+        //             $(this).addClass("active");
+        //         }else{
+        //             $(this).removeClass("active");
+        //         }
+        //         //console.log(stepBottom);
                 
-            });
-        }
+        //     });
+        // }
         $(".next").click(function(e){
             e.preventDefault();
             swiper1.slideNext();

@@ -65,6 +65,7 @@ body::before {
   padding-bottom: 0.01em;
   overflow: hidden;
   margin-top: 14rem;
+  margin-bottom: 10rem;
   font-size: 34rem;
   text-transform: uppercase;
 }
@@ -324,7 +325,6 @@ body::before {
   height: 44px;
   position: relative;
   font-size: 0;
-  background: #ccc;
 }
 
 .header-wrap .header-ham .bugar:after {
@@ -556,7 +556,7 @@ body::before {
 }
 
 #push .pushList {
-  margin-top: 14rem;
+  margin-top: 9rem;
 }
 
 #push .pushList li {
@@ -580,6 +580,11 @@ body::before {
   height: 6px;
   border-radius: 50%;
   background: var(--color, #fbac65);
+}
+
+#push .pushList li p {
+  font-size: 1.3rem;
+  line-height: 1.8;
 }
 
 #push .pushList li:nth-child(2) {

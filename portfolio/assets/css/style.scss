@@ -55,7 +55,7 @@ body::before{
     padding-bottom: 0.01em;
     overflow: hidden;
     margin-top: 14rem;
-    // margin-bottom: 10rem;
+    margin-bottom: 10rem;
     // font-family: Druk;
     font-size: 34rem;
     
@@ -269,7 +269,7 @@ body::before{
             height: 44px;
             position: relative;
             font-size: 0;
-            background:#ccc;
+            // background:#ccc;
             &:after{
                 content : '';
                 position: absolute;
@@ -451,7 +451,7 @@ body::before{
         }
     }
     .pushList{
-        margin-top: 14rem;
+        margin-top: 9rem;
         li{
             display: flex;
             flex-direction: column;
@@ -467,6 +467,10 @@ body::before{
                 border-radius: 50%;
                 // transform: translateY(-50%);
                 background: var(--color, #fbac65);
+            }
+            p{
+                font-size: 1.3rem;
+                line-height: 1.8;
             }
         }
         li:nth-child(2){
