@@ -27,7 +27,6 @@ body::before{
         display: flex;
         flex-direction: column;
         justify-content: center;
-       
         .barwrap{
             position: relative;
             top:-5vw;
@@ -59,8 +58,12 @@ body::before{
     // font-family: Druk;
     font-size: 34rem;
     
+    position: relative;
     
     text-transform: uppercase;
+    a{display: inline-block; width: 30%; z-index: 10;}
+    .prev{position: absolute; top:0;left:0; height:100%;}
+    .next{position: absolute; top:0;right:0; height:100%;}
     .double-loop, .singleloop{
         position: relative;
         // margin-bottom: .07em;
@@ -311,6 +314,7 @@ body::before{
     .listwrap{
         display: flex;
         flex-direction: column;
+        transform: translateY(0);
         li{
             margin: 0.5vw 0vw;
             font-size: 8.5rem;
@@ -349,11 +353,11 @@ body::before{
     }
     .imgs{
         .smallImg{
-            background-color: #1E1E1E;
+            background-color: #f9e6d4;
             width: 20rem;
             height: 12.8rem;
             position: relative;
-            top: -5rem;
+            top: -3rem;
             overflow: hidden;
             .smallList{
                 width:100%;
@@ -361,20 +365,22 @@ body::before{
                 position: absolute;
                 left: 0;
                 top:0;
+                transform: translateY(0);
                 img{
                     position: absolute;
-                    top: 0;
-                    left: 0;
-                    width: 100%;
-                    height: 100%;
+                    top: 1vw;
+                    left: 50%;
+                    width: 6vw;
+                    // height: 100%;
                     opacity: 0;
-                    transform: scale(1.2);
+                    transform: translate(-50%) scale(1.2);
+                   
                     transition:all 0.5s;
                 }
             }
             .smallList.active img{
                 opacity: 1;
-                transform: scale(1);
+                transform: translate(-50%) scale(1);
             }
         }
         .mainImg{
@@ -515,17 +521,17 @@ body::before{
             }
             .Tw{
                 .hover-hide{
-                    width:39px;
+                    width:42px;
                 }
             }
             .In{
                 .hover-hide{
-                    width:80px;
+                    width:85px;
                 }
             }
             .Be{
                 .hover-hide{
-                    width:55px;
+                    width:59px;
                 }
             }
             a:hover .hover-hide{

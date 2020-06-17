@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/reset.css">
@@ -63,6 +64,8 @@
         <span class="js-title hide">slide</span>
         <div class="slideshow">
             <div class="slideshow_loop">
+                <a href="#" class="prev"></a>
+                <a href="#" class="next"></a>
                 <div class="double-loop">
                     <span>bengol <i>&middot;</i></span>
                     <span>bengol <i>&middot;</i></span>
@@ -88,23 +91,23 @@
         <div class="container">
             <span class="js-title hide">site</span>
             <ul class="listwrap">
-                <li><a href="#">웹표준사이트<span class="listnum">01</span></a></li>
-                <li><a href="#">반응형사이트<span class="listnum">02</span></a></li>
-                <li><a href="#">메가박스사이트<span class="listnum">03</span></a></li>
-                <li><a href="#">플립사이트<span class="listnum">04</span></a></li>
+                <li><a href="https://rudrn624.github.io/web/site-webstandard/#" target="_blink">웹표준사이트<span class="listnum">01</span></a></li>
+                <li><a href="https://rudrn624.github.io/web/site-responsive/#" target="_blink">반응형사이트<span class="listnum">02</span></a></li>
+                <li><a href="https://rudrn624.github.io/web/megabox/#" target="_blink">메가박스사이트<span class="listnum">03</span></a></li>
+                <li><a href="https://rudrn624.github.io/web/pulipinc/#" target="_blink">플립사이트<span class="listnum">04</span></a></li>
             </ul>
             <div class="imgs">
                 <div class="smallImg">
-                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
-                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
-                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
-                    <div class="smallList"><img src="assets/img/han.jpg" alt="뱅골"></div>
+                    <div class="smallList"><img src="assets/img/html.png" alt="HTML5"></div>
+                    <div class="smallList"><img src="assets/img/css.png" alt="CSS"></div>
+                    <div class="smallList"><img src="assets/img/js.png" alt="자바스크립트"></div>
+                    <div class="smallList"><img src="assets/img/jquery.png" alt="뱅골"></div>
                 </div>
                 <div class="mainImg">
-                    <div class="mainList"><img src="assets/img/webstandard.png" alt="웹표준"></div>
-                    <div class="mainList"><img src="assets/img/webresponsive.png" alt="반응형"></div>
-                    <div class="mainList"><img src="assets/img/megabox.png" alt="메가박스"></div>
-                    <div class="mainList"><img src="assets/img/노력.jpg" alt="뱅골"></div>
+                    <div class="mainList"><img src="assets/img/mainwebstandard.jpg" alt="웹표준"></div>
+                    <div class="mainList"><img src="assets/img/mainwebresponsive.jpg" alt="반응형"></div>
+                    <div class="mainList"><img src="assets/img/mainmegabox.jpg" alt="메가박스"></div>
+                    <div class="mainList"><img src="assets/img/mainpulipinc.jpg" alt="플립"></div>
                 </div>
             </div>
         </div>
@@ -213,6 +216,7 @@
         let left ; 
         let spanSpeed = 0;
         let src = "cover-kalios-bottom.jpg";
+        let imgs = ["jnollet-cover-bottom.jpg","cover-kalios-bottom.jpg","jnollet-cover-bottom.jpg","cover-kalios-bottom.jpg","jnollet-cover-bottom.jpg"];
         let globalAlpha = 0;
         let scrollTop = $(window).scrollTop();;
         let slideballX = $("#slide").width()/2;
@@ -221,13 +225,18 @@
         let changeslide = false;
         let ReadySection = false;
         let ballColor = "#f9e6d4";
-        let backgroundColor = ["#f9e6d4" ,"#ebfbe0"];
-        let TColor = ["#fbac65","#aeed82"];
+        let backgroundColor = ["#f9e6d4" ,"#ebfbe0","#efefef","#ffebe7"];
+        let TColor = ["#fbac65","#aeed82","#1e1e1e","#ffafa0"];
         let Interval ;
         let Flag = true;
         let leftSrc = "cover-kalios-bottom.jpg";
         let rightSrc = "jnollet-cover-bottom.jpg";
 
+        console.log(src);
+
+
+        $(".mainList:first-child").addClass("active");
+        $(".smallList:first-child").addClass("active");
 
 
         // console.log($(".singleloop").offset().left);
@@ -306,8 +315,11 @@
                 Flag = true;
                 clearInterval(Interval);
             }
+            let offset1 = (scrollTop - $(".listwrap").offset().top) * 0.2;
+            let offset2 = (scrollTop - $(".smallImg").offset().top) * 0.2;
+            $(".listwrap").css({transform : "translateY(" + -offset1 + "px)"});
             
-            
+            $(".smallImg").css({transform : "translateY(" + +offset2 + "px)"});
         });
         $(window).resize(function(){
             doubleLoop = $(".double-loop span").outerWidth();
@@ -392,6 +404,7 @@
 
                 var img = new Image();
                 
+                // console.log(src[0]);
                 img.src="assets/img/"+src;
                 
                 ctx.save();
@@ -538,7 +551,7 @@
 
                 var img = new Image();
                 
-                img.src="assets/img/"+src;
+                img.src="assets/img/" + src;
                 // img.width
                 
               
@@ -753,7 +766,7 @@
 
             
         });
-        $("u, .intro_link, .bugar, .logo, a").hover(function(){
+        $("u, .intro_link, .bugar, .logo, .social-links a, .listwrap a").hover(function(){
          
            u = $(this).is("u");
            mouseHover();
@@ -837,7 +850,7 @@
                 doubleT = true;
             }
         };
-        imgindex = 0;
+        imgindex = 1;
         
         // $(".bargauge").animate({width : 100+"%"},10000,function(){
         //     $(".bargauge").css({width : 0});
@@ -850,49 +863,33 @@
         // imageChange();
         
         let currentnum = 1;
+        let currentImg = 1;
         function imageChange(){
             if(ReadySection){
                 
                 $(".bargauge").stop(true,true);
                 $(".bargauge").css({width:0});
                 $(".bargauge").animate({width : 100+"%"}, 10000);
-
-                currentnum++;
-                if(currentnum > 5){
-                    currentnum = 1;
-                }
-                $(".currentindex").text("0"+currentnum);
                 
+                src = imgs[currentnum];
+               
+                $(".currentindex").text("0"+(currentnum+1));
+                
+                currentnum += 1;
+                if(currentnum >= 5){
+                    currentnum = 0;
+                }
+
                 $("html, body").animate({scrollTop: $("#slide").offset().top},600,"easeInOutExpo");
                 changeslide = true;
-                if(imgindex == 0){
-                    src = "jnollet-cover-bottom.jpg";
-                    
-                    $(".bargauge").css({background : TColor[1]});
-                    $(".bar").css({background : backgroundColor[1]});
-                    ballColor = backgroundColor[1];
-                    $("body").css({background : backgroundColor[1]});
-                    $(".double-loop span").css({color : TColor[1]});
-                    $(".singleloop span").css({color : TColor[1]});
-                    $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[1]+","+TColor[1]+")"});
-                    $('.pushList li').attr("style","--color:"+TColor[1]);
-                    
-                    imgindex++;
-                }else{
-                    src = "cover-kalios-bottom.jpg";
 
-                    $(".bar").css({background :backgroundColor[0] });
-                    $(".bargauge").css({background : TColor[0]});
-                    ballColor = backgroundColor[0];
-                    console.log(ballColor);
-                    $("body").css({background : backgroundColor[0]});
-                    $(".double-loop span").css({color : TColor[0]});
-                    $(".singleloop span").css({color : TColor[0]});
-                    $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[0]+","+TColor[0]+")"});
-                    $('.pushList li').attr("style","--color:"+TColor[0]);
+                currentImg  = imgindex % 4;
 
-                    imgindex--;
-                }
+                gotoslide(currentImg);
+
+                imgindex = currentImg + 1;
+
+             
                 scrollTop = $(window).scrollTop();
                 for(let i = 0; i < balls.length; i++){
                     balls[i].dt = 0;
@@ -912,6 +909,52 @@
             $(".mainImg .mainList").eq($(this).parent().index()).siblings().removeClass("active");
             $(".mainImg .mainList").eq($(this).parent().index()).addClass("active");
         });
+        function gotoslide(index){
+
+                    
+                $(".bargauge").css({background : TColor[index]});
+                $(".bar").css({background : backgroundColor[index]});
+                ballColor = backgroundColor[index];
+                $("body").css({background : backgroundColor[index]});
+                $(".double-loop span").css({color : TColor[index]});
+                $(".singleloop span").css({color : TColor[index]});
+                $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
+                $('.pushList li').attr("style","--color:"+TColor[index]);
+                $(".smallImg").css({background : backgroundColor[index]});
+        }
+
+        $(".prev").click(function(e){
+            e.preventDefault();
+            // currentImg -= 1;
+            // if(currentImg < 0){
+            //     currentImg = 3;
+            // }
+            // console.log(currentImg);
+            // gotoslide(currentImg);
+            // imageChange();
+            imageChange();
+            clearInterval(Interval);
+            Interval = setInterval(imageChange,10000);
+            
+               
+        });
+        $(".next").click(function(e){
+            e.preventDefault();
+            // e.preventDefault();
+            // currentImg += 1;
+            // if(currentImg > 3){
+            //     currentImg = 0;
+            // }
+            // console.log(currentImg);
+            // gotoslide(currentImg);
+            imageChange();
+            clearInterval(Interval);
+            Interval = setInterval(imageChange,10000);
+        });
+
+        $("section").each(function(){
+           console.log( $(this).offset().top);
+        })
     </script>
 </body>
 </html>
