@@ -30,8 +30,9 @@
     <!-- <img src="assets/img/han.jpg" alt="한경구"> -->
     <section id="intro">
         <div class="container">
-            <span class="js-title hide">Welcome home!</span>
+            <span class="js-title hide">Introduce Myself</span>
             <div>
+                <span class="num">01.</span>
                 <h1 class="intro_title">
                     <span class="word">안녕하세요!</span>
                     <span> </span>
@@ -52,66 +53,74 @@
                     <span class="word">입니다.</span>
                     <span> </span>
                 </h1>
-                <a href="#" class="intro_link">
-                    <span>자기소개 보기</span>
-                    <i class="arrow"></i>
-                </a>
+            </div>
+            <div class="line"></div>
+            <div class="intro_cols">
+
+                <div class="introtext">
+                    <p>
+                        저는 어릴적 어쩌구 저쩌구
+                        군대에서 어쩌구저쩌구
+                        이러쿵저러쿵 라인아트학원을 어쩌구
+                        프로그래밍을 어쩌구 저쩌구 해서 이렇게
+                        어쩌구 저쩌구
+                    </p>
+                </div>
             </div>
         </div>
     </section>
-    <section id="slide">
-        <span class="js-title hide">slide</span>
-        <div class="slideshow">
-            <div class="slideshow_loop">
-                <a href="#" class="prev"></a>
-                <a href="#" class="next"></a>
-                <div class="double-loop">
-                    <span>bengol <i>&middot;</i></span>
-                    <span>bengol <i>&middot;</i></span>
-                    <span>bengol <i>&middot;</i></span>
-                </div>
-                <div class="double-loop">
-                    <span>lion <i>&middot;</i></span>
-                    <span>lion <i>&middot;</i></span>
-                    <span>lion <i>&middot;</i></span>
-                </div>
+    <section id="gallery">
+        
+        <span class="js-title hide">Introduce Myself</span>
+        <div class="u-crop"><img src="assets/img/가족사진.jpg" alt="가족사진"></div>
+        <div class="u-crop"><img src="assets/img/prices-ok.jpg" alt="뒷배경"></div>
+        <div class="u-crop"><img src="assets/img/컴퓨터.jpeg" alt="컴퓨터"></div>
+    </section>
+   
+   <section id="loop">
+        <span class="js-title hide">push</span>
+        <div class="slideshow_loop">
+            <div class="singleloop">
+                <span>bengol <i>&middot;</i></span>
+                <span>bengol <i>&middot;</i></span>
+                <span>bengol <i>&middot;</i></span>
             </div>
-            <div class="barwrap">
-                <span class="currentindex">01</span>
-                <div class="bar">
-                    <div class="bargauge"></div>
+        </div>
+    </section>
+    <section id="intro2">
+        <div class="container">
+            <span class="js-title hide">animation</span>
+            <div>
+                <span class="num">02.</span>
+                <h1 class="intro_title">
+                    <span class="word">프로그래밍의 기초적인</span>
+                    <span class="word">애니메이션</span>
+                </h1>
+                <p class="dest">css, gsap , svg 등을 이용한 애니메이션 프로그래밍</p>
+            </div>
+        </div>
+        <div class="animationSlide">
+            <div class="container">
+                <div class="prob">
+                    <div class="prob_container">
+                        <div class="probcont">
+                            
+                        </div>
+                        <div class="probtext">
+                            <h3 class="probTitle">타이틀</h3>
+                            <p class="small">텍스트</p>
+                        </div>
+                        <div class="prob_footer">
+                            <i></i>
+                            <span>01 / 06</span>
+                        </div>
+                    </div>
                 </div>
-                <span>05</span>
             </div>
         </div>
         
     </section>
-    <section id="site">
-        <div class="container">
-            <span class="js-title hide">site</span>
-            <ul class="listwrap">
-                <li><a href="https://rudrn624.github.io/web/site-webstandard/#" target="_blink">웹표준사이트<span class="listnum">01</span></a></li>
-                <li><a href="https://rudrn624.github.io/web/site-responsive/#" target="_blink">반응형사이트<span class="listnum">02</span></a></li>
-                <li><a href="https://rudrn624.github.io/web/megabox/#" target="_blink">메가박스사이트<span class="listnum">03</span></a></li>
-                <li><a href="https://rudrn624.github.io/web/pulipinc/#" target="_blink">플립사이트<span class="listnum">04</span></a></li>
-            </ul>
-            <div class="imgs">
-                <div class="smallImg">
-                    <div class="smallList"><img src="assets/img/html.png" alt="HTML5"></div>
-                    <div class="smallList"><img src="assets/img/css.png" alt="CSS"></div>
-                    <div class="smallList"><img src="assets/img/js.png" alt="자바스크립트"></div>
-                    <div class="smallList"><img src="assets/img/jquery.png" alt="뱅골"></div>
-                </div>
-                <div class="mainImg">
-                    <div class="mainList"><img src="assets/img/mainwebstandard.jpg" alt="웹표준"></div>
-                    <div class="mainList"><img src="assets/img/mainwebresponsive.jpg" alt="반응형"></div>
-                    <div class="mainList"><img src="assets/img/mainmegabox.jpg" alt="메가박스"></div>
-                    <div class="mainList"><img src="assets/img/mainpulipinc.jpg" alt="플립"></div>
-                </div>
-            </div>
-        </div>
-    </section>
-   <section id="loop">
+    <section id="loop">
         <span class="js-title hide">push</span>
         <div class="slideshow_loop">
             <div class="singleloop">
@@ -219,19 +228,20 @@
         let imgs = ["jnollet-cover-bottom.jpg","cover-kalios-bottom.jpg","jnollet-cover-bottom.jpg","cover-kalios-bottom.jpg","jnollet-cover-bottom.jpg"];
         let globalAlpha = 0;
         let scrollTop = $(window).scrollTop();;
-        let slideballX = $("#slide").width()/2;
-        let slideballY = $("#slide").offset().top + $("#slide").height()/2;
-        let slideBall = new Slideball(new point(slideballX,slideballY));
+        // let slideballX = $("#slide").width()/2;
+        // let slideballY = $("#slide").offset().top + $("#slide").height()/2;
+        // let slideBall = new Slideball(new point(slideballX,slideballY));
         let changeslide = false;
         let ReadySection = false;
-        let ballColor = "#f9e6d4";
-        let backgroundColor = ["#f9e6d4" ,"#ebfbe0","#efefef","#ffebe7"];
-        let TColor = ["#fbac65","#aeed82","#1e1e1e","#ffafa0"];
+        let ballColor = "#DDF5F8";
+        let backgroundColor = ["#DDF5F8" ,"#ebfbe0","#efefef","#ffebe7"];
+        let TColor = ["#7BDBEC","#aeed82","#1e1e1e","#ffafa0"];
         let Interval ;
         let Flag = true;
         let leftSrc = "cover-kalios-bottom.jpg";
         let rightSrc = "jnollet-cover-bottom.jpg";
-
+        
+        gotoslide(0);
 
 
         $(".mainList:first-child").addClass("active");
@@ -245,76 +255,6 @@
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop();
 
-
-            if(($("#slide").offset().top + $("#slide").height()) < (scrollTop +300)){
-                ReadySection = false;
-            }else if($("#slide").offset().top < (scrollTop +500)){
-                ReadySection = true;
-            }else{
-                ReadySection = false;
-            }
-            // console.log(ReadySection);
-            // let slideTop = $("#slide").offset().top + $("#slide").height();
-            if(ReadySection){
-                if(scrollTop < $("#slide").offset().top + 100 && mouseDown){
-                    for(let i = 0; i < balls.length; i++){
-                        balls[i].updateRadius(2,(i+1));
-                        // slideBall.update(2);
-                        globalAlpha += 0.007;
-                    }
-                }else if(scrollTop > $("#slide").offset().top - 100 && !mouseDown){
-                    for(let i = 0; i < balls.length; i++){
-                        balls[i].updateRadius(2,(i+1));
-                        // slideBall.update(2);
-                        globalAlpha += 0.007;
-                    }
-                }else{
-                    for(let i = 0; i < balls.length; i++){
-                        balls[i].updateRadius(-2,(i+1));
-                        // slideBall.update(-2);
-                        globalAlpha -= 0.02;
-                    }
-                }
-            }
-            if(globalAlpha > 1){
-                globalAlpha = 1;
-            }else if(globalAlpha < 0){
-                globalAlpha = 0;
-            }
-            slideBall.Position.pY = ($("#slide").offset().top + $("#slide").height()/2) - scrollTop;
-            
-           
-            leftCircle.Position.pY = $(".singleloop").offset().top - scrollTop;
-            rightCircle.Position.pY = $(".singleloop").offset().top + $(".singleloop").height() - scrollTop;
-            
-
-            $(".double-loop span, .singleloop span").each(function(){
-                left = $(this).css('left').replace('px', '');
-                if(mouseDown){
-                    $(this).css({left : parseInt(left) + 5});
-                }else{
-                    $(this).css({left : parseInt(left) - 5});
-                }
-            });
-            if(ReadySection){
-                if(Flag){
-                    $(".bargauge").stop(true,true);
-                    $(".bargauge").css({width:0});
-                    $(".bargauge").animate({width : 100+"%"}, 10000);
-
-                    Interval = setInterval(imageChange,10000);
-                }
-                Flag = false;
-            }else{
-                Flag = true;
-                clearInterval(Interval);
-            }
-            let offset1 = (scrollTop - $(".listwrap").offset().top) * 0.2;
-            let offset2 = (scrollTop - $(".smallImg").offset().top) * 0.2;
-            $(".listwrap").css({transform : "translateY(" + -offset1 + "px)"});
-            
-            $(".smallImg").css({transform : "translateY(" + +offset2 + "px)"});
-        
         
             $("section").each(function(){
                 console.log($(this).offset().top);
@@ -322,6 +262,13 @@
                     $(".header-title").text($(this).find(".js-title").text());
                 }
             });
+
+            let offset1 = (scrollTop - $(".u-crop:nth-of-type(1)").offset().top) * 0.4;
+            let offset2 = (scrollTop - $(".u-crop:nth-of-type(2)").offset().top) * 0.2;
+            let offset3 = (scrollTop - $(".u-crop:nth-of-type(3)").offset().top) * 0.5;
+            $(".u-crop:nth-of-type(1)").css({transform : "translateY(" + -offset1 + "px)"});
+            $(".u-crop:nth-of-type(2)").css({transform : "translateY(" + -offset2 + "px)"});
+            $(".u-crop:nth-of-type(3)").css({transform : "translateY(" + -offset3 + "px)"});
 
         });
         $(window).resize(function(){
@@ -374,15 +321,7 @@
                 ctx.closePath();
             }
         }
-        function i(left, right){
-            this.left = left;
-            this.right = right;
-            this.sum = function(){
-                return this.left + this.right;
-            }
-        }
-        
-        let m = new i(15,16);
+       
         // console.log(m.sum());
         function ball(point , radius){
             this.position = point;
@@ -574,54 +513,54 @@
            this.update = function(radius){
            }
         }
-        function Slideball(point){
-            this.Position = point;
-            this.radius = 50;
-            this.dt = 1;
-            this.rotate = 0;
-            this.draw = function(ctx){
+        // function Slideball(point){
+        //     this.Position = point;
+        //     this.radius = 50;
+        //     this.dt = 1;
+        //     this.rotate = 0;
+        //     this.draw = function(ctx){
                
-               let x = this.Position.pX;
-               let y = this.Position.pY;
+        //        let x = this.Position.pX;
+        //        let y = this.Position.pY;
 
-               let radius = this.radius;
+        //        let radius = this.radius;
 
-               let startAngle = 0;
-               let endAngle = Math.PI + Math.PI;
+        //        let startAngle = 0;
+        //        let endAngle = Math.PI + Math.PI;
 
-                var img = new Image();
-                img.src="assets/img/"+src;
+        //         var img = new Image();
+        //         img.src="assets/img/"+src;
 
-                ctx.beginPath();
+        //         ctx.beginPath();
 
-                ctx.save();
-                ctx.translate(x, y);
-                ctx.rotate(0);
-                ctx.translate(-x, -y);
+        //         ctx.save();
+        //         ctx.translate(x, y);
+        //         ctx.rotate(0);
+        //         ctx.translate(-x, -y);
                 
-                ctx.arc(x, y, radius, startAngle, endAngle, true);
+        //         ctx.arc(x, y, radius, startAngle, endAngle, true);
                 
-                ctx.fillStyle = ballColor;
-                ctx.fill();
-                ctx.clip();
-                ctx.globalAlpha = globalAlpha;
-                ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
+        //         ctx.fillStyle = ballColor;
+        //         ctx.fill();
+        //         ctx.clip();
+        //         ctx.globalAlpha = globalAlpha;
+        //         ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
                
-                ctx.closePath();
-                ctx.restore();
-           }
-           this.update = function(radius){
-                this.radius += radius;
-                if(this.radius >= 330){
-                    this.radius = 330;
-                }else{
-                    if(this.radius <= 0){
-                        this.radius = 0;
+        //         ctx.closePath();
+        //         ctx.restore();
+        //    }
+        //    this.update = function(radius){
+        //         this.radius += radius;
+        //         if(this.radius >= 330){
+        //             this.radius = 330;
+        //         }else{
+        //             if(this.radius <= 0){
+        //                 this.radius = 0;
                         
-                    }
-                }   
-           }
-        }
+        //             }
+        //         }   
+        //    }
+        // }
 
         for(let i = 0; i < 5; i++){
             relativePoint[i] = new relativepoint(random());
@@ -645,9 +584,9 @@
                 }
                 
                 ImageBall.draw(ctx);
-                slideBall.draw(ctx);
-                leftCircle.draw(ctx);
-                rightCircle.draw(ctx);
+                // slideBall.draw(ctx);
+                // leftCircle.draw(ctx);
+                // rightCircle.draw(ctx);
 
                 ctx.beginPath();
                 // var img = new Image();
@@ -716,14 +655,14 @@
                             }else{
                                 relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX - (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY - (movemouseY*movespeed) ) ;
                             }
-                        if(ReadySection){
-                            if(changeslide){
-                                slideBall.update(-2);
-                                globalAlpha = 1;
-                            }else{
-                                slideBall.update(2);
-                            }
-                        }
+                        // if(ReadySection){
+                        //     if(changeslide){
+                        //         slideBall.update(-2);
+                        //         globalAlpha = 1;
+                        //     }else{
+                        //         slideBall.update(2);
+                        //     }
+                        // }
                     if(!mousehover && !changeslide){
                         balls[i].position = relativePoint[i].movePosition;
                         
@@ -794,14 +733,7 @@
                 time = 0;
             }
         }
-        //슬라이드 부분
-        let doubleLoop;
-        $(document).ready(function(){
-           
-        });
-        setTimeout(function(){
-            doubleLoop = $(".double-loop span").outerWidth();
-        },1000);
+      
          
         //휠 이벤트
         $(window).on('mousewheel',function(e){ 
@@ -816,142 +748,21 @@
 
               }
         });
-        function loop(){
-            $(".double-loop span, .singleloop span").each(function(i){
-                left = $(this).css('left').replace('px', '');
-                if(!mouseDown){
-                    if(left <= -$(this).outerWidth()*($(this).index()+1)){
-                        $(this).css({"left":($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1) });
-                       
-                    }else{
-                        $(this).css({"left" : parseInt(left) - 1});
-                    }
-                }else{
-                    if(left >= ($(this).outerWidth()*3) - $(this).outerWidth()*($(this).index()+1)){
-                        $(this).css({"left": -($(this).outerWidth() * ($(this).index() + 1))});
-                    }else{
-                        $(this).css({"left" : parseInt(left) + 1});
-                    }
-                }
-            });
-            requestAnimationFrame(loop);
-        }
         
-        setTimeout(loop,400);
-        setInterval(doubleLoops,5000);
-        let doubleT = true;
-        function doubleLoops(){
-            let loopHeight = $(".double-loop").height();
-            if(doubleT){
-                $(".double-loop").animate({top : -loopHeight},500);
-                doubleT = false;
-            }else{
-                $(".double-loop").animate({top : 0},500);
-                doubleT = true;
-            }
-        };
-        imgindex = 1;
-        
-        // $(".bargauge").animate({width : 100+"%"},10000,function(){
-        //     $(".bargauge").css({width : 0});
-        // });
-        // if(ReadySection){
-        //     imageChange();
-
-        // }
-        
-        // imageChange();
-        
-        let currentnum = 1;
-        let currentImg = 1;
-        function imageChange(){
-            if(ReadySection){
-                changeslide = true;
-
-                $(".bargauge").stop(true,true);
-                $(".bargauge").css({width:0});
-                $(".bargauge").animate({width : 100+"%"}, 10000);
-                
-                src = imgs[currentnum];
-               
-                $(".currentindex").text("0"+(currentnum+1));
-                
-                currentnum += 1;
-                if(currentnum >= 5){
-                    currentnum = 0;
-                }
-
-                $("html, body").animate({scrollTop: $("#slide").offset().top},600,"easeInOutExpo");
-                
-
-                currentImg  = imgindex % 4;
-
-                gotoslide(currentImg);
-
-                imgindex = currentImg + 1;
-
-             
-                scrollTop = $(window).scrollTop();
-                for(let i = 0; i < balls.length; i++){
-                    balls[i].dt = 0;
-                    balls[i].position = new point($(window).width()/2 ,$(window).height()/2)
-                    balls[i].currentPosition = balls[i].movePosition;
-                    time = 0; 
-                }
-                
-            }
-        }
-        $("a").hover(function(){
-            $(this).parent().siblings().find("a").removeClass("active");
-            $(this).addClass("active");
-
-            $(".smallImg .smallList").eq($(this).parent().index()).siblings().removeClass("active");
-            $(".smallImg .smallList").eq($(this).parent().index()).addClass("active");
-            $(".mainImg .mainList").eq($(this).parent().index()).siblings().removeClass("active");
-            $(".mainImg .mainList").eq($(this).parent().index()).addClass("active");
-        });
         function gotoslide(index){
 
-                    
-                $(".bargauge").css({background : TColor[index]});
-                $(".bar").css({background : backgroundColor[index]});
-                ballColor = backgroundColor[index];
-                $("body").css({background : backgroundColor[index]});
-                $(".double-loop span").css({color : TColor[index]});
-                $(".singleloop span").css({color : TColor[index]});
-                $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
-                $('.pushList li').attr("style","--color:"+TColor[index]);
-                $(".smallImg").css({background : backgroundColor[index]});
-        }
-
-        $(".prev").click(function(e){
-            e.preventDefault();
-            // currentImg -= 1;
-            // if(currentImg < 0){
-            //     currentImg = 3;
-            // }
-            // console.log(currentImg);
-            // gotoslide(currentImg);
-            // imageChange();
-            imageChange();
-            clearInterval(Interval);
-            Interval = setInterval(imageChange,10000);
-            
-               
-        });
-        $(".next").click(function(e){
-            e.preventDefault();
-            // e.preventDefault();
-            // currentImg += 1;
-            // if(currentImg > 3){
-            //     currentImg = 0;
-            // }
-            // console.log(currentImg);
-            // gotoslide(currentImg);
-            imageChange();
-            clearInterval(Interval);
-            Interval = setInterval(imageChange,10000);
-        });
+                                
+            $(".bargauge").css({background : TColor[index]});
+            $(".bar").css({background : backgroundColor[index]});
+            ballColor = backgroundColor[index];
+            $("body").css({background : backgroundColor[index]});
+            $(".double-loop span").css({color : TColor[index]});
+            $(".singleloop span").css({color : TColor[index]});
+            $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
+            $('.pushList li').attr("style","--color:"+TColor[index]);
+            $(".smallImg").css({background : backgroundColor[index]});
+        }   
+    
 
         $(".bugar").click(function(){
             $(".bugar").toggleClass("active");
