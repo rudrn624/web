@@ -381,7 +381,7 @@ body::before{
     position: relative;
     z-index: 3;
     padding-top: 20rem;
-    padding-bottom: 40rem;
+    padding-bottom: 30rem;
     .container{display: flex;}
     .listwrap{
         display: flex;
@@ -500,14 +500,14 @@ body::before{
     // height:100vh;
 }
 #loop{
-    
+    padding-bottom : 1px;
 }
 #push{
     .container{
         display: flex;
     }
     margin-bottom: 6rem;
-    margin-top: 10rem;
+    // margin-top: 10rem;
     .contact-push{
         width: 37rem;
         margin-right: 10rem;
@@ -614,7 +614,7 @@ body::before{
 }
 
 .introtext{
-    width: 59rem;
+    width: 70rem;
     p{
         font-size: 3rem;
         line-height: 1.8;
@@ -662,14 +662,19 @@ body::before{
     }
 }   
 .animationSlide{
-    
+    overflow: hidden;
     padding-bottom: 11rem;
+    position: relative;
+    z-index: 1;
     .container{   
-        
+        display: flex;
+        position:relative;
     }
     .prob{
         display: inline-block;
-       
+        margin-right: 3rem;
+        transition:transform 0.5s;
+        user-select: none;
         .prob_container{
             position: relative;
             width: 28rem;
@@ -721,5 +726,23 @@ body::before{
                 }
             }
         }
+        &:nth-of-type(2n){
+            transform: translateY(2rem);
+        }
+    }
+}
+.Introduce{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:100vh;
+    .title{
+        display: block;
+        position: relative;
+        height: 0.75em;
+        top: -0.04em;
+        font-size: 25rem;
+        line-height: 1;
+        color:#7BDBEC;
     }
 }

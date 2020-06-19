@@ -470,7 +470,7 @@ body::before {
   position: relative;
   z-index: 3;
   padding-top: 20rem;
-  padding-bottom: 40rem;
+  padding-bottom: 30rem;
 }
 
 #site .container {
@@ -621,9 +621,12 @@ body::before {
   pointer-events: none;
 }
 
+#loop {
+  padding-bottom: 1px;
+}
+
 #push {
   margin-bottom: 6rem;
-  margin-top: 10rem;
 }
 
 #push .container {
@@ -758,7 +761,7 @@ body::before {
 }
 
 .introtext {
-  width: 59rem;
+  width: 70rem;
 }
 
 .introtext p {
@@ -820,11 +823,30 @@ body::before {
 }
 
 .animationSlide {
+  overflow: hidden;
   padding-bottom: 11rem;
+  position: relative;
+  z-index: 1;
+}
+
+.animationSlide .container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
 }
 
 .animationSlide .prob {
   display: inline-block;
+  margin-right: 3rem;
+  -webkit-transition: -webkit-transform 0.5s;
+  transition: -webkit-transform 0.5s;
+  transition: transform 0.5s;
+  transition: transform 0.5s, -webkit-transform 0.5s;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
 }
 
 .animationSlide .prob .prob_container {
@@ -886,5 +908,33 @@ body::before {
   width: 1.2rem;
   height: 1px;
   background-color: #1E1E1E;
+}
+
+.animationSlide .prob:nth-of-type(2n) {
+  -webkit-transform: translateY(2rem);
+          transform: translateY(2rem);
+}
+
+.Introduce {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100vh;
+}
+
+.Introduce .title {
+  display: block;
+  position: relative;
+  height: 0.75em;
+  top: -0.04em;
+  font-size: 25rem;
+  line-height: 1;
+  color: #7BDBEC;
 }
 /*# sourceMappingURL=style.css.map */
