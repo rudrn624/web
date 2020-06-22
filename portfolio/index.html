@@ -52,7 +52,7 @@
                     <span class="word">입니다.</span>
                     <span> </span>
                 </h1>
-                <a href="#" class="intro_link">
+                <a href="sub.html" class="intro_link">
                     <span>자기소개 보기</span>
                     <i class="arrow"></i>
                 </a>
@@ -60,7 +60,7 @@
         </div>
     </section>
     <section id="slide">
-        <span class="js-title hide">slide</span>
+        <span class="js-title hide">Slide</span>
         <div class="slideshow">
             <div class="slideshow_loop">
                 <a href="#" class="prev"></a>
@@ -88,7 +88,7 @@
     </section>
     <section id="site">
         <div class="container">
-            <span class="js-title hide">site</span>
+            <span class="js-title hide">Site</span>
             <ul class="listwrap">
                 <li><a href="https://rudrn624.github.io/web/site-webstandard/#" target="_blink">웹표준사이트<span class="listnum">01</span></a></li>
                 <li><a href="https://rudrn624.github.io/web/site-responsive/#" target="_blink">반응형사이트<span class="listnum">02</span></a></li>
@@ -112,7 +112,7 @@
         </div>
     </section>
    <section id="loop">
-        <span class="js-title hide">push</span>
+        <span class="js-title hide">Push</span>
         <div class="slideshow_loop">
             <div class="singleloop">
                 <span>bengol <i>&middot;</i></span>
@@ -151,37 +151,78 @@
         <div class="container">
             <ul class="social-links">
                 <li>
-                    <a href="#" class="Fb">
-                        <span>F</span>
-                        <span class="hover-hide">ace</span>
-                        <span>b</span>
-                        <span class="hover-hide">ook</span>
+                    <a href="https://github.com/rudrn624/web" target="_blink" class="Gh">
+                        <span>G</span>
+                        <span class="hover-hide">it</span>
+                        <span>h</span>
+                        <span class="hover-hide">ub</span>
                         <span>.</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="Tw">
-                        <span>Tw</span>
-                        <span class="hover-hide">itter</span>
+                    <a href="https://codepen.io/rudrn624" target="_blink" class="Cp">
+                        <span>C</span>
+                        <span class="hover-hide">ode</span>
+                        <span>p</span>
+                        <span class="hover-hide">en</span>
                         <span>.</span>
                     </a>
                 </li>
                 <li>
-                    <a href="#" class="In">
-                        <span>In</span>
-                        <span class="hover-hide">stagram</span>
+                    <a href="https://bengol.tistory.com/" target="_blink" class="Ts">
+                        <span>Ts</span>
+                        <span class="hover-hide">tory</span>
                         <span>.</span>
                     </a>
                 </li>
-                <li><a href="#" class="Be">
+                <!-- <li><a href="#" class="Be">
                         <span>B</span>
                         <span class="hover-hide">ehanc</span>
                         <span>e.</span>
                     </a>
-                </li>
+                </li> -->
             </ul>   
         </div>
     </footer>
+    <div class="modalBack">
+    </div>
+    <div class="modal">
+        <div class="container">
+            <div class="Title">
+                <a class="TitleText" href="index.html">about</a>
+                <a class="TitleText" href="sub.html">work</a>
+            </div>
+            <div class="Link">
+                
+                <h3>만든사람</h3>
+                <div class="bengol">
+                    <img src="assets/img/han.jpg" alt="한경구">
+                </div>
+                
+                <ul class="siteLinkWrap">
+                    <h3>연결사이트</h3>
+                    <li>
+                        <a href="https://github.com/rudrn624/web" target="_blink" class="siteLink">
+                            <span>Github</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://codepen.io/rudrn624" target="_blink" class="siteLink">
+                            <span>CodePen</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bengol.tistory.com/" target="_blink" class="siteLink">
+                            <span>Tstory</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.2.6/gsap.min.js"></script>
@@ -229,8 +270,8 @@
         let TColor = ["#fbac65","#aeed82","#1e1e1e","#ffafa0"];
         let Interval ;
         let Flag = true;
-        let leftSrc = "cover-kalios-bottom.jpg";
-        let rightSrc = "jnollet-cover-bottom.jpg";
+        let leftSrc = "back.jpg";
+        let rightSrc = "lion.jpg";
 
 
 
@@ -374,16 +415,7 @@
                 ctx.closePath();
             }
         }
-        function i(left, right){
-            this.left = left;
-            this.right = right;
-            this.sum = function(){
-                return this.left + this.right;
-            }
-        }
         
-        let m = new i(15,16);
-        // console.log(m.sum());
         function ball(point , radius){
             this.position = point;
             this.currentPosition = point;
@@ -494,7 +526,7 @@
 
                 var img = new Image();
                 
-                img.src="assets/img/han.jpg";
+                img.src="assets/img/blurhan.jpg";
                 // img.width
                 
               
@@ -511,7 +543,7 @@
                 ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
-                ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
+                ctx.drawImage(img, x-(img.width/2)*5, y-(img.height/2)*5 , img.width*5, img.height*5);
                
                 
                 
@@ -565,7 +597,8 @@
                 ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
-                ctx.drawImage(img, x -$(window).width()/2,0);
+                
+                ctx.drawImage(img, x -img.width/2,0);
                
             
                 ctx.closePath();
@@ -912,7 +945,8 @@
         });
         function gotoslide(index){
 
-                    
+                $(".modal .TitleText").css({color : TColor[index]});
+                $(".modalBack").css({background : backgroundColor[index]});
                 $(".bargauge").css({background : TColor[index]});
                 $(".bar").css({background : backgroundColor[index]});
                 ballColor = backgroundColor[index];
@@ -921,6 +955,7 @@
                 $(".singleloop span").css({color : TColor[index]});
                 $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
                 $('.pushList li').attr("style","--color:"+TColor[index]);
+                $('.bengol').attr("style","--borderColor:"+TColor[index]);
                 $(".smallImg").css({background : backgroundColor[index]});
         }
 
@@ -955,7 +990,22 @@
 
         $(".bugar").click(function(){
             $(".bugar").toggleClass("active");
+            $(".header-title").fadeToggle();
             $(".bugar_close").toggleClass("active");
+            modalAni();
+            $("body").toggleClass("overflow");
+            $(".modalBack").toggleClass("active");
+            $(".modal").toggleClass("active");
+        });
+        
+        function modalAni(){
+            $(".modalBack").css({left : mouseX, top:mouseY + scrollTop});
+            // $(".modal").
+        }
+        $(".TitleText").hover(function(){
+            $(this).siblings().css({opacity : 0.5});
+        },function(){
+            $(".TitleText").css({opacity : ""});
         });
     </script>
 </body>

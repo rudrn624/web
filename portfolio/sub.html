@@ -30,14 +30,14 @@
 
     <section class="Introduce">
         
-        <span class="js-title hide">Welcome Bengol!</span>
+        <span class="js-title hide">Welcome to Bengol!</span>
         <h1 class="title">자기소개</h1>
     </section>
     
     <!-- <img src="assets/img/han.jpg" alt="한경구"> -->
     <section id="intro">
         <div class="container">
-            <span class="js-title hide">Introduce Myself</span>
+            <span class="js-title hide">Self Introduction</span>
             <div>
                 <span class="num">01.</span>
                 <h1 class="intro_title">
@@ -68,7 +68,7 @@
                     <p>
                         저는 어릴적부터 컴퓨터를 가지고 노는걸 좋아했습니다.
                         고등학교때 처음으로 프로그래밍을 접하고 <br> 
-                        흥미를 느껴 프로그래밍쪽으로 직업을 갖고싶다<br>
+                        흥미를 느껴 <u class="underLine">프로그래밍</u>쪽으로 직업을 갖고싶다<br>
                         생각해서 지금까지 노력을 해왔습니다.
                     </p>
                 </div>
@@ -77,14 +77,14 @@
     </section>
     <section id="gallery">
         
-        <span class="js-title hide">Introduce Myself</span>
+        <span class="js-title hide">Self Introduction</span>
         <div class="u-crop"><img src="assets/img/가족사진.jpg" alt="가족사진"></div>
         <div class="u-crop"><img src="assets/img/prices-ok.jpg" alt="뒷배경"></div>
         <div class="u-crop"><img src="assets/img/컴퓨터.jpeg" alt="컴퓨터"></div>
     </section>
    
    <section id="loop">
-        <span class="js-title hide">animation</span>
+        <span class="js-title hide">Animation</span>
         <div class="slideshow_loop">
             <div class="singleloop">
                 <span>bengol <i>&middot;</i></span>
@@ -95,7 +95,7 @@
     </section>
     <section id="intro2">
         <div class="container">
-            <span class="js-title hide">animation</span>
+            <span class="js-title hide">Animation</span>
             <div>
                 <span class="num">02.</span>
                 <h1 class="intro_title">
@@ -211,8 +211,50 @@
                 <span>bengol <i>&middot;</i></span>
             </div>
         </div>
+        <a href="index.html" class="back_link">
+            <span>돌아가기</span>
+            <i class="arrow"></i>
+        </a>
     </section>
-
+    <div class="modalBack">
+    </div>
+    <div class="modal">
+        <div class="container">
+            <div class="Title">
+                <a class="TitleText" href="index.html">about</a>
+                <a class="TitleText" href="sub.html">work</a>
+            </div>
+            <div class="Link">
+                
+                <h3>만든사람</h3>
+                <div class="bengol">
+                    <img src="assets/img/han.jpg" alt="한경구">
+                </div>
+                
+                <ul class="siteLinkWrap">
+                    <h3>연결사이트</h3>
+                    <li>
+                        <a href="https://github.com/rudrn624/web" target="_blink" class="siteLink">
+                            <span>Github</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://codepen.io/rudrn624" target="_blink" class="siteLink">
+                            <span>CodePen</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://bengol.tistory.com/" target="_blink" class="siteLink">
+                            <span>Tstory</span>
+                            <i class="arrow"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery-ui-1.12.1.min.js"></script>
@@ -261,25 +303,25 @@
         let TColor = ["#7BDBEC","#aeed82","#1e1e1e","#ffafa0"];
         let Interval ;
         let Flag = true;
-        let leftSrc = "cover-kalios-bottom.jpg";
-        let rightSrc = "jnollet-cover-bottom.jpg";
+        let leftSrc = "back.jpg";
+        let rightSrc = "lion.jpg";
         
+
         gotoslide(0);
 
 
         $(".mainList:first-child").addClass("active");
         $(".smallList:first-child").addClass("active");
+            
+        let word = $(".word");
 
-
-        // console.log($(".singleloop").offset().left);
         let leftCircle = new Circle(new point($(".singleloop").eq(1).offset().left, $(".singleloop:last-child").eq(1).offset().top),leftSrc);
         let rightCircle = new Circle(new point($(".singleloop").eq(1).offset().left + $(".singleloop:last-child").width(), $(".singleloop:last-child").eq(1).offset().top + $(".singleloop:last-child").height()),rightSrc);
 
         $(window).scroll(function(){
             scrollTop = $(window).scrollTop();
-        
+            
             $("section").each(function(){
-                console.log($(this).offset().top);
                 if($(this).offset().top < scrollTop){
                     $(".header-title").text($(this).find(".js-title").text());
                 }
@@ -304,31 +346,40 @@
                     $(this).css({left : parseInt(left) - 5});
                 }
             });
+            $("section").each(function(){
+                
+                if($(this).offset().top < scrollTop + 800){
+                    $(this).addClass("active");
+                }
+            });
 
+            if($("#intro").is(".active")){
+                word.each(function(i){
+                    setInterval(function(){
+                        word.eq(i).addClass("show");
+                    },i*100);
+                });
+            }
         });
         $(window).resize(function(){
             doubleLoop = $(".double-loop span").outerWidth();
         });
         $(window).load(function(){
-            $("#intro").addClass("active");
+            // $("#intro").addClass("active");
             $("#header").addClass("active");
         });
-        let word = $(".word");
 
         let title = $(".js-title").eq(0).text();
         $(".header-title").text(title);
 
-        word.each(function(i){
-            setInterval(function(){
-                word.eq(i).addClass("show");
-            },i*100);
-        });
-        setTimeout(function(){
-            word.each(function(i){
+
+       
+        // setTimeout(function(){
+        //     word.each(function(i){
                 
-                // clearInterval(i+1);
-            });
-        },1000);
+        //         // clearInterval(i+1);
+        //     });
+        // },1000);
         // let Point = new point(0 ,1);
         function point(pX,pY){
             this.pX = pX;
@@ -357,7 +408,6 @@
             }
         }
        
-        // console.log(m.sum());
         function ball(point , radius){
             this.position = point;
             this.currentPosition = point;
@@ -377,7 +427,6 @@
 
                 var img = new Image();
                 
-                // console.log(src[0]);
                 img.src="assets/img/"+src;
                 
                 ctx.save();
@@ -457,6 +506,9 @@
             this.radius = 0;
             this.dt = 1;
             this.rotate = 0;
+            this.src = "blurhan.jpg";
+            this.maxRadius = 0;
+            this.scale = 1;
             this.draw = function(ctx){
                
                let x = this.movePosition.pX;
@@ -468,7 +520,7 @@
 
                 var img = new Image();
                 
-                img.src="assets/img/han.jpg";
+                img.src="assets/img/"+ this.src;
                 // img.width
                 
               
@@ -485,7 +537,7 @@
                 ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
-                ctx.drawImage(img, x-(img.width/2), y-(img.height/2));
+                ctx.drawImage(img, x-(img.width/2)*this.scale, y-(img.height/2)*this.scale, img.width*this.scale, img.height*this.scale);
                
                 
                 
@@ -504,8 +556,8 @@
 
                 if(this.radius <= 0 ){
                     this.radius = 0
-                }else if(this.radius >= 300){
-                    this.radius = 300;
+                }else if(this.radius >= this.maxRadius){
+                    this.radius = this.maxRadius;
                 }
                     
            }
@@ -539,7 +591,7 @@
                 ctx.fillStyle = ballColor;
                 ctx.fill();
                 ctx.clip();
-                ctx.drawImage(img, x -$(window).width()/2,0);
+                ctx.drawImage(img, x -img.width/2,0);
                
             
                 ctx.closePath();
@@ -685,11 +737,11 @@
                             relativePoint[i].dt = relativePoint[i].dt + speed;
                         }
                             relativePoint[i].movePosition=position;
-                            if(i%2){
-                                relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX + (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY + (movemouseY*movespeed) ) ;
-                            }else{
-                                relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX - (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY - (movemouseY*movespeed) ) ;
-                            }
+                            // if(i%2){
+                            //     relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX + (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY + (movemouseY*movespeed) ) ;
+                            // }else{
+                            //     relativePoint[i].currentMove = new point(relativePoint[i].currentPosition.pX - (movemouseX*movespeed) ,relativePoint[i].currentPosition.pY - (movemouseY*movespeed) ) ;
+                            // }
                         // if(ReadySection){
                         //     if(changeslide){
                         //         slideBall.update(-2);
@@ -730,19 +782,28 @@
             movemouseX = mouseX - ($(window).width()/2);
             movemouseY = mouseY - ($(window).height()/2);
             
-            if(mousehover){
-                ImageBall.movePosition = new point(mouseX, mouseY);
-                for(let i = 0 ; i < balls.length; i++){
-                    balls[i].position = new point(mouseX, mouseY);
+            // if(mousehover){
+            //     ImageBall.movePosition = new point(mouseX, mouseY);
+            //     for(let i = 0 ; i < balls.length; i++){
+            //         balls[i].position = new point(mouseX, mouseY);
                     
-                }
-            }
+            //     }
+            // }
 
             
         });
-        $("u, .intro_link, .bugar, .logo, .social-links a, .listwrap a, .animationSlide").hover(function(){
+        $("u, .intro_link, .bugar, .logo, .social-links a, .back_link, .listwrap a, .animationSlide").hover(function(){
          
            u = $(this).is("u");
+           if($(this).is(".animated")){
+                ImageBall.src = "blurhan.jpg";
+                ImageBall.maxRadius = 300;
+                ImageBall.scale = 5;
+           }else{
+                ImageBall.src = "programing.png";
+                ImageBall.maxRadius = 200;
+                ImageBall.scale = 1;
+           }
            mouseHover();
         },function(){
            mouseUnhover();
@@ -757,6 +818,13 @@
                 balls[i].currentPosition = balls[i].movePosition;
                 
                 time = 0; 
+            }
+            if(mousehover){
+                ImageBall.movePosition = new point(mouseX, mouseY);
+                for(let i = 0 ; i < balls.length; i++){
+                    balls[i].position = new point(mouseX, mouseY);
+                    
+                }
             }
         }
         function mouseUnhover(){
@@ -785,43 +853,40 @@
         });
         
         function gotoslide(index){
-
-                                
+            $(".modal .TitleText").css({color : TColor[index]});
+            $(".modalBack").css({background : backgroundColor[index]});
             $(".bargauge").css({background : TColor[index]});
             $(".bar").css({background : backgroundColor[index]});
             ballColor = backgroundColor[index];
             $("body").css({background : backgroundColor[index]});
             $(".double-loop span").css({color : TColor[index]});
             $(".singleloop span").css({color : TColor[index]});
-            $(".intro_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
+            $(".intro_link,.back_link").css({backgroundImage:  "linear-gradient("+TColor[index]+","+TColor[index]+")"});
             $('.pushList li').attr("style","--color:"+TColor[index]);
+            $('.bengol').attr("style","--borderColor:"+TColor[index]);
             $(".smallImg").css({background : backgroundColor[index]});
         }   
     
 
-        $(".bugar").click(function(){
-            $(".bugar").toggleClass("active");
-            $(".bugar_close").toggleClass("active");
-        });
-        // console.log($("#animationSlide"));
+        // $(".bugar").click(function(){
+        //     $(".bugar").toggleClass("active");
+        //     $(".bugar_close").toggleClass("active");
+        // });
 
         let mouseDrag = false;
         let mouseClickDown;
         $(".animationSlide").mousedown(function(e){
-            // console.log("down");
             
             mouseDrag = true;
             mouseClickDown = e.pageX;
 
-            console.log(mouseClickDown);
 
             $(".prob:nth-of-type(2n)").css({transform: "translateY(0)"});
         });
         $(".animationSlide").mouseup(function(){
-            // console.log("up");
             mouseDrag = false;
             PositionX = (PositionX -(mouseClickDown - mouseX));
-            console.log(PositionX);
+            
             $(".prob:nth-of-type(2n)").css({transform: "translateY(2rem)"});
         });
         let PositionX = 0;
@@ -829,7 +894,7 @@
             
             mouseX = e.clientX;
             mouseY = e.clientY;
-            // console.log(mouseX);
+
             movemouseX = mouseX - ($(window).width()/2);
             movemouseY = mouseY - ($(window).height()/2);
             
@@ -841,9 +906,6 @@
                 }
             }
             if(mouseDrag){
-                // PositionX =  PositionX ;
-                // console.log(mouseClickDown - mouseX);
-                console.log(PositionX -(mouseClickDown - mouseX));
                 if(PositionX -(mouseClickDown - mouseX) > 0 ){
                     $(".animationSlide .container").css({transform: "translateX("+ 0 +"px)"});
                 }else if(PositionX -(mouseClickDown - mouseX) < -1356 ){
@@ -878,6 +940,29 @@
         }
         
         setTimeout(loop,400);
+
+
+        $(".bugar").click(function(){
+            $(".bugar").toggleClass("active");
+            $(".header-title").fadeToggle();
+            $(".bugar_close").toggleClass("active");
+            modalAni();
+            $("body").toggleClass("overflow");
+            $(".modalBack").toggleClass("active");
+            $(".modal").toggleClass("active");
+        });
+        
+        function modalAni(){
+            // console.log(mouseY);
+            // console.log(scrollTop);
+            $(".modalBack").css({left : mouseX, top: mouseY + scrollTop});
+            // $(".modal").
+        }
+        $(".TitleText").hover(function(){
+            $(this).siblings().css({opacity : 0.5});
+        },function(){
+            $(".TitleText").css({opacity : ""});
+        });
     </script>
 </body>
 </html>

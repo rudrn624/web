@@ -729,6 +729,7 @@ s.setAttribute('data-timestamp', +new Date());
                     isoFilters.push(filters[prop])
                 }
                 var selector = isoFilters.join('');
+                console.log(selector);
                 $container.isotope({
                     filter: selector
                 });
