@@ -1,0 +1,11 @@
+*{ 
+    margin:0; padding : 0; 
+    box-sizing: border-box;
+    font-family: "SF Display";
+}
+a{
+    text-decoration: none;
+    color : #4891E2;
+}
+li{list-style: none;}
+i{font-style: normal;}
