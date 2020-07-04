@@ -115,7 +115,7 @@ let change = false;
         
             $("section").each(function(){
                 console.log($(this).offset().top);
-                if($(this).offset().top < scrollTop){
+                if($(this).offset().top-5 < scrollTop){
                     $(".header-title").text($(this).find(".js-title").text());
                 }
             });
